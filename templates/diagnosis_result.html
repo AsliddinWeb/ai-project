@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tashxis Natijasi</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .result-card {
+            animation: slideIn 0.5s ease-out;
+        }
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .badge-success { background: #10b981; }
+        .badge-warning { background: #f59e0b; }
+        .badge-danger { background: #ef4444; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="min-h-screen py-12 px-4">
+        <div class="max-w-4xl mx-auto">
+            <!-- Natija Card -->
+            <div class="result-card bg-white rounded-3xl shadow-2xl overflow-hidden">
+                <!-- Header -->
+                <div class="bg-gradient-to-r from-blue-500 to-purple-600 p-8 text-white">
+                    <h1 class="text-3xl font-bold mb-2">Tashxis Natijasi</h1>
+                    <p class="opacity-90">AI asosida tahlil qilingan natija</p>
+                </div>
+
+                <!-- Tashxis Natijasi -->
+                <div class="p-8">
+                    <div class="mb-8 p-6 bg-blue-50 rounded-2xl border-l-4 border-blue-500">
+                        <div class="flex items-center justify-between mb-4">
+                            <h2 class="text-2xl font-bold text-gray-800">Tashxis:</h2>
+                            <span class="px-4 py-2 rounded-full text-white font-semibold {% if confidence > 80 %}badge-success{% elif confidence > 60 %}badge-warning{% else %}badge-danger{% endif %}">
+                                Ishonch: {{ confidence }}%
+                            </span>
+                        </div>
+                        <p class="text-3xl font-bold text-blue-600">{{ diagnosis }}</p>
+                    </div>
+
+                    <!-- Bemor Ma'lumotlari -->
+                    <div class="mb-8">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Bemor Ma'lumotlari</h3>
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                            <div class="p-4 bg-gray-50 rounded-xl">
+                                <p class="text-sm text-gray-600">Yosh</p>
+                                <p class="text-lg font-semibold">{{ patient_data.age }}</p>
+                            </div>
+                            <div class="p-4 bg-gray-50 rounded-xl">
+                                <p class="text-sm text-gray-600">Jinsi</p>
+                                <p class="text-lg font-semibold">{{ patient_data.gender }}</p>
+                            </div>
+                            <div class="p-4 bg-gray-50 rounded-xl">
+                                <p class="text-sm text-gray-600">TSH</p>
+                                <p class="text-lg font-semibold">{{ patient_data.tsh }} mIU/L</p>
+                            </div>
+                            <div class="p-4 bg-gray-50 rounded-xl">
+                                <p class="text-sm text-gray-600">T3</p>
+                                <p class="text-lg font-semibold">{{ patient_data.t3 }} ng/dL</p>
+                            </div>
+                            <div class="p-4 bg-gray-50 rounded-xl">
+                                <p class="text-sm text-gray-600">T4</p>
+                                <p class="text-lg font-semibold">{{ patient_data.t4 }} μg/dL</p>
+                            </div>
+                            <div class="p-4 bg-gray-50 rounded-xl">
+                                <p class="text-sm text-gray-600">Tugun</p>
+                                <p class="text-lg font-semibold">{{ patient_data.nodule_size }} sm</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tavsiyalar -->
+                    <div class="mb-8">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Tavsiyalar</h3>
+                        <div class="space-y-3">
+                            {% for rec in recommendations %}
+                            <div class="flex items-start p-4 bg-green-50 rounded-xl border-l-4 border-green-500">
+                                <svg class="w-6 h-6 text-green-500 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <p class="text-gray-700">{{ rec }}</p>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <!-- Ogohlantirish -->
+                    <div class="p-6 bg-yellow-50 rounded-2xl border-l-4 border-yellow-500 mb-6">
+                        <div class="flex">
+                            <svg class="w-6 h-6 text-yellow-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                            </svg>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-2">Muhim Eslatma!</h4>
+                                <p class="text-gray-700">Bu natija faqat AI asosida berilgan dastlabki tashxis bo'lib, aniq tashxis uchun malakali shifokor bilan maslahatlashish shart!</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tugmalar -->
+                    <div class="flex gap-4 justify-center">
+                        <a href="/" class="px-6 py-3 bg-blue-500 text-white rounded-xl font-semibold hover:bg-blue-600 transition">
+                            Yangi Tashxis
+                        </a>
+                        <button onclick="window.print()" class="px-6 py-3 bg-gray-500 text-white rounded-xl font-semibold hover:bg-gray-600 transition">
+                            Chop Etish
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

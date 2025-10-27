@@ -1,0 +1,113 @@
+{% load static %}
+
+    <!-- Required Js -->
+    <script src="{% static 'assets/js/plugins/popper.min.js' %}"></script>
+    <script src="{% static 'assets/js/icon/custom-font.js' %}"></script>
+    <script src="{% static 'assets/js/component.js' %}"></script>
+    <script src="{% static 'assets/js/script.js' %}"></script>
+    <script src="{% static 'assets/js/theme.js' %}"></script>
+
+
+    <script>
+      layout_change('false');
+    </script>
+
+
+    <script>
+      layout_rtl_change('false');
+    </script>
+
+
+    <script src="{% static 'assets/js/plugins/motion.js' %}"></script>
+    <script type="module">
+      const { animate, inView, scroll } = Motion;
+      window.addEventListener('load', function () {
+        // main hero
+        var element = document.querySelector('.img-hero-1');
+        var ref = document.querySelector('.animation-ref');
+        scroll(animate(element, { scale: [0.9, 0.92, 0.94, 0.96, 1] }), {
+          target: ref,
+          offset: ['start start', 'end start'],
+        });
+
+        // translate y
+        var anim = document.querySelectorAll('.animate-y');
+        var sec = 0;
+        inView(anim, (element) => {
+          if(element.classList.contains("delay-reset")){
+            sec = 0
+          }else{
+            sec += 0.1;
+          }
+          animate(
+            element,
+            { opacity: [0,1], y: [50, 0] },
+            {
+              duration: 1,
+              delay: sec,
+              ease: [0.215, 0.61, 0.355, 1]
+            }
+          )
+        })
+
+        var anim = document.querySelector('.animate-y-down');
+        inView(anim, (element) => {
+          if(element.classList.contains("delay-reset")){
+            sec = 0
+          }else{
+            sec += 0.1;
+          }
+          animate(
+            element,
+            { opacity: [0,1], y: [-50, 0] },
+            {
+              duration: 1,
+              delay: 0.4,
+              ease: [0.215, 0.61, 0.355, 1]
+            }
+          )
+        })
+
+      });
+    </script>
+
+<!--Home-->
+<script src="{% static 'assets/js/plugins/tiny-slider.js' %}"></script>
+
+<script type="module">
+      document.addEventListener('DOMContentLoaded', function () {
+        var slider = tns({
+          container: '.clientele-slider3',
+          items: 2,
+          center:true,
+          nav: false,
+          speed: 500,
+          gutter: 4,
+          autoplayTimeout: 6000,
+          slideBy: 1,
+          loop: true,
+          controls: false,
+          autoplay: true,
+          autoplayButtonOutput: false,
+          autoplayButton: false,
+          mouseDrag:true,
+          responsive: {
+            575: {
+              items: 4,
+              center:false,
+            },
+            992:{
+              items: 5,
+            }
+          }
+        });
+      });
+    </script>
+
+<script>
+            var forms_hide = '@@search_hide';
+            var contact_form = document.getElementById('contact-form');
+            if (forms_hide == 'true') {
+              contact_form.classList.add('hidden');
+            }
+          </script>
