@@ -1,123 +1,444 @@
-<!DOCTYPE html>
-<html lang="uz">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tashxis Natijasi</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <style>
-        .result-card {
-            animation: slideIn 0.5s ease-out;
-        }
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        .badge-success { background: #10b981; }
-        .badge-warning { background: #f59e0b; }
-        .badge-danger { background: #ef4444; }
-    </style>
-</head>
-<body class="bg-gray-50">
-    <div class="min-h-screen py-12 px-4">
-        <div class="max-w-4xl mx-auto">
-            <!-- Natija Card -->
-            <div class="result-card bg-white rounded-3xl shadow-2xl overflow-hidden">
-                <!-- Header -->
-                <div class="bg-gradient-to-r from-blue-500 to-purple-600 p-8 text-white">
-                    <h1 class="text-3xl font-bold mb-2">Tashxis Natijasi</h1>
-                    <p class="opacity-90">AI asosida tahlil qilingan natija</p>
-                </div>
+{% extends 'base.html' %}
+{% load static %}
 
-                <!-- Tashxis Natijasi -->
-                <div class="p-8">
-                    <div class="mb-8 p-6 bg-blue-50 rounded-2xl border-l-4 border-blue-500">
-                        <div class="flex items-center justify-between mb-4">
-                            <h2 class="text-2xl font-bold text-gray-800">Tashxis:</h2>
-                            <span class="px-4 py-2 rounded-full text-white font-semibold {% if confidence > 80 %}badge-success{% elif confidence > 60 %}badge-warning{% else %}badge-danger{% endif %}">
-                                Ishonch: {{ confidence }}%
-                            </span>
-                        </div>
-                        <p class="text-3xl font-bold text-blue-600">{{ diagnosis }}</p>
-                    </div>
-
-                    <!-- Bemor Ma'lumotlari -->
-                    <div class="mb-8">
-                        <h3 class="text-xl font-bold text-gray-800 mb-4">Bemor Ma'lumotlari</h3>
-                        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                            <div class="p-4 bg-gray-50 rounded-xl">
-                                <p class="text-sm text-gray-600">Yosh</p>
-                                <p class="text-lg font-semibold">{{ patient_data.age }}</p>
-                            </div>
-                            <div class="p-4 bg-gray-50 rounded-xl">
-                                <p class="text-sm text-gray-600">Jinsi</p>
-                                <p class="text-lg font-semibold">{{ patient_data.gender }}</p>
-                            </div>
-                            <div class="p-4 bg-gray-50 rounded-xl">
-                                <p class="text-sm text-gray-600">TSH</p>
-                                <p class="text-lg font-semibold">{{ patient_data.tsh }} mIU/L</p>
-                            </div>
-                            <div class="p-4 bg-gray-50 rounded-xl">
-                                <p class="text-sm text-gray-600">T3</p>
-                                <p class="text-lg font-semibold">{{ patient_data.t3 }} ng/dL</p>
-                            </div>
-                            <div class="p-4 bg-gray-50 rounded-xl">
-                                <p class="text-sm text-gray-600">T4</p>
-                                <p class="text-lg font-semibold">{{ patient_data.t4 }} μg/dL</p>
-                            </div>
-                            <div class="p-4 bg-gray-50 rounded-xl">
-                                <p class="text-sm text-gray-600">Tugun</p>
-                                <p class="text-lg font-semibold">{{ patient_data.nodule_size }} sm</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Tavsiyalar -->
-                    <div class="mb-8">
-                        <h3 class="text-xl font-bold text-gray-800 mb-4">Tavsiyalar</h3>
-                        <div class="space-y-3">
-                            {% for rec in recommendations %}
-                            <div class="flex items-start p-4 bg-green-50 rounded-xl border-l-4 border-green-500">
-                                <svg class="w-6 h-6 text-green-500 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                                <p class="text-gray-700">{{ rec }}</p>
-                            </div>
-                            {% endfor %}
-                        </div>
-                    </div>
-
-                    <!-- Ogohlantirish -->
-                    <div class="p-6 bg-yellow-50 rounded-2xl border-l-4 border-yellow-500 mb-6">
-                        <div class="flex">
-                            <svg class="w-6 h-6 text-yellow-500 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
-                            </svg>
-                            <div>
-                                <h4 class="font-bold text-gray-800 mb-2">Muhim Eslatma!</h4>
-                                <p class="text-gray-700">Bu natija faqat AI asosida berilgan dastlabki tashxis bo'lib, aniq tashxis uchun malakali shifokor bilan maslahatlashish shart!</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Tugmalar -->
-                    <div class="flex gap-4 justify-center">
-                        <a href="/" class="px-6 py-3 bg-blue-500 text-white rounded-xl font-semibold hover:bg-blue-600 transition">
-                            Yangi Tashxis
-                        </a>
-                        <button onclick="window.print()" class="px-6 py-3 bg-gray-500 text-white rounded-xl font-semibold hover:bg-gray-600 transition">
-                            Chop Etish
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
+{% block content %}
+<!-- [ Natija Hero ] Boshlanishi -->
+<section class="relative overflow-hidden">
+  <div class="absolute top-0 z-10 inset-x-0 block bg-neutral-100 h-[340px] sm:h-[438px] lg:h-[538px] overflow-hidden rounded-b-3xl sm:rounded-b-[32px] lg:rounded-b-[40px]">
+    <div class="absolute inset-0 z-20 bg-[radial-gradient(47.33%_47.33%_at_50%_46.88%,_transparent_0%,_var(--neutral-200)_100%)]"></div>
+    <div class="relative z-10 h-full bg-[length:40px_40px] bg-[url('data:image/svg+xml;utf8,<svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2050%2060%22><text%20x=%220%22%20y=%2225%22%20fill=%22%23E6E8EE%22%20font-size=%2280px%22>.%3C/text%3E</svg>')] dark:bg-[url('data:image/svg+xml;utf8,<svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2050%2060%22><text%20x=%220%22%20y=%2225%22%20fill=%22%23272A2E%22%20font-size=%2280px%22>.%3C/text%3E</svg>')]">
     </div>
-</body>
-</html>
+  </div>
+  <div class="common-section relative z-20">
+    <div class="container animation-ref">
+      <div class="pb-5 sm:pb-8 lg:pb-10">
+        <div class="flex flex-col items-center gap-3">
+          <div class="animate-y delay-reset py-3 px-6 text-theme-textsecondary caption rounded-full border border-theme-divider">
+            <p class="body1">✦&nbsp;&nbsp; AI Tahlil Natijasi Tayyor &nbsp;&nbsp;✦</p>
+          </div>
+          <h1 class="animate-y max-w-[800px] text-center">
+            Tashxis Xulosasi
+          </h1>
+          <div class="animate-y text-primary-500">
+            <svg class="w-[92px] md:w-[122px] h-auto" viewBox="0 0 122 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                opacity="0.4"
+                d="M1.46484 6.83613L4.45387 3.7103C7.74598 0.267505 13.38 0.760513 16.0241 4.72277L16.5428 5.50001C19.2423 9.54539 25.1877 9.54539 27.8873 5.5V5.5C30.5869 1.45461 36.5322 1.45461 39.2318 5.5V5.5C41.9314 9.54539 47.8768 9.54539 50.5764 5.5V5.5C53.2759 1.45461 59.2213 1.45461 61.9209 5.5V5.5C64.6205 9.54539 70.5658 9.54539 73.2654 5.5V5.5C75.965 1.45461 81.9104 1.45461 84.61 5.5V5.5C87.3096 9.54539 93.2549 9.54539 95.9545 5.5V5.5C98.6541 1.45461 104.599 1.45461 107.299 5.5V5.5C109.999 9.54539 115.944 9.54539 118.644 5.5L120.534 2.66667"
+                stroke="currentColor"
+                strokeLinecap="round"
+              />
+            </svg>
+          </div>
+          {% if uuid %}
+          <div class="animate-y">
+            <p class="caption text-theme-text-secondary">
+              Tashxis ID: <span class="font-mono text-primary-500">{{ uuid|slice:":8" }}</span>
+            </p>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- [ Natija Hero ] Tugashi -->
+
+<!-- [ Asosiy Tashxis Kartochkasi ] Boshlanishi -->
+<section class="common-section">
+  <div class="container">
+    <div class="animate-y delay-reset rounded-3xl sm:rounded-[32px] overflow-hidden relative w-full bg-gradient-to-br {% if diagnosis_class == 'success' %}from-green-50 to-emerald-100{% elif diagnosis_class == 'warning' %}from-yellow-50 to-orange-100{% else %}from-red-50 to-rose-100{% endif %} border-2 {% if diagnosis_class == 'success' %}border-green-200{% elif diagnosis_class == 'warning' %}border-yellow-200{% else %}border-red-200{% endif %}">
+      <div class="p-6 sm:p-8 lg:p-12">
+        <!-- Ishonch badge -->
+        <div class="flex justify-center mb-6">
+          <div class="inline-flex items-center gap-3 py-3 px-8 rounded-full {% if diagnosis_class == 'success' %}bg-green-500{% elif diagnosis_class == 'warning' %}bg-yellow-500{% else %}bg-red-500{% endif %} text-white shadow-lg">
+            <i class="ti ti-award text-2xl"></i>
+            <span class="subtitle1">Ishonch darajasi: {{ confidence }}%</span>
+          </div>
+        </div>
+
+        <!-- Asosiy tashxis -->
+        <div class="text-center mb-6">
+          <div class="flex justify-center mb-4">
+            <div class="w-20 h-20 rounded-full {% if diagnosis_class == 'success' %}bg-green-500{% elif diagnosis_class == 'warning' %}bg-yellow-500{% else %}bg-red-500{% endif %} flex items-center justify-center">
+              <i class="ti {% if diagnosis_class == 'success' %}ti-circle-check{% elif diagnosis_class == 'warning' %}ti-alert-triangle{% else %}ti-alert-circle{% endif %} text-4xl text-white"></i>
+            </div>
+          </div>
+          <h2 class="mb-3 {% if diagnosis_class == 'success' %}text-green-700{% elif diagnosis_class == 'warning' %}text-yellow-700{% else %}text-red-700{% endif %}">
+            {{ diagnosis }}
+          </h2>
+          <p class="h5 {% if diagnosis_class == 'success' %}text-green-600{% elif diagnosis_class == 'warning' %}text-yellow-600{% else %}text-red-600{% endif %} max-w-2xl mx-auto">
+            {{ diagnosis_detail }}
+          </p>
+        </div>
+
+        <!-- Xavf indikatori -->
+        <div class="flex justify-center">
+          <div class="inline-flex items-center gap-2 py-2 px-6 rounded-full bg-white border {% if diagnosis_class == 'success' %}border-green-300{% elif diagnosis_class == 'warning' %}border-yellow-300{% else %}border-red-300{% endif %}">
+            <div class="flex items-center gap-1">
+              <div class="w-2 h-2 rounded-full {% if diagnosis_class == 'success' %}bg-green-500{% elif diagnosis_class == 'warning' %}bg-yellow-500{% else %}bg-red-500{% endif %} animate-pulse"></div>
+              <div class="w-2 h-2 rounded-full {% if diagnosis_class == 'success' %}bg-green-500{% elif diagnosis_class == 'warning' %}bg-yellow-500{% else %}bg-red-500{% endif %} animate-pulse" style="animation-delay: 0.2s;"></div>
+              <div class="w-2 h-2 rounded-full {% if diagnosis_class == 'success' %}bg-green-500{% elif diagnosis_class == 'warning' %}bg-yellow-500{% else %}bg-red-500{% endif %} animate-pulse" style="animation-delay: 0.4s;"></div>
+            </div>
+            <span class="subtitle1 text-neutral-800">Xavf: {{ risk_level }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- [ Asosiy Tashxis Kartochkasi ] Tugashi -->
+
+<!-- [ Bemor Ma'lumotlari Jadval ] Boshlanishi -->
+<section class="common-section">
+  <div class="container">
+    <div class="text-center mb-6 sm:mb-8">
+      <div class="flex justify-center mb-3">
+        <div class="w-14 h-14 bg-primary-100 rounded-full flex items-center justify-center">
+          <i class="ti ti-user-scan text-2xl text-primary-500"></i>
+        </div>
+      </div>
+      <h2 class="animate-y">Bemor Ma'lumotlari</h2>
+      <p class="h6 text-theme-text-secondary mt-2 animate-y">
+        Tahlil uchun kiritilgan tibbiy ko'rsatkichlar
+      </p>
+    </div>
+
+    <div class="animate-y delay-reset rounded-3xl sm:rounded-[32px] overflow-hidden relative w-full bg-neutral-100">
+      <div class="overflow-x-auto">
+        <table class="w-full">
+          <thead class="bg-neutral-200">
+            <tr>
+              <th class="px-6 py-4 text-left">
+                <div class="flex items-center gap-2">
+                  <i class="ti ti-list-details text-primary-500"></i>
+                  <span class="subtitle1">Ko'rsatkich</span>
+                </div>
+              </th>
+              <th class="px-6 py-4 text-left">
+                <div class="flex items-center gap-2">
+                  <i class="ti ti-report-analytics text-primary-500"></i>
+                  <span class="subtitle1">Qiymat</span>
+                </div>
+              </th>
+              <th class="px-6 py-4 text-left">
+                <div class="flex items-center gap-2">
+                  <i class="ti ti-info-circle text-primary-500"></i>
+                  <span class="subtitle1">Birlik</span>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-neutral-200">
+            <tr class="hover:bg-neutral-50 transition-colors">
+              <td class="px-6 py-4">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center shrink-0">
+                    <i class="ti ti-user text-blue-600"></i>
+                  </div>
+                  <span class="body1 font-medium">Yoshi</span>
+                </div>
+              </td>
+              <td class="px-6 py-4">
+                <span class="h5 text-primary-500">{{ patient_data.age }}</span>
+              </td>
+              <td class="px-6 py-4">
+                <span class="body2 text-theme-text-secondary">yosh</span>
+              </td>
+            </tr>
+            <tr class="hover:bg-neutral-50 transition-colors">
+              <td class="px-6 py-4">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center shrink-0">
+                    <i class="ti ti-gender-bigender text-purple-600"></i>
+                  </div>
+                  <span class="body1 font-medium">Jinsi</span>
+                </div>
+              </td>
+              <td class="px-6 py-4">
+                <span class="h5 text-primary-500">{{ patient_data.gender }}</span>
+              </td>
+              <td class="px-6 py-4">
+                <span class="body2 text-theme-text-secondary">-</span>
+              </td>
+            </tr>
+            <tr class="hover:bg-neutral-50 transition-colors">
+              <td class="px-6 py-4">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center shrink-0">
+                    <i class="ti ti-flask text-green-600"></i>
+                  </div>
+                  <span class="body1 font-medium">TSH Darajasi</span>
+                </div>
+              </td>
+              <td class="px-6 py-4">
+                <span class="h5 text-primary-500">{{ patient_data.tsh }}</span>
+              </td>
+              <td class="px-6 py-4">
+                <span class="body2 text-theme-text-secondary">mIU/L</span>
+              </td>
+            </tr>
+            <tr class="hover:bg-neutral-50 transition-colors">
+              <td class="px-6 py-4">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center shrink-0">
+                    <i class="ti ti-test-pipe text-yellow-600"></i>
+                  </div>
+                  <span class="body1 font-medium">T3 Darajasi</span>
+                </div>
+              </td>
+              <td class="px-6 py-4">
+                <span class="h5 text-primary-500">{{ patient_data.t3 }}</span>
+              </td>
+              <td class="px-6 py-4">
+                <span class="body2 text-theme-text-secondary">ng/dL</span>
+              </td>
+            </tr>
+            <tr class="hover:bg-neutral-50 transition-colors">
+              <td class="px-6 py-4">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 bg-cyan-100 rounded-full flex items-center justify-center shrink-0">
+                    <i class="ti ti-droplet text-cyan-600"></i>
+                  </div>
+                  <span class="body1 font-medium">T4 Darajasi</span>
+                </div>
+              </td>
+              <td class="px-6 py-4">
+                <span class="h5 text-primary-500">{{ patient_data.t4 }}</span>
+              </td>
+              <td class="px-6 py-4">
+                <span class="body2 text-theme-text-secondary">μg/dL</span>
+              </td>
+            </tr>
+            <tr class="hover:bg-neutral-50 transition-colors">
+              <td class="px-6 py-4">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center shrink-0">
+                    <i class="ti ti-circle-dot text-red-600"></i>
+                  </div>
+                  <span class="body1 font-medium">Tugun O'lchami</span>
+                </div>
+              </td>
+              <td class="px-6 py-4">
+                <span class="h5 text-primary-500">{{ patient_data.nodule_size }}</span>
+              </td>
+              <td class="px-6 py-4">
+                <span class="body2 text-theme-text-secondary">sm</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Normal qiymatlar -->
+    <div class="mt-6 animate-y">
+      <div class="p-5 bg-blue-50 rounded-2xl border border-blue-200">
+        <div class="flex items-start gap-3">
+          <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center shrink-0">
+            <i class="ti ti-info-circle text-white"></i>
+          </div>
+          <div class="flex-1">
+            <h6 class="text-blue-700 mb-2">Normal Qiymatlar Ma'lumotnomasi</h6>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-sm">
+              <div class="flex items-center gap-2">
+                <div class="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
+                <span class="text-blue-700">TSH: 0.4-4.0 mIU/L</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <div class="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
+                <span class="text-blue-700">T3: 80-200 ng/dL</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <div class="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
+                <span class="text-blue-700">T4: 5.0-12.0 μg/dL</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- [ Bemor Ma'lumotlari Jadval ] Tugashi -->
+
+<!-- [ Tibbiy Tavsiyalar ] Boshlanishi -->
+<section class="common-section">
+  <div class="container">
+    <div class="text-center mb-6 sm:mb-8">
+      <div class="flex justify-center mb-3">
+        <div class="w-14 h-14 bg-primary-100 rounded-full flex items-center justify-center">
+          <i class="ti ti-stethoscope text-2xl text-primary-500"></i>
+        </div>
+      </div>
+      <h2 class="animate-y">Tibbiy Tavsiyalar</h2>
+      <p class="h6 text-theme-text-secondary mt-2 animate-y">
+        Mutaxassislar tomonidan tavsiya etilgan harakatlar
+      </p>
+    </div>
+
+    <div class="animate-y delay-reset rounded-3xl sm:rounded-[32px] overflow-hidden relative w-full bg-neutral-100">
+      <div class="p-6 sm:p-8 lg:p-10">
+        <div class="space-y-4">
+          {% for rec in recommendations %}
+          <div class="flex items-start gap-4 p-5 sm:p-6 bg-white rounded-2xl border border-neutral-200 hover:border-primary-300 hover:shadow-lg transition-all duration-300">
+            <div class="w-10 h-10 bg-primary-500 rounded-full flex items-center justify-center shrink-0">
+              <span class="subtitle1 text-white">{{ forloop.counter }}</span>
+            </div>
+            <div class="flex-1">
+              <p class="body1 text-neutral-800">{{ rec }}</p>
+            </div>
+            <div class="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center shrink-0">
+              <i class="ti ti-chevron-right text-primary-500"></i>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- [ Tibbiy Tavsiyalar ] Tugashi -->
+
+<!-- [ Muhim Ogohlantirish ] Boshlanishi -->
+<section class="common-section">
+  <div class="container">
+    <div class="animate-y delay-reset rounded-3xl sm:rounded-[32px] overflow-hidden relative w-full bg-gradient-to-br from-orange-50 to-yellow-100 border-2 border-orange-200">
+      <div class="p-6 sm:p-8 lg:p-10">
+        <div class="flex flex-col lg:flex-row items-start gap-6">
+          <div class="w-16 h-16 lg:w-20 lg:h-20 bg-orange-500 rounded-2xl flex items-center justify-center shrink-0 shadow-lg">
+            <i class="ti ti-alert-triangle text-3xl lg:text-4xl text-white"></i>
+          </div>
+          <div class="flex-1">
+            <h3 class="text-orange-700 mb-4">Muhim Tibbiy Ogohlantirish</h3>
+            <p class="body1 text-orange-600 mb-6">
+              Bu natija faqat sun'iy intellekt yordamida berilgan dastlabki tashxis hisoblanadi.
+              Aniq tashxis va to'g'ri davolanish uchun malakali shifokor bilan shaxsiy maslahatlashish majburiy!
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="flex items-start gap-3 p-4 bg-white rounded-xl">
+                <div class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center shrink-0 mt-0.5">
+                  <i class="ti ti-user-check text-orange-600"></i>
+                </div>
+                <div>
+                  <p class="subtitle1 text-neutral-800 mb-1">Professional Ko'rik</p>
+                  <p class="caption text-neutral-600">Endokrinolog yoki onkolog bilan uchrashing</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3 p-4 bg-white rounded-xl">
+                <div class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center shrink-0 mt-0.5">
+                  <i class="ti ti-test-pipe text-orange-600"></i>
+                </div>
+                <div>
+                  <p class="subtitle1 text-neutral-800 mb-1">Qo'shimcha Tahlillar</p>
+                  <p class="caption text-neutral-600">Laboratoriya va instrumental tekshiruvlar</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- [ Muhim Ogohlantirish ] Tugashi -->
+
+<!-- [ Harakatlar ] Boshlanishi -->
+<section class="common-section">
+  <div class="container">
+    <div class="animate-y delay-reset rounded-3xl sm:rounded-[32px] overflow-hidden relative w-full bg-neutral-200">
+      <div class="p-6 sm:p-8 lg:p-10">
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <a href="/" class="btn btn-primary btn-lg w-full sm:w-auto">
+            <span class="flex items-center gap-2">
+              <i class="ti ti-home"></i>
+              Bosh Sahifa
+            </span>
+          </a>
+
+          {% if uuid %}
+          <a href="{% url 'download_diagnosis' uuid=uuid %}" class="btn btn-outline-primary btn-lg w-full sm:w-auto">
+            <span class="flex items-center gap-2">
+              <i class="ti ti-download"></i>
+              Xulosani Yuklab Olish
+            </span>
+          </a>
+          {% else %}
+          <button onclick="window.print()" class="btn btn-outline-primary btn-lg w-full sm:w-auto">
+            <span class="flex items-center gap-2">
+              <i class="ti ti-printer"></i>
+              Chop Etish
+            </span>
+          </button>
+          {% endif %}
+
+          <a href="/#diagnos" class="btn btn-outline-primary btn-lg w-full sm:w-auto">
+            <span class="flex items-center gap-2">
+              <i class="ti ti-reload"></i>
+              Yangi Tashxis
+            </span>
+          </a>
+        </div>
+
+        <!-- Qo'shimcha ma'lumot -->
+        <div class="mt-6 pt-6 border-t border-neutral-300">
+          <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+            <div class="flex items-center gap-2">
+              <i class="ti ti-calendar text-primary-500"></i>
+              <p class="caption text-theme-text-secondary">
+                Tahlil sanasi: <span class="font-medium">{% if created_at %}{{ created_at|date:"d.m.Y H:i" }}{% else %}{{ "now"|date:"d.m.Y H:i" }}{% endif %}</span>
+              </p>
+            </div>
+            <div class="flex items-center gap-2">
+              <i class="ti ti-shield-check text-primary-500"></i>
+              <p class="caption text-theme-text-secondary">
+                AI Model: <span class="font-medium">Thyroid Diagnostics v2.0</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- [ Harakatlar ] Tugashi -->
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Print uchun optimizatsiya
+window.addEventListener('beforeprint', function() {
+  document.querySelectorAll('.animate-y').forEach(el => {
+    el.style.opacity = '1';
+    el.style.transform = 'none';
+  });
+});
+
+// Print CSS
+const printStyles = document.createElement('style');
+printStyles.textContent = `
+  @media print {
+    header, footer, nav, .btn, .no-print {
+      display: none !important;
+    }
+    body {
+      background: white !important;
+    }
+    section {
+      page-break-inside: avoid;
+      padding: 20px 0 !important;
+    }
+    .container {
+      max-width: 100% !important;
+      padding: 0 20px !important;
+    }
+    * {
+      color-adjust: exact !important;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+  }
+`;
+document.head.appendChild(printStyles);
+</script>
+{% endblock %}
