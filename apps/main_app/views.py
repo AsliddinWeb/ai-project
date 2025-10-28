@@ -1,5 +1,6 @@
 import numpy as np
 import tensorflow as tf
+import cv2
 from PIL import Image
 from django.shortcuts import render
 from django.http import JsonResponse
@@ -9,181 +10,110 @@ import os
 from django.conf import settings
 import json
 
-# Model fayllar joylashuvi
-MODEL_PATH = os.path.join(settings.BASE_DIR, '../thyroid_model_full.h5')
-MODEL_ARCHITECTURE_PATH = os.path.join(settings.BASE_DIR, '../thyroid_model_architecture.json')
-MODEL_WEIGHTS_PATH = os.path.join(settings.BASE_DIR, '../thyroid_model_weights.h5')
-SAVED_MODEL_PATH = os.path.join(settings.BASE_DIR, '../thyroid_model_saved')
-SCALER_MEAN_PATH = os.path.join(settings.BASE_DIR, '../scaler_mean.npy')
-SCALER_SCALE_PATH = os.path.join(settings.BASE_DIR, '../scaler_scale.npy')
+# ============================================================================
+# MODEL VA SCALER YUKLASH
+# ============================================================================
+MODEL_PATH = os.path.join(settings.BASE_DIR, "../thyroid_model", "thyroid_model_full.h5")
+SCALE_MEAN_PATH = os.path.join(settings.BASE_DIR, "../thyroid_model", "scaler_mean.npy")
+SCALE_SCALE_PATH = os.path.join(settings.BASE_DIR, "../thyroid_model", "scaler_scale.npy")
 
 # Global o'zgaruvchilar
 model = None
 scaler_mean = None
 scaler_scale = None
 
+try:
+    print("=" * 70)
+    print("🚀 MODEL YUKLASH BOSHLANDI")
+    print("=" * 70)
 
-def load_thyroid_model():
-    """Modelni turli usullar bilan yuklash"""
-    global model, scaler_mean, scaler_scale
+    # Model yuklash (compile=False - arxitektura xatoligini e'tiborsiz qoldirish)
+    if os.path.exists(MODEL_PATH):
+        try:
+            # Avval oddiy usulda yuklashga harakat
+            model = tf.keras.models.load_model(MODEL_PATH)
+            print(f"✅ Model yuklandi: {MODEL_PATH}")
+        except ValueError as ve:
+            print(f"⚠️ Model arxitektura xatoligi: {ve}")
+            print("🔄 Custom loading orqali yuklashga harakat qilinmoqda...")
 
-    try:
-        print("=" * 70)
-        print("📦 MODEL YUKLANMOQDA...")
-        print("=" * 70)
+            # Custom loading - compile=False
+            model = tf.keras.models.load_model(MODEL_PATH, compile=False)
 
-        # Scaler fayllarini yuklash (bu har doim kerak)
-        if os.path.exists(SCALER_MEAN_PATH) and os.path.exists(SCALER_SCALE_PATH):
-            scaler_mean = np.load(SCALER_MEAN_PATH)
-            scaler_scale = np.load(SCALER_SCALE_PATH)
-            print(f"✅ Scaler yuklandi: mean shape={scaler_mean.shape}, scale shape={scaler_scale.shape}")
-        else:
-            print("❌ Scaler fayllari topilmadi!")
-            return False
+            # Modelni qayta compile qilish
+            model.compile(
+                optimizer='adam',
+                loss='binary_crossentropy',
+                metrics=['accuracy']
+            )
+            print(f"✅ Model custom loading bilan yuklandi")
+    else:
+        print(f"❌ Model topilmadi: {MODEL_PATH}")
 
-        # USUL 1: SavedModel formatidan yuklash (ENG YAXSHI)
-        if os.path.exists(SAVED_MODEL_PATH):
-            print(f"\n🔄 Usul 1: SavedModel formatidan yuklash...")
-            try:
-                model = tf.keras.models.load_model(SAVED_MODEL_PATH)
-                print("✅ SavedModel formatidan yuklandi!")
-                print_model_info()
-                return True
-            except Exception as e:
-                print(f"❌ SavedModel yuklashda xatolik: {e}")
+    # Scaler yuklash
+    if os.path.exists(SCALE_MEAN_PATH):
+        scaler_mean = np.load(SCALE_MEAN_PATH)
+        print(f"✅ Scaler mean yuklandi: {scaler_mean.shape}")
+    else:
+        print(f"❌ Scaler mean topilmadi: {SCALE_MEAN_PATH}")
 
-        # USUL 2: JSON + Weights dan yuklash
-        if os.path.exists(MODEL_ARCHITECTURE_PATH) and os.path.exists(MODEL_WEIGHTS_PATH):
-            print(f"\n🔄 Usul 2: JSON arxitektura + og'irliklardan yuklash...")
-            try:
-                # JSON dan arxitekturani yuklash
-                with open(MODEL_ARCHITECTURE_PATH, 'r') as json_file:
-                    model_json = json_file.read()
+    if os.path.exists(SCALE_SCALE_PATH):
+        scaler_scale = np.load(SCALE_SCALE_PATH)
+        print(f"✅ Scaler scale yuklandi: {scaler_scale.shape}")
+    else:
+        print(f"❌ Scaler scale topilmadi: {SCALE_SCALE_PATH}")
 
-                model = tf.keras.models.model_from_json(model_json)
-                print("✅ Model arxitekturasi yuklandi")
+    print("=" * 70)
+    print()
 
-                # Og'irliklarni yuklash
-                model.load_weights(MODEL_WEIGHTS_PATH)
-                print("✅ Og'irliklar yuklandi")
+except Exception as e:
+    print(f"❌ Model yuklashda xatolik: {e}")
+    import traceback
 
-                # Kompilatsiya
-                model.compile(
-                    optimizer='adam',
-                    loss='binary_crossentropy',
-                    metrics=['accuracy']
-                )
-                print("✅ Model kompilatsiya qilindi")
-                print_model_info()
-                return True
-            except Exception as e:
-                print(f"❌ JSON+Weights yuklashda xatolik: {e}")
-
-        # USUL 3: H5 fayldan yuklash (compile=False bilan)
-        if os.path.exists(MODEL_PATH):
-            print(f"\n🔄 Usul 3: H5 fayldan yuklash (compile=False)...")
-            try:
-                model = tf.keras.models.load_model(MODEL_PATH, compile=False)
-                print("✅ Model yuklandi (compile=False)")
-
-                # Qayta kompilatsiya
-                model.compile(
-                    optimizer='adam',
-                    loss='binary_crossentropy',
-                    metrics=['accuracy']
-                )
-                print("✅ Model kompilatsiya qilindi")
-                print_model_info()
-                return True
-            except Exception as e:
-                print(f"❌ H5 yuklashda xatolik: {e}")
-                import traceback
-                print(traceback.format_exc())
-
-        print("\n" + "=" * 70)
-        print("❌ MODELNI HECH QANDAY USUL BILAN YUKLAB BO'LMADI!")
-        print("=" * 70)
-        print("\n💡 YECHIM:")
-        print("1. Dasturchi bilan bog'laning")
-        print("2. Yuqoridagi 'Dasturchi uchun' kodni Colab da bajaring")
-        print("3. Quyidagi fayllarni oling:")
-        print("   - thyroid_model_saved/ (SavedModel format)")
-        print("   - thyroid_model_architecture.json")
-        print("   - thyroid_model_weights.h5")
-        print("4. Fayllarni loyihangizga qo'ying")
-        print("=" * 70)
-
-        return False
-
-    except Exception as e:
-        print("=" * 70)
-        print(f"❌ KUTILMAGAN XATOLIK: {e}")
-        print("=" * 70)
-        import traceback
-        print(traceback.format_exc())
-        return False
+    print(traceback.format_exc())
 
 
-def print_model_info():
-    """Model haqida ma'lumot chiqarish"""
-    if model is None:
-        return
-
-    print("\n📊 MODEL MA'LUMOTLARI:")
-    print(f"   Inputlar soni: {len(model.inputs)}")
-    for i, inp in enumerate(model.inputs):
-        print(f"   Input {i + 1}: {inp.name} - Shape: {inp.shape}")
-    print(f"   Outputlar soni: {len(model.outputs)}")
-    for i, out in enumerate(model.outputs):
-        print(f"   Output {i + 1}: {out.name} - Shape: {out.shape}")
-
-
-# Django serveri ishga tushganda modelni yuklash
-print("\n🚀 Django serveri ishga tushmoqda...")
-load_success = load_thyroid_model()
-
-if load_success:
-    print("\n" + "=" * 70)
-    print("✅ TAYYOR! Model muvaffaqiyatli yuklandi!")
-    print("=" * 70 + "\n")
-else:
-    print("\n" + "=" * 70)
-    print("⚠️ OGOHLANTIRISH: Model yuklanmadi!")
-    print("Tizim ishlaydi, lekin tashxis qila olmaydi.")
-    print("=" * 70 + "\n")
-
-
+# ============================================================================
+# RASM QAYTA ISHLASH FUNKSIYASI
+# ============================================================================
 def preprocess_image(image_path):
-    """Rasmni qayta ishlash"""
+    """
+    Rasmni model uchun tayyorlash (RGB formatda - model 3 kanal kutadi)
+    """
     try:
-        print(f"🖼️ Rasm qayta ishlanmoqda: {os.path.basename(image_path)}")
+        # OpenCV bilan o'qish (BGR formatda)
+        img = cv2.imread(image_path)
 
-        img = Image.open(image_path)
+        if img is None:
+            print(f"❌ Rasm o'qilmadi: {image_path}")
+            return None
 
-        if img.mode != 'RGB':
-            img = img.convert('RGB')
+        # BGR -> RGB konvertatsiya
+        img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
-        img = img.resize((224, 224), Image.LANCZOS)
-        img_array = np.array(img, dtype=np.float32)
-        img_array = img_array / 255.0
-        img_array = np.expand_dims(img_array, axis=0)
+        # 128x128 ga o'zgartirish (model 128x128 bilan o'rgatilgan)
+        img = cv2.resize(img, (128, 128))
 
-        print(f"✅ Rasm tayyor: {img_array.shape}")
-        return img_array
+        # Normalizatsiya [0, 1]
+        img = img / 255.0
+
+        # Batch dimension qo'shish (1, 224, 224, 3)
+        img = np.expand_dims(img, axis=0)
+
+        print(f"✅ Rasm qayta ishlandi: {img.shape}")
+        return img
 
     except Exception as e:
-        print(f"❌ Rasm xatoligi: {e}")
+        print(f"❌ Rasm qayta ishlashda xatolik: {e}")
         return None
 
 
+# ============================================================================
+# VIEWS
+# ============================================================================
 def home(request):
-    """Home sahifa"""
-    # Model holatini tekshirish
-    model_status = {
-        'loaded': model is not None,
-        'message': 'Model yuklangan va tayyor' if model is not None else 'Model yuklanmagan - Dasturchi bilan bog\'laning'
-    }
-    return render(request, 'home.html', {'model_status': model_status})
+    """Home page"""
+    return render(request, 'home.html')
 
 
 def diagnose_thyroid(request):
@@ -229,7 +159,7 @@ def diagnose_thyroid(request):
         )
         file_path = default_storage.path(file_name)
 
-        # Rasmni qayta ishlash
+        # Rasmni qayta ishlash (RGB formatda)
         processed_image = preprocess_image(file_path)
 
         if processed_image is None:
@@ -257,24 +187,39 @@ def diagnose_thyroid(request):
         country = int(request.POST.get('country', 0))
         ethnicity = int(request.POST.get('ethnicity', 0))
 
-        print(f"   Yosh: {age}, TSH: {tsh_level}, Tugun: {nodule_size}")
+        # Thyroid Cancer Risk hisoblash (TSH va nodule size asosida)
+        if tsh_level > 4.0 or nodule_size > 2.0:
+            thyroid_cancer_risk = 2  # High
+        elif tsh_level > 2.5 or nodule_size > 1.5:
+            thyroid_cancer_risk = 1  # Medium
+        else:
+            thyroid_cancer_risk = 0  # Low
 
-        # Features
+        print(f"   Yosh: {age}, TSH: {tsh_level}, Tugun: {nodule_size}, Risk: {thyroid_cancer_risk}")
+
+        # Features (15 xususiyat - scaler bilan mos)
+        # Tartib: Age, Gender, Country, Ethnicity, Family_History, Radiation_Exposure,
+        #         Iodine_Deficiency, Smoking, Obesity, Diabetes, TSH, T3, T4, Nodule_Size, Cancer_Risk
         features = np.array([[
-            age, gender, family_history, radiation_exposure,
-            iodine_deficiency, smoking, obesity, diabetes,
-            tsh_level, t3_level, t4_level, nodule_size,
-            country, ethnicity, 0, 0
+            age, gender, country, ethnicity, family_history,
+            radiation_exposure, iodine_deficiency, smoking, obesity,
+            diabetes, tsh_level, t3_level, t4_level, nodule_size,
+            thyroid_cancer_risk
         ]], dtype=np.float32)
 
         # Scaling
         if scaler_mean is not None and scaler_scale is not None:
             features_scaled = (features - scaler_mean) / scaler_scale
+            print(f"✅ Features scaled")
         else:
             features_scaled = features
+            print("⚠️ Scaler topilmadi, scaling bajarilmadi")
 
         # Bashorat
         print("\n🔮 Bashorat...")
+        print(f"   Rasm shape: {processed_image.shape}")
+        print(f"   Features shape: {features_scaled.shape}")
+
         prediction = model.predict([processed_image, features_scaled], verbose=0)
 
         # Fayl o'chirish
@@ -283,7 +228,7 @@ def diagnose_thyroid(request):
 
         # Natija
         pred_value = float(prediction[0][0])
-        confidence = pred_value * 100
+        confidence = pred_value * 100 if pred_value > 0.5 else (1 - pred_value) * 100
 
         print(f"✅ Natija: {pred_value:.4f} ({confidence:.2f}%)")
 
