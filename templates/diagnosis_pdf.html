@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAMES - Tibbiy Xulosa №{{ diagnosis.uuid|slice:":8" }} - {{ diagnosis.created_at|date:"d.m.Y" }}</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 12pt;
+            line-height: 1.6;
+            color: #000;
+            background: #fff;
+            padding: 2.5cm 2cm;
+        }
+
+        /* Header - Official Letterhead */
+        .letterhead {
+            text-align: center;
+            border-bottom: 2px solid #000;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+
+        .letterhead .clinic-name {
+            font-size: 18pt;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .letterhead .clinic-info {
+            font-size: 10pt;
+            color: #333;
+            margin-bottom: 3px;
+        }
+
+        .letterhead .license {
+            font-size: 9pt;
+            color: #555;
+            font-style: italic;
+        }
+
+        /* Document Title */
+        .doc-title {
+            text-align: center;
+            margin: 25px 0;
+        }
+
+        .doc-title h1 {
+            font-size: 16pt;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .doc-number {
+            font-size: 11pt;
+            color: #333;
+        }
+
+        /* Main Content */
+        .section {
+            margin-bottom: 25px;
+            page-break-inside: avoid;
+        }
+
+        .section-title {
+            font-size: 13pt;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-bottom: 1px solid #000;
+            padding-bottom: 5px;
+            margin-bottom: 12px;
+        }
+
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+        }
+
+        .info-table td {
+            padding: 6px 10px;
+            vertical-align: top;
+        }
+
+        .info-table .label {
+            width: 35%;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .info-table .value {
+            width: 65%;
+            border-bottom: 1px dotted #999;
+        }
+
+        /* Laboratory Results Table */
+        .lab-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            border: 1px solid #000;
+        }
+
+        .lab-table th {
+            background: #f0f0f0;
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 11pt;
+        }
+
+        .lab-table td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .lab-table td:first-child {
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .status-normal { color: #047857; font-weight: bold; }
+        .status-warning { color: #d97706; font-weight: bold; }
+        .status-danger { color: #dc2626; font-weight: bold; }
+
+        /* Diagnosis Box */
+        .diagnosis-box {
+            border: 2px solid #000;
+            padding: 15px;
+            margin: 20px 0;
+            background: #f9f9f9;
+        }
+
+        .diagnosis-box .title {
+            font-size: 13pt;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .diagnosis-box .content {
+            font-size: 12pt;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        /* Recommendations List */
+        .recommendations-list {
+            counter-reset: rec-counter;
+            list-style: none;
+            padding: 0;
+        }
+
+        .recommendations-list li {
+            counter-increment: rec-counter;
+            margin-bottom: 10px;
+            padding-left: 30px;
+            position: relative;
+            text-align: justify;
+        }
+
+        .recommendations-list li:before {
+            content: counter(rec-counter) ".";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Warning Box */
+        .warning-notice {
+            border: 2px solid #d97706;
+            background: #fef3c7;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .warning-notice .warning-title {
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #92400e;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .warning-notice p {
+            text-align: justify;
+            line-height: 1.7;
+            color: #92400e;
+        }
+
+        /* Signature Block */
+        .signature-block {
+            margin-top: 40px;
+            page-break-inside: avoid;
+        }
+
+        .signature-row {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+        }
+
+        .signature-item {
+            width: 45%;
+        }
+
+        .signature-line {
+            border-top: 1px solid #000;
+            padding-top: 5px;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .signature-label {
+            font-size: 10pt;
+            color: #555;
+        }
+
+        /* Footer */
+        .document-footer {
+            margin-top: 40px;
+            padding-top: 15px;
+            border-top: 1px solid #999;
+            font-size: 9pt;
+            color: #666;
+            text-align: center;
+            page-break-inside: avoid;
+        }
+
+
+
+        /* Stamps */
+        .stamp-placeholder {
+            width: 100px;
+            height: 100px;
+            border: 2px dashed #999;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 9pt;
+            color: #999;
+            text-align: center;
+            padding: 10px;
+            margin: 20px auto;
+        }
+
+        @media print {
+            body {
+                padding: 0;
+                margin: 2.5cm 2cm;
+            }
+
+            .section {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Official Letterhead -->
+    <div class="letterhead">
+        <div class="clinic-name">Thyroid-AI Malignancy Evaluation System (TAMES)</div>
+        <div class="clinic-info">Qalqonsimon bez xavfli o'smalari AI-asosli baholash tizimi</div>
+        <div class="clinic-info">Web: tames.uz | Tel: +998 99 888-98-48 | Email: nargizazufarova93@gmail.com</div>
+        <div class="license">Muallif: Nigmatova N. | Telegram: @nnigmatovna</div>
+    </div>
+
+
+    <!-- Document Title -->
+    <div class="doc-title">
+        <h1>Tibbiy Xulosa</h1>
+        <div class="doc-number">№ {{ diagnosis.uuid|slice:":13" }} - {{ diagnosis.created_at|date:"d.m.Y" }}</div>
+    </div>
+
+    <!-- Patient Information -->
+    <div class="section">
+        <div class="section-title">I. Bemor Ma'lumotlari</div>
+        <table class="info-table">
+            <tr>
+                <td class="label">Bemor:</td>
+                <td class="value">ID: {{ diagnosis.uuid|slice:":8" }}</td>
+            </tr>
+            <tr>
+                <td class="label">Yoshi:</td>
+                <td class="value">{{ patient_data.age }} yosh</td>
+            </tr>
+            <tr>
+                <td class="label">Jinsi:</td>
+                <td class="value">{{ patient_data.gender }}</td>
+            </tr>
+            <tr>
+                <td class="label">Tekshiruv sanasi:</td>
+                <td class="value">{{ diagnosis.created_at|date:"d.m.Y, H:i" }}</td>
+            </tr>
+            <tr>
+                <td class="label">Tekshiruv usuli:</td>
+                <td class="value">AI-asosli ultratovush tahlili va laboratoriya ko'rsatkichlar tahlili</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Laboratory Results -->
+    <div class="section">
+        <div class="section-title">II. Laboratoriya Natijalar</div>
+        <table class="lab-table">
+            <thead>
+                <tr>
+                    <th>Ko'rsatkich</th>
+                    <th>Natija</th>
+                    <th>Birlik</th>
+                    <th>Referens Qiymat</th>
+                    <th>Xulosa</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>TSH (Tiroid stimullovchi gormon)</td>
+                    <td>{{ patient_data.tsh }}</td>
+                    <td>mIU/L</td>
+                    <td>0.4 - 4.0</td>
+                    <td>
+                        {% if patient_data.tsh >= 0.4 and patient_data.tsh <= 4.0 %}
+                            <span class="status-normal">NORMAL</span>
+                        {% elif patient_data.tsh > 4.0 %}
+                            <span class="status-warning">YUQORI</span>
+                        {% else %}
+                            <span class="status-danger">PAST</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td>T3 (Triyodtironin)</td>
+                    <td>{{ patient_data.t3 }}</td>
+                    <td>ng/dL</td>
+                    <td>80 - 200</td>
+                    <td>
+                        {% if patient_data.t3 >= 80 and patient_data.t3 <= 200 %}
+                            <span class="status-normal">NORMAL</span>
+                        {% elif patient_data.t3 > 200 %}
+                            <span class="status-warning">YUQORI</span>
+                        {% else %}
+                            <span class="status-danger">PAST</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td>T4 (Tiroksin)</td>
+                    <td>{{ patient_data.t4 }}</td>
+                    <td>μg/dL</td>
+                    <td>5.0 - 12.0</td>
+                    <td>
+                        {% if patient_data.t4 >= 5.0 and patient_data.t4 <= 12.0 %}
+                            <span class="status-normal">NORMAL</span>
+                        {% elif patient_data.t4 > 12.0 %}
+                            <span class="status-warning">YUQORI</span>
+                        {% else %}
+                            <span class="status-danger">PAST</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td>Tugun o'lchami (ultratovush)</td>
+                    <td>{{ patient_data.nodule_size }}</td>
+                    <td>sm</td>
+                    <td>&lt; 1.0</td>
+                    <td>
+                        {% if patient_data.nodule_size < 1.0 %}
+                            <span class="status-normal">KICHIK</span>
+                        {% elif patient_data.nodule_size < 2.0 %}
+                            <span class="status-warning">O'RTACHA</span>
+                        {% else %}
+                            <span class="status-danger">KATTA</span>
+                        {% endif %}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Main Diagnosis -->
+    <div class="section">
+        <div class="section-title">III. Dastlabki Tashxis</div>
+        <div class="diagnosis-box">
+            <div class="title">{{ diagnosis.diagnosis }}</div>
+            <div class="content">
+                {{ diagnosis.diagnosis_detail }}
+            </div>
+            <div style="margin-top: 15px; text-align: center;">
+                <strong>Xavf darajasi:</strong> {{ diagnosis.risk_level }} |
+                <strong>Diagnostik ishonch:</strong> {{ diagnosis.confidence|floatformat:1 }}%
+            </div>
+        </div>
+    </div>
+
+    <!-- Clinical Interpretation -->
+    <div class="section">
+        <div class="section-title">IV. Klinik Sharh</div>
+        <p style="text-align: justify; line-height: 1.8;">
+            O'tkazilgan laboratoriya tekshiruvlari va ultratovush diagnostikasi natijalariga ko'ra,
+            bemorning qalqonsimon bez holati baholandi. Gormonlar darajasi va tugun xususiyatlari
+            AI-asosli tahlil tizimi orqali o'rganildi. Yuqoridagi natijalar kompyuter tomonidan
+            ishlab chiqilgan bo'lib, yakuniy klinik qaror uchun mutaxassis shifokor tomonidan
+            tasdiqlash talab etiladi.
+        </p>
+    </div>
+
+    <!-- Recommendations -->
+    <div class="section">
+        <div class="section-title">V. Tavsiyalar</div>
+        <ul class="recommendations-list">
+            {% for rec in diagnosis.recommendations %}
+            <li>{{ rec }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <!-- Important Notice -->
+    <div class="warning-notice">
+        <div class="warning-title">⚠ Muhim Ogoxlantirish</div>
+        <p>
+            Ushbu xulosa sun'iy intellekt tizimi tomonidan tayyorlangan dastlabki xulosadir va
+            tibbiy ko'rsatma hisoblanmaydi. Aniq tashxis qo'yish va davolanish rejasini belgilash
+            uchun malakali endokrinolog yoki onkolog bilan shaxsiy maslahatlashish majburiydir.
+        </p>
+        <p style="margin-top: 10px;">
+            Bemor qo'shimcha instrumental va laboratoriya tekshiruvlardan o'tishi hamda natijalarni
+            yuqori malakali mutaxassisga ko'rsatishi lozim.
+        </p>
+    </div>
+
+    <!-- Stamp Placeholder -->
+    <div class="stamp-placeholder">
+        MUHR<br>O'RNI
+    </div>
+
+    <!-- Signature Block -->
+    <div class="signature-block">
+        <table style="width: 100%;">
+            <tr>
+                <td style="width: 50%; padding-right: 20px;">
+                    <div>Tayyorlagan:</div>
+                    <div class="signature-line">
+                        <div class="signature-label">TAMES AI Diagnostika Tizimi v2.0</div>
+                        <div class="signature-label" style="margin-top: 5px;">Muallif: Nigmatova N.</div>
+                    </div>
+                </td>
+                <td style="width: 50%; padding-left: 20px;">
+                    <div>Tasdiqlagan shifokor:</div>
+                    <div class="signature-line">
+                        <div class="signature-label">______________________</div>
+                        <div class="signature-label">(F.I.O. va imzo)</div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Document Footer -->
+    <div class="document-footer">
+        <div><strong>TAMES</strong> - Thyroid-AI Malignancy Evaluation System | tames.uz</div>
+        <div style="margin-top: 5px;">Hujjat ID: {{ diagnosis.uuid|slice:":13" }} | Chop etildi: {{ "now"|date:"d.m.Y H:i" }}</div>
+        <div style="margin-top: 5px;">
+            Aloqa: +998 99 888-98-48 | nargizazufarova93@gmail.com | @nnigmatovna
+        </div>
+        <div style="margin-top: 5px; font-style: italic;">
+            Ushbu hujjat faqat ma'lumot maqsadida berilgan. Nusxa ko'chirish va tarqatish taqiqlanadi.
+        </div>
+    </div>
+</body>
+</html>

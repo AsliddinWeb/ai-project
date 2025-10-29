@@ -297,28 +297,11 @@ def diagnose_thyroid(request):
         )
 
         print(f"✅ Ma'lumotlar saqlandi: {diagnosis_record.uuid}")
-
-        context = {
-            'success': True,
-            'uuid': str(diagnosis_record.uuid),
-            'diagnosis': diagnosis,
-            'diagnosis_detail': diagnosis_detail,
-            'confidence': round(confidence, 2),
-            'risk_level': risk_level,
-            'diagnosis_class': diagnosis_class,
-            'recommendations': recommendations,
-            'patient_data': {
-                'age': age,
-                'gender': gender,
-                'tsh': tsh_level,
-                't3': t3_level,
-                't4': t4_level,
-                'nodule_size': nodule_size
-            }
-        }
-
         print("✅ Muvaffaqiyatli!\n")
-        return render(request, 'diagnosis_result.html', context)
+
+        # UUID sahifasiga redirect qilish
+        from django.shortcuts import redirect
+        return redirect('diagnosis_detail', uuid=diagnosis_record.uuid)
 
     except Exception as e:
         print(f"❌ Xatolik: {e}")
