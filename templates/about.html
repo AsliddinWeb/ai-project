@@ -1,0 +1,269 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <!-- [ breadcrumb ] start -->
+  <div class="py-6 md:py-16 sm:py-10 [background-image:var(--breadcrumb-bg)] dark:[background-image:var(--breadcrumb-bg-dark)] bg-[length:30px_30px] bg-neutral-100 rounded-b-3xl sm:rounded-b-[40px]">
+    <div class="text-center container flex flex-col items-center gap-4">
+      <ul class="breadcrumb justify-center bg-neutral-100 border border-theme-divider rounded-full px-3 py-2">
+        <li class="breadcrumb-item"><a href="/">Bosh Sahifa</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Muallif Haqida</li>
+      </ul>
+
+      <div class="page-header-title font-archivo w-[345px] sm:w-[550px] md:w-[700px]">
+        <h1 class="mb-0">TAMES Loyihasi Muallifi ✦</h1>
+      </div>
+
+      <div class="text-primary-500 py-[4.6px] lg:py-[7px]">
+        <svg class="w-[92px] md:w-[122px] h-auto" viewBox="0 0 122 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            opacity="0.4"
+            d="M1.46484 6.83613L4.45387 3.7103C7.74598 0.267505 13.38 0.760513 16.0241 4.72277L16.5428 5.50001C19.2423 9.54539 25.1877 9.54539 27.8873 5.5V5.5C30.5869 1.45461 36.5322 1.45461 39.2318 5.5V5.5C41.9314 9.54539 47.8768 9.54539 50.5764 5.5V5.5C53.2759 1.45461 59.2213 1.45461 61.9209 5.5V5.5C64.6205 9.54539 70.5658 9.54539 73.2654 5.5V5.5C75.965 1.45461 81.9104 1.45461 84.61 5.5V5.5C87.3096 9.54539 93.2549 9.54539 95.9545 5.5V5.5C98.6541 1.45461 104.599 1.45461 107.299 5.5V5.5C109.999 9.54539 115.944 9.54539 118.644 5.5L120.534 2.66667"
+            stroke="currentColor"
+            strokeLinecap="round"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <!-- [ breadcrumb ] end -->
+
+  <!-- [ About Author ] start -->
+  <section class="common-section">
+    <div class="container">
+      <div class="flex flex-col gap-8 sm:gap-10 lg:gap-12">
+
+        <!-- Main Profile Section -->
+        <div class="animate-y delay-reset flex flex-col lg:flex-row gap-6 lg:gap-10">
+          <!-- Profile Image -->
+          <div class="basis-full lg:basis-5/12">
+            <div class="flex flex-col gap-4">
+              <div class="w-full aspect-square rounded-3xl lg:rounded-[40px] overflow-hidden bg-gradient-to-br from-primary-100 to-primary-50 flex items-center justify-center border-4 border-primary-200 shadow-2xl">
+                <div class="text-[200px] sm:text-[250px] lg:text-[300px] leading-none">👩‍🏫</div>
+              </div>
+              <div class="text-center">
+                <h3 class="mb-2">Nigmatova Nargiza</h3>
+                <p class="body1 text-primary-600 font-semibold">PhD Doktorant, AI Tadqiqotchisi</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Profile Details -->
+          <div class="basis-full lg:basis-7/12">
+            <div class="flex flex-col gap-6 h-full justify-between">
+
+              <!-- Introduction -->
+              <div class="flex flex-col gap-4">
+                <div class="inline-flex items-center gap-2 px-4 py-2 bg-primary-50 rounded-full w-fit">
+                  <i class="ti ti-sparkles text-primary-500"></i>
+                  <span class="caption font-semibold text-primary-600">TAMES Loyihasi Muallifi</span>
+                </div>
+
+                <h2>Thyroid-AI Malignancy Evaluation System</h2>
+
+                <p class="body1 text-neutral-700 leading-relaxed">
+                  Qalqonsimon bez xavfli o'smalari (malignant tugunlar)ni sun'iy intellekt yordamida
+                  baholash tizimini ishlab chiqish bo'yicha tadqiqot ishlarini olib bormoqdaman.
+                  TAMES loyihasi zamonaviy AI texnologiyalari va tibbiy diagnostika sohasidagi
+                  ilmiy tadqiqotlar asosida yaratilgan.
+                </p>
+              </div>
+
+              <!-- Education & Work -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <!-- Education Card -->
+                <div class="rounded-2xl bg-neutral-100 p-6 border border-neutral-200 hover:border-primary-300 transition-all">
+                  <div class="flex items-start gap-3">
+                    <div class="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center shrink-0">
+                      <i class="ti ti-school text-2xl text-primary-500"></i>
+                    </div>
+                    <div class="flex-1">
+                      <h5 class="mb-2">Ta'lim</h5>
+                      <p class="caption text-neutral-600">
+                        PhD Doktorant - Muhammad al-Xorazmiy nomidagi
+                        Toshkent Axborot Texnologiyalari Universiteti
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Work Card -->
+                <div class="rounded-2xl bg-neutral-100 p-6 border border-neutral-200 hover:border-primary-300 transition-all">
+                  <div class="flex items-start gap-3">
+                    <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center shrink-0">
+                      <i class="ti ti-briefcase text-2xl text-blue-500"></i>
+                    </div>
+                    <div class="flex-1">
+                      <h5 class="mb-2">Ish Tajribasi</h5>
+                      <p class="caption text-neutral-600">
+                        "O'zbektelekom" AK - 10 yildan ortiq tajriba
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Languages Card -->
+                <div class="rounded-2xl bg-neutral-100 p-6 border border-neutral-200 hover:border-primary-300 transition-all">
+                  <div class="flex items-start gap-3">
+                    <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center shrink-0">
+                      <i class="ti ti-language text-2xl text-green-500"></i>
+                    </div>
+                    <div class="flex-1">
+                      <h5 class="mb-2">Tillar</h5>
+                      <p class="caption text-neutral-600">
+                        O'zbek tili (ona tili)<br>
+                        Rus tili (yaxshi)<br>
+                        Ingliz tili (yaxshi)
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Personal Card -->
+                <div class="rounded-2xl bg-neutral-100 p-6 border border-neutral-200 hover:border-primary-300 transition-all">
+                  <div class="flex items-start gap-3">
+                    <div class="w-12 h-12 bg-pink-100 rounded-xl flex items-center justify-center shrink-0">
+                      <i class="ti ti-home-heart text-2xl text-pink-500"></i>
+                    </div>
+                    <div class="flex-1">
+                      <h5 class="mb-2">Oila</h5>
+                      <p class="caption text-neutral-600">
+                        Oilaliman, 2 farzandning onasiman
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Contact Buttons -->
+              <div class="flex flex-col sm:flex-row gap-3">
+                <a href="tel:+998998889848" class="btn btn-primary btn-lg flex-1">
+                  <i class="ti ti-phone"></i>
+                  <span>+998 99 888-98-48</span>
+                </a>
+                <a href="mailto:nargizazufarova93@gmail.com" class="btn btn-outline-primary btn-lg flex-1">
+                  <i class="ti ti-mail"></i>
+                  <span>Email</span>
+                </a>
+                <a href="https://t.me/nnigmatovna" target="_blank" class="btn btn-outline-primary btn-lg flex-1">
+                  <i class="ti ti-brand-telegram"></i>
+                  <span>Telegram</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Research Focus Section -->
+        <div class="animate-y delay-reset rounded-3xl lg:rounded-[40px] bg-neutral-100 p-8 sm:p-10 lg:p-12">
+          <div class="flex flex-col gap-6">
+            <div class="text-center">
+              <div class="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full mb-4">
+                <i class="ti ti-target text-primary-500"></i>
+                <span class="caption font-semibold text-neutral-700">Tadqiqot Yo'nalishi</span>
+              </div>
+              <h3 class="mb-3">TAMES Loyihasi Haqida</h3>
+              <p class="body1 text-neutral-600 max-w-3xl mx-auto">
+                Thyroid-AI Malignancy Evaluation System (TAMES) - bu qalqonsimon bez xavfli
+                o'smalari (malignant nodules)ni aniqlash va baholashda sun'iy intellekt
+                texnologiyalaridan foydalanuvchi innovatsion tizim.
+              </p>
+            </div>
+
+            <!-- Features Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
+              <div class="bg-white rounded-2xl p-6 border border-neutral-200">
+                <div class="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center mb-4">
+                  <i class="ti ti-brain text-2xl text-primary-500"></i>
+                </div>
+                <h5 class="mb-2">AI Texnologiyasi</h5>
+                <p class="caption text-neutral-600">
+                  Zamonaviy sun'iy intellekt algoritmlari asosida ishlab chiqilgan
+                </p>
+              </div>
+
+              <div class="bg-white rounded-2xl p-6 border border-neutral-200">
+                <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+                  <i class="ti ti-stethoscope text-2xl text-blue-500"></i>
+                </div>
+                <h5 class="mb-2">Tibbiy Standartlar</h5>
+                <p class="caption text-neutral-600">
+                  Xalqaro tibbiy standartlar va protokollarga muvofiq
+                </p>
+              </div>
+
+              <div class="bg-white rounded-2xl p-6 border border-neutral-200">
+                <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mb-4">
+                  <i class="ti ti-chart-line text-2xl text-green-500"></i>
+                </div>
+                <h5 class="mb-2">Yuqori Aniqlik</h5>
+                <p class="caption text-neutral-600">
+                  Ilmiy tadqiqotlar va klinik testlar asosida tasdiqlangan
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="animate-y delay-reset rounded-3xl lg:rounded-[40px] bg-gradient-to-br from-primary-50 to-purple-50 p-8 sm:p-10 lg:p-12 border-2 border-primary-200">
+          <div class="flex flex-col items-center gap-6 text-center">
+            <div class="w-16 h-16 bg-primary-500 rounded-2xl flex items-center justify-center">
+              <i class="ti ti-message-circle text-3xl text-white"></i>
+            </div>
+
+            <div>
+              <h3 class="mb-3">Aloqada Bo'ling</h3>
+              <p class="body1 text-neutral-700 max-w-2xl mx-auto">
+                TAMES loyihasi, ilmiy hamkorlik yoki AI-tibbiyot sohasidagi tadqiqotlar haqida
+                qo'shimcha ma'lumot olish uchun men bilan bog'laning.
+              </p>
+            </div>
+
+            <!-- Contact Info Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full max-w-3xl">
+              <a href="tel:+998998889848" class="bg-white rounded-xl p-4 hover:shadow-lg transition-all border border-neutral-200 hover:border-primary-300">
+                <i class="ti ti-phone text-2xl text-primary-500 mb-2"></i>
+                <p class="caption font-semibold text-neutral-900">Telefon</p>
+                <p class="text-xs text-neutral-600">+998 99 888-98-48</p>
+              </a>
+
+              <a href="mailto:nargizazufarova93@gmail.com" class="bg-white rounded-xl p-4 hover:shadow-lg transition-all border border-neutral-200 hover:border-primary-300">
+                <i class="ti ti-mail text-2xl text-primary-500 mb-2"></i>
+                <p class="caption font-semibold text-neutral-900">Email</p>
+                <p class="text-xs text-neutral-600">nargizazufarova93@gmail.com</p>
+              </a>
+
+              <a href="https://t.me/nnigmatovna" target="_blank" class="bg-white rounded-xl p-4 hover:shadow-lg transition-all border border-neutral-200 hover:border-primary-300">
+                <i class="ti ti-brand-telegram text-2xl text-primary-500 mb-2"></i>
+                <p class="caption font-semibold text-neutral-900">Telegram</p>
+                <p class="text-xs text-neutral-600">@nnigmatovna</p>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- [ About Author ] end -->
+
+{% endblock content %}
+
+{% block extra_js %}
+<script>
+// Smooth scroll for internal links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  });
+});
+</script>
+{% endblock extra_js %}

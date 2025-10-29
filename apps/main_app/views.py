@@ -379,3 +379,8 @@ def diagnosis_list(request):
     """Barcha tashxislar ro'yxati (Admin panel uchun)"""
     diagnoses = ThyroidDiagnosis.objects.all()[:50]
     return render(request, 'diagnosis_list.html', {'diagnoses': diagnoses})
+
+
+def about(request):
+    """Home page"""
+    return render(request, 'about.html')

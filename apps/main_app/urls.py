@@ -5,6 +5,9 @@ urlpatterns = [
     # Asosiy sahifa
     path('', views.home, name='home'),
 
+    # About
+    path('about/', views.about, name='about'),
+
     # Tashxis qo'yish
     path('diagnose/', views.diagnose_thyroid, name='diagnose'),
 
