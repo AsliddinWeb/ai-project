@@ -1,5 +1,5 @@
 import numpy as np
-import tensorflow as tf
+# import tensorflow as tf
 import cv2
 from django.shortcuts import render, get_object_or_404
 from django.http import JsonResponse, HttpResponse
@@ -10,6 +10,8 @@ from django.utils import timezone
 from django.template.loader import render_to_string
 import os
 import json
+
+import keras
 
 from .models import ThyroidDiagnosis
 
@@ -32,12 +34,12 @@ try:
 
     if os.path.exists(MODEL_PATH):
         try:
-            model = tf.keras.models.load_model(MODEL_PATH)
+            model = keras.models.load_model(MODEL_PATH)
             print(f"✅ Model yuklandi: {MODEL_PATH}")
         except ValueError as ve:
             print(f"⚠️ Model arxitektura xatoligi: {ve}")
             print("🔄 Custom loading orqali yuklashga harakat qilinmoqda...")
-            model = tf.keras.models.load_model(MODEL_PATH, compile=False)
+            model = keras.models.load_model(MODEL_PATH)
             model.compile(
                 optimizer='adam',
                 loss='binary_crossentropy',
