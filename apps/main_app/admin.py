@@ -54,7 +54,7 @@ class ThyroidDiagnosisAdmin(admin.ModelAdmin):
         (_('Rasm'), {
             'fields': ('thyroid_image', 'image_display')
         }),
-        (_('Shaxsiy Ma\'lumotlar'), {
+        (_('Shaxsiy Malumotlar'), {
             'fields': ('age', 'gender', 'country', 'ethnicity')
         }),
         (_('Tibbiy Tarix'), {
@@ -67,10 +67,10 @@ class ThyroidDiagnosisAdmin(admin.ModelAdmin):
                 'diabetes'
             )
         }),
-        (_('Laboratoriya Ko\'rsatkichlari'), {
+        (_('Laboratoriya Korsatkichlari'), {
             'fields': ('tsh_level', 't3_level', 't4_level', 'nodule_size')
         }),
-        (_('Qo\'shimcha'), {
+        (_('Qoshimcha'), {
             'fields': ('notes',),
             'classes': ('collapse',)
         }),
@@ -88,7 +88,7 @@ class ThyroidDiagnosisAdmin(admin.ModelAdmin):
         (_('Yuklab Olish'), {
             'fields': ('is_downloaded', 'download_count', 'last_downloaded_at')
         }),
-        (_('Batafsil Ma\'lumot'), {
+        (_('Batafsil Malumot'), {
             'fields': ('detailed_info',),
             'classes': ('collapse',)
         })
@@ -215,7 +215,7 @@ class ThyroidDiagnosisAdmin(admin.ModelAdmin):
             '<a href="{}" target="_blank" class="button" '
             'style="background: #3b82f6; color: white; padding: 6px 12px; '
             'border-radius: 6px; text-decoration: none; font-size: 12px;">'
-            'Ko\'rish</a>',
+            'Korish</a>',
             detail_url
         )
 
@@ -226,7 +226,7 @@ class ThyroidDiagnosisAdmin(admin.ModelAdmin):
         html = '<div style="background: #f9fafb; padding: 16px; border-radius: 8px;">'
 
         # Laboratoriya
-        html += '<h3 style="margin-top: 0;">Laboratoriya Ko\'rsatkichlari</h3>'
+        html += '<h3 style="margin-top: 0;">Laboratoriya Korsatkichlari</h3>'
         html += f'<p><strong>TSH:</strong> {obj.tsh_level} mIU/L (Normal: 0.4-4.0)</p>'
         html += f'<p><strong>T3:</strong> {obj.t3_level} ng/dL (Normal: 80-200)</p>'
         html += f'<p><strong>T4:</strong> {obj.t4_level} μg/dL (Normal: 5.0-12.0)</p>'
@@ -234,12 +234,12 @@ class ThyroidDiagnosisAdmin(admin.ModelAdmin):
 
         # Tibbiy tarix
         html += '<h3>Tibbiy Tarix</h3>'
-        html += f'<p><strong>Oilaviy tarix:</strong> {"Ha" if obj.family_history else "Yo\'q"}</p>'
-        html += f'<p><strong>Radiatsiya:</strong> {"Ha" if obj.radiation_exposure else "Yo\'q"}</p>'
-        html += f'<p><strong>Yod tanqisligi:</strong> {"Ha" if obj.iodine_deficiency else "Yo\'q"}</p>'
-        html += f'<p><strong>Chekish:</strong> {"Ha" if obj.smoking else "Yo\'q"}</p>'
-        html += f'<p><strong>Semizlik:</strong> {"Ha" if obj.obesity else "Yo\'q"}</p>'
-        html += f'<p><strong>Diabet:</strong> {"Ha" if obj.diabetes else "Yo\'q"}</p>'
+        html += f'<p><strong>Oilaviy tarix:</strong> {"Ha" if obj.family_history else "Yoq"}</p>'
+        html += f'<p><strong>Radiatsiya:</strong> {"Ha" if obj.radiation_exposure else "Yoq"}</p>'
+        html += f'<p><strong>Yod tanqisligi:</strong> {"Ha" if obj.iodine_deficiency else "Yoq"}</p>'
+        html += f'<p><strong>Chekish:</strong> {"Ha" if obj.smoking else "Yoq"}</p>'
+        html += f'<p><strong>Semizlik:</strong> {"Ha" if obj.obesity else "Yoq"}</p>'
+        html += f'<p><strong>Diabet:</strong> {"Ha" if obj.diabetes else "Yoq"}</p>'
 
         # Tavsiyalar
         if obj.recommendations:
@@ -252,7 +252,7 @@ class ThyroidDiagnosisAdmin(admin.ModelAdmin):
         html += '</div>'
         return format_html(html)
 
-    detailed_info.short_description = _('Batafsil Ma\'lumot')
+    detailed_info.short_description = _('Batafsil Malumot')
 
     def get_queryset(self, request):
         """Optimizatsiya"""
