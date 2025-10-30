@@ -167,11 +167,14 @@ class ThyroidDiagnosisAdmin(admin.ModelAdmin):
         else:
             color = '#ef4444'
 
+        # Format qilish - f-string TASHQARIDA!
+        confidence_text = f'{obj.confidence:.1f}%'
+
         return format_html(
             '<span style="background: {}; color: white; padding: 4px 12px; '
-            'border-radius: 12px; font-size: 11px; font-weight: 600;">{:.1f}%</span>',
+            'border-radius: 12px; font-size: 11px; font-weight: 600;">{}</span>',
             color,
-            obj.confidence
+            confidence_text
         )
 
     confidence_badge.short_description = _('Ishonch')
@@ -183,7 +186,7 @@ class ThyroidDiagnosisAdmin(admin.ModelAdmin):
 
         colors = {
             'Past': '#10b981',
-            "O'rta": '#f59e0b',
+            'Orta': '#f59e0b',
             'Yuqori': '#ef4444'
         }
         color = colors.get(obj.risk_level, '#6b7280')
@@ -234,12 +237,19 @@ class ThyroidDiagnosisAdmin(admin.ModelAdmin):
 
         # Tibbiy tarix
         html += '<h3>Tibbiy Tarix</h3>'
-        html += f'<p><strong>Oilaviy tarix:</strong> {"Ha" if obj.family_history else "Yoq"}</p>'
-        html += f'<p><strong>Radiatsiya:</strong> {"Ha" if obj.radiation_exposure else "Yoq"}</p>'
-        html += f'<p><strong>Yod tanqisligi:</strong> {"Ha" if obj.iodine_deficiency else "Yoq"}</p>'
-        html += f'<p><strong>Chekish:</strong> {"Ha" if obj.smoking else "Yoq"}</p>'
-        html += f'<p><strong>Semizlik:</strong> {"Ha" if obj.obesity else "Yoq"}</p>'
-        html += f'<p><strong>Diabet:</strong> {"Ha" if obj.diabetes else "Yoq"}</p>'
+        family_text = "Ha" if obj.family_history else "Yoq"
+        radiation_text = "Ha" if obj.radiation_exposure else "Yoq"
+        iodine_text = "Ha" if obj.iodine_deficiency else "Yoq"
+        smoking_text = "Ha" if obj.smoking else "Yoq"
+        obesity_text = "Ha" if obj.obesity else "Yoq"
+        diabetes_text = "Ha" if obj.diabetes else "Yoq"
+
+        html += f'<p><strong>Oilaviy tarix:</strong> {family_text}</p>'
+        html += f'<p><strong>Radiatsiya:</strong> {radiation_text}</p>'
+        html += f'<p><strong>Yod tanqisligi:</strong> {iodine_text}</p>'
+        html += f'<p><strong>Chekish:</strong> {smoking_text}</p>'
+        html += f'<p><strong>Semizlik:</strong> {obesity_text}</p>'
+        html += f'<p><strong>Diabet:</strong> {diabetes_text}</p>'
 
         # Tavsiyalar
         if obj.recommendations:
