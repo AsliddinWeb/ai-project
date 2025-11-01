@@ -247,7 +247,7 @@ class ThyroidDiagnosis(models.Model):
         ]
 
     def __str__(self):
-        return f"{self.age} yoshli {self.gender} - {self.diagnosis or 'Kutilmoqda'} ({self.created_at.strftime('%d.%m.%Y')})"
+        return f"{self.age} {_('yoshli')} {self.gender} - {self.diagnosis or _('Kutilmoqda')} ({self.created_at.strftime('%d.%m.%Y')})"
 
     def get_absolute_url(self):
         from django.urls import reverse
@@ -277,12 +277,12 @@ class ThyroidDiagnosis(models.Model):
     def age_group(self):
         """Yosh guruhi"""
         if self.age < 18:
-            return "Voyaga yetmagan"
+            return _("Voyaga yetmagan")
         elif self.age < 30:
-            return "Yosh"
+            return _("Yosh")
         elif self.age < 50:
-            return "O'rta yosh"
+            return _("O'rta yosh")
         elif self.age < 65:
-            return "Keksa"
+            return _("Keksa")
         else:
-            return "Katta yosh"
+            return _("Katta yosh")

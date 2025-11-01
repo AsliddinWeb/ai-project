@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 
 <!-- [ Nav ] start -->
 <nav class="z-50 w-full relative bg-neutral-200">
@@ -6,7 +7,7 @@
         <div class="static flex py-4 items-center justify-between">
             <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-between">
                 <div class="flex flex-1 flex-shrink-0 items-center justify-between text-primary-500">
-                    <a href="/" class="flex items-center gap-2 lg:gap-3">
+                    <a href="{% url 'home' %}" class="flex items-center gap-2 lg:gap-3">
                         <!-- [ Logo main ] start -->
                         <img
                             style="max-width: 164px;"
@@ -19,43 +20,77 @@
                 </div>
                 <div class="nav-collapse grow hidden w-full lg:flex lg:w-full flex-auto justify-center"
                      id="main-navbar-collapse">
+
                     <div class="justify-center flex flex-col lg:flex-row p-0 lg:bg-neutral-200 lg:rounded-full">
                         <a class="inline-block text-neutral-900 hover:bg-primary-500/[.04] dark:text-themedark-bodycolor rounded-full px-[18px] lg:px-6 py-3 text-[14px] font-medium transition-all leading-[1.429] open:text-primary-500 open:font-semibold"
-                           href="/">
-                            Bosh sahifa
+                           href="{% url 'home' %}">
+                            {% trans "Bosh sahifa" %}
                         </a>
 
                         <a href="/#diagnos"
                            class="inline-block text-neutral-900 hover:bg-primary-500/[.04] dark:text-themedark-bodycolor rounded-full px-[18px] lg:px-6 py-3 text-[14px] font-medium transition-all leading-[1.429] open:text-primary-500 open:font-semibold">
-                            Tashxis
+                            {% trans "Tashxis" %}
                         </a>
 
                         <a href="/#statistic"
                            class="inline-block text-neutral-900 hover:bg-primary-500/[.04] dark:text-themedark-bodycolor rounded-full px-[18px] lg:px-6 py-3 text-[14px] font-medium transition-all leading-[1.429] open:text-primary-500 open:font-semibold">
-                            Statistika
+                            {% trans "Statistika" %}
                         </a>
 
-                        <a href="/about"
+                        <a href="{% url 'about' %}"
                            class="inline-block text-neutral-900 hover:bg-primary-500/[.04] dark:text-themedark-bodycolor rounded-full px-[18px] lg:px-6 py-3 text-[14px] font-medium transition-all leading-[1.429] open:text-primary-500 open:font-semibold">
-                            Muallif
+                            {% trans "Muallif" %}
                         </a>
                     </div>
                 </div>
             </div>
             <div class="flex items-center gap-3">
+                <!-- Til almashtirgich -->
                 <div class="btn-group">
-                    <a href="/" type="button"
+                    <button type="button"
+                       class="flex items-center justify-center h-10 px-4 rounded-full btn-outline-primary dropdown-toggle"
+                       data-pc-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="ti ti-language text-lg leading-none mr-2"></i>
+                        {% get_current_language as LANGUAGE_CODE %}
+                        {% if LANGUAGE_CODE == 'uz' %}
+                            O'zbekcha
+                        {% elif LANGUAGE_CODE == 'ru' %}
+                            Русский
+                        {% elif LANGUAGE_CODE == 'en' %}
+                            English
+                        {% endif %}
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-end leading-none !mt-2">
+                        <form action="{% url 'set_language' %}" method="post" style="margin: 0;">
+                            {% csrf_token %}
+                            <input name="next" type="hidden" value="{{ request.path }}" />
+
+                            <button type="submit" name="language" value="uz" class="dropdown-item">
+                                <i class="ti ti-flag mr-2"></i> O'zbekcha
+                            </button>
+                            <button type="submit" name="language" value="ru" class="dropdown-item">
+                                <i class="ti ti-flag mr-2"></i> Русский
+                            </button>
+                            <button type="submit" name="language" value="en" class="dropdown-item">
+                                <i class="ti ti-flag mr-2"></i> English
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="btn-group">
+                    <button type="button"
                        class="flex items-center justify-center h-10 w-10 rounded-full btn-outline-primary dropdown-toggle arrow-none p-[9px_24px]"
-                       type="button" data-pc-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                       data-pc-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="ti ti-settings text-lg leading-none"></i>
-                    </a>
+                    </button>
                     <div class="dropdown-menu dropdown-menu-end leading-none !mt-2">
                         <div class="dropdown-item !bg-transparent">
                             <label class="flex items-center gap-3 flex-1" for="theme-setup-dark">
                                 <div class="shrink-0">
                                     <i class="ti ti-sun-moon !text-2xl !leading-none"></i>
                                 </div>
-                                <div class="grow text-base leading-none" for="theme-setup-dark">Tungi</div>
+                                <div class="grow text-base leading-none" for="theme-setup-dark">{% trans "Tungi" %}</div>
                                 <div class="shrink-0">
                                     <div class="form-check form-switch custom-switch-v1 !inline-flex !m-0">
                                         <input type="checkbox" class="form-check-input input-primary"
@@ -67,7 +102,7 @@
                     </div>
                 </div>
                 <a href="https://t.me/nnigmatovna"
-                   class="btn-primary btn max-sm:hidden">Bog'lanish</a>
+                   class="btn-primary btn max-sm:hidden">{% trans "Bog'lanish" %}</a>
             </div>
             <button data-pc-toggle="nav-collapse" type="button" data-pc-target="#main-navbar-collapse"
                     class="inline-flex ltr:ml-2 rtl:mr-2 items-center p-2 w-10 h-10 justify-center text-sm text-neutral-900 rounded-full lg:hidden hover:bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-neutral-200  dark:focus:ring-gray-600">

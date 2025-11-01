@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block content %}
 
@@ -10,17 +11,17 @@
       <div class="flex flex-col items-center gap-3">
         <!-- Badge -->
         <div class="animate-y delay-reset py-3 px-6 text-theme-textsecondary caption rounded-full border border-theme-divider">
-          <p class="body1">✦&nbsp;&nbsp; Tashxis Tayyor &nbsp;&nbsp;✦</p>
+          <p class="body1">✦&nbsp;&nbsp; {% trans "Tashxis Tayyor" %} &nbsp;&nbsp;✦</p>
         </div>
 
         <!-- Title -->
         <h1 class="animate-y max-w-[800px] text-center">
-          Tibbiy Xulosa
+          {% trans "Tibbiy Xulosa" %}
         </h1>
 
         <!-- Subtitle -->
         <p class="animate-y h5 text-theme-text-secondary max-w-[620px] text-center">
-          Sun'iy intellekt yordamida tayyorlangan batafsil tahlil natijasi
+          {% trans "Sun'iy intellekt yordamida tayyorlangan batafsil tahlil natijasi" %}
         </p>
 
         <!-- UUID Badge -->
@@ -28,7 +29,7 @@
         <div class="animate-y flex items-center gap-2 px-4 py-2 bg-neutral-100 rounded-lg border border-neutral-200 mt-3">
           <i class="ti ti-fingerprint text-primary-500"></i>
           <div class="text-left">
-            <p class="caption text-neutral-600">Tashxis ID</p>
+            <p class="caption text-neutral-600">{% trans "Tashxis ID" %}</p>
             <p class="body2 font-mono font-semibold">{{ uuid|slice:":8" }}...{{ uuid|slice:"-4:" }}</p>
           </div>
         </div>
@@ -56,7 +57,7 @@
             {% else %}bg-red-500{% endif %} text-white">
             <i class="ti ti-award text-2xl"></i>
             <div>
-              <p class="caption opacity-90">Ishonch darajasi</p>
+              <p class="caption opacity-90">{% trans "Ishonch darajasi" %}</p>
               <p class="h5 font-bold">{{ confidence }}%</p>
             </div>
           </div>
@@ -93,7 +94,7 @@
               <div class="w-2 h-2 rounded-full animate-pulse {% if diagnosis_class == 'success' %}bg-green-500{% elif diagnosis_class == 'warning' %}bg-yellow-500{% else %}bg-red-500{% endif %}" style="animation-delay: 0.2s;"></div>
               <div class="w-2 h-2 rounded-full animate-pulse {% if diagnosis_class == 'success' %}bg-green-500{% elif diagnosis_class == 'warning' %}bg-yellow-500{% else %}bg-red-500{% endif %}" style="animation-delay: 0.4s;"></div>
             </div>
-            <span class="subtitle1">Xavf: {{ risk_level }}</span>
+            <span class="subtitle1">{% trans "Xavf" %}: {{ risk_level }}</span>
           </div>
         </div>
       </div>
@@ -109,11 +110,11 @@
     <div class="text-center mb-8 sm:mb-10">
       <div class="animate-y inline-flex items-center gap-2 px-4 py-2 bg-primary-50 rounded-full mb-4">
         <i class="ti ti-user-scan text-primary-500"></i>
-        <span class="caption text-primary-600">Bemor Ma'lumotlari</span>
+        <span class="caption text-primary-600">{% trans "Bemor Ma'lumotlari" %}</span>
       </div>
-      <h2 class="animate-y">Tibbiy Ko'rsatkichlar</h2>
+      <h2 class="animate-y">{% trans "Tibbiy Ko'rsatkichlar" %}</h2>
       <p class="animate-y h6 text-theme-text-secondary max-w-2xl mx-auto mt-3">
-        Tahlil uchun kiritilgan barcha laboratoriya va klinik ma'lumotlar
+        {% trans "Tahlil uchun kiritilgan barcha laboratoriya va klinik ma'lumotlar" %}
       </p>
     </div>
 
@@ -128,7 +129,7 @@
                 <i class="ti ti-user text-blue-600"></i>
               </div>
               <div class="flex flex-col gap-1 grow">
-                <h5 class="text-theme-text-secondary">Yoshi</h5>
+                <h5 class="text-theme-text-secondary">{% trans "Yoshi" %}</h5>
                 <div class="w-full bg-neutral-300 rounded-lg h-[6px]">
                   <div class="bg-primary-500 h-full rounded-lg" style="width: {{ patient_data.age }}%"></div>
                 </div>
@@ -136,7 +137,7 @@
             </div>
             <div class="flex flex-row items-end">
               <div class="h2">{{ patient_data.age }}</div>
-              <div class="h4 text-theme-text-secondary mb-1">yosh</div>
+              <div class="h4 text-theme-text-secondary mb-1">{% trans "yosh" %}</div>
             </div>
           </div>
 
@@ -147,7 +148,7 @@
                 <i class="ti ti-gender-bigender text-purple-600"></i>
               </div>
               <div class="flex flex-col gap-1 grow">
-                <h5 class="text-theme-text-secondary">Jinsi</h5>
+                <h5 class="text-theme-text-secondary">{% trans "Jinsi" %}</h5>
               </div>
             </div>
             <div class="h3">{{ patient_data.gender }}</div>
@@ -160,7 +161,7 @@
                 <i class="ti ti-flask text-green-600"></i>
               </div>
               <div class="flex flex-col gap-1 grow">
-                <h5 class="text-theme-text-secondary">TSH Darajasi (0.4-4.0 mIU/L)</h5>
+                <h5 class="text-theme-text-secondary">{% trans "TSH Darajasi" %} (0.4-4.0 mIU/L)</h5>
                 <div class="w-full bg-neutral-300 rounded-lg h-[6px]">
                   <div class="bg-primary-500 h-full rounded-lg" style="width: {% widthratio patient_data.tsh 4 100 %}%"></div>
                 </div>
@@ -179,7 +180,7 @@
                 <i class="ti ti-test-pipe text-yellow-600"></i>
               </div>
               <div class="flex flex-col gap-1 grow">
-                <h5 class="text-theme-text-secondary">T3 Darajasi (80-200 ng/dL)</h5>
+                <h5 class="text-theme-text-secondary">{% trans "T3 Darajasi" %} (80-200 ng/dL)</h5>
                 <div class="w-full bg-neutral-300 rounded-lg h-[6px]">
                   <div class="bg-primary-500 h-full rounded-lg" style="width: {% widthratio patient_data.t3 200 100 %}%"></div>
                 </div>
@@ -198,7 +199,7 @@
                 <i class="ti ti-droplet text-cyan-600"></i>
               </div>
               <div class="flex flex-col gap-1 grow">
-                <h5 class="text-theme-text-secondary">T4 Darajasi (5.0-12.0 μg/dL)</h5>
+                <h5 class="text-theme-text-secondary">{% trans "T4 Darajasi" %} (5.0-12.0 μg/dL)</h5>
                 <div class="w-full bg-neutral-300 rounded-lg h-[6px]">
                   <div class="bg-primary-500 h-full rounded-lg" style="width: {% widthratio patient_data.t4 12 100 %}%"></div>
                 </div>
@@ -217,7 +218,7 @@
                 <i class="ti ti-circle-dot text-red-600"></i>
               </div>
               <div class="flex flex-col gap-1 grow">
-                <h5 class="text-theme-text-secondary">Tugun O'lchami</h5>
+                <h5 class="text-theme-text-secondary">{% trans "Tugun O'lchami" %}</h5>
                 <div class="w-full bg-neutral-300 rounded-lg h-[6px]">
                   <div class="bg-primary-500 h-full rounded-lg" style="width: {% widthratio patient_data.nodule_size 3 100 %}%"></div>
                 </div>
@@ -225,7 +226,7 @@
             </div>
             <div class="flex flex-row items-end">
               <div class="h2">{{ patient_data.nodule_size }}</div>
-              <div class="h4 text-theme-text-secondary mb-1">sm</div>
+              <div class="h4 text-theme-text-secondary mb-1">{% trans "sm" %}</div>
             </div>
           </div>
         </div>
@@ -242,11 +243,11 @@
     <div class="text-center mb-8 sm:mb-10">
       <div class="animate-y inline-flex items-center gap-2 px-4 py-2 bg-primary-50 rounded-full mb-4">
         <i class="ti ti-stethoscope text-primary-500"></i>
-        <span class="caption text-primary-600">Tibbiy Tavsiyalar</span>
+        <span class="caption text-primary-600">{% trans "Tibbiy Tavsiyalar" %}</span>
       </div>
-      <h2 class="animate-y">Mutaxassis Maslahatlari</h2>
+      <h2 class="animate-y">{% trans "Mutaxassis Maslahatlari" %}</h2>
       <p class="animate-y h6 text-theme-text-secondary max-w-2xl mx-auto mt-3">
-        Profesional shifokorlar tomonidan tavsiya etilgan harakatlar rejasi
+        {% trans "Profesional shifokorlar tomonidan tavsiya etilgan harakatlar rejasi" %}
       </p>
     </div>
 
@@ -284,10 +285,9 @@
 
           <div class="flex-1 space-y-6">
             <div>
-              <h3 class="text-yellow-900 mb-3">Muhim Tibbiy Ogohlantirish</h3>
+              <h3 class="text-yellow-900 mb-3">{% trans "Muhim Tibbiy Ogohlantirish" %}</h3>
               <p class="body1 text-yellow-800">
-                Bu natija faqat sun'iy intellekt yordamida berilgan dastlabki tashxis hisoblanadi.
-                Aniq tashxis va to'g'ri davolanish uchun malakali shifokor bilan shaxsiy maslahatlashish majburiy!
+                {% trans "Bu natija faqat sun'iy intellekt yordamida berilgan dastlabki tashxis hisoblanadi. Aniq tashxis va to'g'ri davolanish uchun malakali shifokor bilan shaxsiy maslahatlashish majburiy!" %}
               </p>
             </div>
 
@@ -298,8 +298,8 @@
                     <i class="ti ti-user-check text-yellow-600"></i>
                   </div>
                   <div>
-                    <p class="subtitle1 mb-1">Professional Ko'rik</p>
-                    <p class="caption text-neutral-600">Endokrinolog yoki onkolog bilan uchrashing</p>
+                    <p class="subtitle1 mb-1">{% trans "Professional Ko'rik" %}</p>
+                    <p class="caption text-neutral-600">{% trans "Endokrinolog yoki onkolog bilan uchrashing" %}</p>
                   </div>
                 </div>
               </div>
@@ -310,8 +310,8 @@
                     <i class="ti ti-test-pipe text-yellow-600"></i>
                   </div>
                   <div>
-                    <p class="subtitle1 mb-1">Qo'shimcha Tahlillar</p>
-                    <p class="caption text-neutral-600">Laboratoriya va instrumental tekshiruvlar</p>
+                    <p class="subtitle1 mb-1">{% trans "Qo'shimcha Tahlillar" %}</p>
+                    <p class="caption text-neutral-600">{% trans "Laboratoriya va instrumental tekshiruvlar" %}</p>
                   </div>
                 </div>
               </div>
@@ -331,21 +331,21 @@
       <div class="p-8 sm:p-10 md:p-12">
         <!-- Buttons -->
         <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-          <a href="/" class="btn btn-primary btn-lg">
+          <a href="{% url 'home' %}" class="btn btn-primary btn-lg">
             <i class="ti ti-home"></i>
-            <span>Bosh Sahifa</span>
+            <span>{% trans "Bosh sahifa" %}</span>
           </a>
 
           {% if uuid %}
           <a href="{% url 'download_diagnosis' uuid=uuid %}" class="btn btn-outline-primary btn-lg">
             <i class="ti ti-download"></i>
-            <span>Xulosani Yuklab Olish</span>
+            <span>{% trans "Xulosani Yuklab Olish" %}</span>
           </a>
           {% endif %}
 
           <a href="/#diagnos" class="btn btn-outline-primary btn-lg">
             <i class="ti ti-reload"></i>
-            <span>Yangi Tashxis</span>
+            <span>{% trans "Yangi Tashxis" %}</span>
           </a>
         </div>
 
@@ -355,7 +355,7 @@
             <div class="flex items-center gap-2">
               <i class="ti ti-calendar text-primary-500"></i>
               <p class="caption text-theme-text-secondary">
-                Tahlil sanasi: <span class="font-medium">{% if created_at %}{{ created_at|date:"d.m.Y H:i" }}{% else %}{{ "now"|date:"d.m.Y H:i" }}{% endif %}</span>
+                {% trans "Tahlil sanasi" %}: <span class="font-medium">{% if created_at %}{{ created_at|date:"d.m.Y H:i" }}{% else %}{{ "now"|date:"d.m.Y H:i" }}{% endif %}</span>
               </p>
             </div>
             <div class="flex items-center gap-2">

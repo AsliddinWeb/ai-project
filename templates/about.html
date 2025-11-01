@@ -1,17 +1,18 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block content %}
   <!-- [ breadcrumb ] start -->
   <div class="py-6 md:py-16 sm:py-10 [background-image:var(--breadcrumb-bg)] dark:[background-image:var(--breadcrumb-bg-dark)] bg-[length:30px_30px] bg-neutral-100 rounded-b-3xl sm:rounded-b-[40px]">
     <div class="text-center container flex flex-col items-center gap-4">
       <ul class="breadcrumb justify-center bg-neutral-100 border border-theme-divider rounded-full px-3 py-2">
-        <li class="breadcrumb-item"><a href="/">Bosh Sahifa</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Muallif Haqida</li>
+        <li class="breadcrumb-item"><a href="{% url 'home' %}">{% trans "Bosh sahifa" %}</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{% trans "Muallif Haqida" %}</li>
       </ul>
 
       <div class="page-header-title font-archivo w-[345px] sm:w-[550px] md:w-[700px]">
-        <h1 class="mb-0">TAMES Loyihasi Muallifi ✦</h1>
+        <h1 class="mb-0">{% trans "TAMES Loyihasi Muallifi" %} ✦</h1>
       </div>
 
       <div class="text-primary-500 py-[4.6px] lg:py-[7px]">
@@ -43,7 +44,7 @@
               </div>
               <div class="text-center">
                 <h3 class="mb-2">Zufarova Nargiza</h3>
-                <p class="body1 text-primary-600 font-semibold">PhD Doktorant, AI Tadqiqotchisi</p>
+                <p class="body1 text-primary-600 font-semibold">{% trans "PhD Doktorant, AI Tadqiqotchisi" %}</p>
               </div>
             </div>
           </div>
@@ -56,16 +57,13 @@
               <div class="flex flex-col gap-4">
                 <div class="inline-flex items-center gap-2 px-4 py-2 bg-primary-50 rounded-full w-fit">
                   <i class="ti ti-sparkles text-primary-500"></i>
-                  <span class="caption font-semibold text-primary-600">TAMES Loyihasi Muallifi</span>
+                  <span class="caption font-semibold text-primary-600">{% trans "TAMES Loyihasi Muallifi" %}</span>
                 </div>
 
                 <h2>Thyroid-AI Malignancy Evaluation System</h2>
 
                 <p class="body1 text-neutral-700 leading-relaxed">
-                  Qalqonsimon bez xavfli o'smalari (malignant tugunlar)ni sun'iy intellekt yordamida
-                  baholash tizimini ishlab chiqish bo'yicha tadqiqot ishlarini olib bormoqdaman.
-                  TAMES loyihasi zamonaviy AI texnologiyalari va tibbiy diagnostika sohasidagi
-                  ilmiy tadqiqotlar asosida yaratilgan.
+                  {% trans "Qalqonsimon bez xavfli o'smalari (malignant tugunlar)ni sun'iy intellekt yordamida baholash tizimini ishlab chiqish bo'yicha tadqiqot ishlarini olib bormoqdaman. TAMES loyihasi zamonaviy AI texnologiyalari va tibbiy diagnostika sohasidagi ilmiy tadqiqotlar asosida yaratilgan." %}
                 </p>
               </div>
 
@@ -78,10 +76,9 @@
                       <i class="ti ti-school text-2xl text-primary-500"></i>
                     </div>
                     <div class="flex-1">
-                      <h5 class="mb-2">Ta'lim</h5>
+                      <h5 class="mb-2">{% trans "Ta'lim" %}</h5>
                       <p class="caption text-neutral-600">
-                        PhD Doktorant - Muhammad al-Xorazmiy nomidagi
-                        Toshkent Axborot Texnologiyalari Universiteti
+                        {% trans "PhD Doktorant - Muhammad al-Xorazmiy nomidagi Toshkent Axborot Texnologiyalari Universiteti" %}
                       </p>
                     </div>
                   </div>
@@ -94,9 +91,9 @@
                       <i class="ti ti-briefcase text-2xl text-blue-500"></i>
                     </div>
                     <div class="flex-1">
-                      <h5 class="mb-2">Ish Tajribasi</h5>
+                      <h5 class="mb-2">{% trans "Ish Tajribasi" %}</h5>
                       <p class="caption text-neutral-600">
-                        "O'zbektelekom" AK - 10 yildan ortiq tajriba
+                        {% trans "O'zbektelekom AK - 10 yildan ortiq tajriba" %}
                       </p>
                     </div>
                   </div>
@@ -109,11 +106,11 @@
                       <i class="ti ti-language text-2xl text-green-500"></i>
                     </div>
                     <div class="flex-1">
-                      <h5 class="mb-2">Tillar</h5>
+                      <h5 class="mb-2">{% trans "Tillar" %}</h5>
                       <p class="caption text-neutral-600">
-                        O'zbek tili (ona tili)<br>
-                        Rus tili (yaxshi)<br>
-                        Ingliz tili (yaxshi)
+                        {% trans "O'zbek tili (ona tili)" %}<br>
+                        {% trans "Rus tili (yaxshi)" %}<br>
+                        {% trans "Ingliz tili (yaxshi)" %}
                       </p>
                     </div>
                   </div>
@@ -126,9 +123,9 @@
                       <i class="ti ti-home-heart text-2xl text-pink-500"></i>
                     </div>
                     <div class="flex-1">
-                      <h5 class="mb-2">Oila</h5>
+                      <h5 class="mb-2">{% trans "Oila" %}</h5>
                       <p class="caption text-neutral-600">
-                        Oilali, 2 ta farzandli
+                        {% trans "Oilali, 2 ta farzandli" %}
                       </p>
                     </div>
                   </div>
@@ -160,13 +157,11 @@
             <div class="text-center">
               <div class="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full mb-4">
                 <i class="ti ti-target text-primary-500"></i>
-                <span class="caption font-semibold text-neutral-700">Tadqiqot Yo'nalishi</span>
+                <span class="caption font-semibold text-neutral-700">{% trans "Tadqiqot Yo'nalishi" %}</span>
               </div>
-              <h3 class="mb-3">TAMES Loyihasi Haqida</h3>
+              <h3 class="mb-3">{% trans "TAMES Loyihasi Haqida" %}</h3>
               <p class="body1 text-neutral-600 max-w-3xl mx-auto">
-                Thyroid-AI Malignancy Evaluation System (TAMES) - bu qalqonsimon bez xavfli
-                o'smalari (malignant nodules)ni aniqlash va baholashda sun'iy intellekt
-                texnologiyalaridan foydalanuvchi innovatsion tizim.
+                {% trans "Thyroid-AI Malignancy Evaluation System (TAMES) - bu qalqonsimon bez xavfli o'smalari (malignant nodules)ni aniqlash va baholashda sun'iy intellekt texnologiyalaridan foydalanuvchi innovatsion tizim." %}
               </p>
             </div>
 
@@ -176,9 +171,9 @@
                 <div class="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center mb-4">
                   <i class="ti ti-brain text-2xl text-primary-500"></i>
                 </div>
-                <h5 class="mb-2">AI Texnologiyasi</h5>
+                <h5 class="mb-2">{% trans "AI Texnologiyasi" %}</h5>
                 <p class="caption text-neutral-600">
-                  Zamonaviy sun'iy intellekt algoritmlari asosida ishlab chiqilgan
+                  {% trans "Zamonaviy sun'iy intellekt algoritmlari asosida ishlab chiqilgan" %}
                 </p>
               </div>
 
@@ -186,9 +181,9 @@
                 <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
                   <i class="ti ti-stethoscope text-2xl text-blue-500"></i>
                 </div>
-                <h5 class="mb-2">Tibbiy Standartlar</h5>
+                <h5 class="mb-2">{% trans "Tibbiy Standartlar" %}</h5>
                 <p class="caption text-neutral-600">
-                  Xalqaro tibbiy standartlar va protokollarga muvofiq
+                  {% trans "Xalqaro tibbiy standartlar va protokollarga muvofiq" %}
                 </p>
               </div>
 
@@ -196,9 +191,9 @@
                 <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mb-4">
                   <i class="ti ti-chart-line text-2xl text-green-500"></i>
                 </div>
-                <h5 class="mb-2">Yuqori Aniqlik</h5>
+                <h5 class="mb-2">{% trans "Yuqori Aniqlik" %}</h5>
                 <p class="caption text-neutral-600">
-                  Ilmiy tadqiqotlar va klinik testlar asosida tasdiqlangan
+                  {% trans "Ilmiy tadqiqotlar va klinik testlar asosida tasdiqlangan" %}
                 </p>
               </div>
             </div>
@@ -213,10 +208,9 @@
             </div>
 
             <div>
-              <h3 class="mb-3">Aloqada Bo'ling</h3>
+              <h3 class="mb-3">{% trans "Aloqada Bo'ling" %}</h3>
               <p class="body1 text-neutral-700 max-w-2xl mx-auto">
-                TAMES loyihasi, ilmiy hamkorlik yoki AI-tibbiyot sohasidagi tadqiqotlar haqida
-                qo'shimcha ma'lumot olish uchun men bilan bog'laning.
+                {% trans "TAMES loyihasi, ilmiy hamkorlik yoki AI-tibbiyot sohasidagi tadqiqotlar haqida qo'shimcha ma'lumot olish uchun men bilan bog'laning." %}
               </p>
             </div>
 
@@ -224,7 +218,7 @@
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full max-w-3xl">
               <a href="tel:+998998889848" class="bg-white rounded-xl p-4 hover:shadow-lg transition-all border border-neutral-200 hover:border-primary-300">
                 <i class="ti ti-phone text-2xl text-primary-500 mb-2"></i>
-                <p class="caption font-semibold text-neutral-900">Telefon</p>
+                <p class="caption font-semibold text-neutral-900">{% trans "Telefon" %}</p>
                 <p class="text-xs text-neutral-600">+998 99 888-98-48</p>
               </a>
 

@@ -1,7 +1,7 @@
 from pathlib import Path
-
 import os
 from dotenv import load_dotenv
+from django.utils.translation import gettext_lazy as _
 
 # Load env
 load_dotenv()
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',  # Ko'p tillik uchun
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -53,9 +54,11 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
+                'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.i18n',  # Ko'p tillik uchun
             ],
         },
     },
@@ -81,15 +84,25 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# Internationalization
+# Internationalization (Ko'p tillik sozlamalari)
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
-LANGUAGE_CODE = 'uz'
+LANGUAGE_CODE = 'uz'  # Default til
+
+LANGUAGES = [
+    ('uz', _('Oʻzbekcha')),
+    ('ru', _('Русский')),
+    ('en', _('English')),
+]
+
+LOCALE_PATHS = [
+    BASE_DIR / '../locale',
+]
 
 TIME_ZONE = 'Asia/Tashkent'
 
 USE_I18N = True
-
+USE_L10N = True
 USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)

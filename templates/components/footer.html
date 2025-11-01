@@ -1,3 +1,5 @@
+{% load i18n %}
+
 <!-- [ Footer ] start -->
 <section class="common-section">
   <div class="container">
@@ -18,30 +20,48 @@
                     </svg>
                     <h3 class="text-2xl font-bold text-neutral-900">TAMES.UZ</h3>
                   </div>
-                  <p class="body2 max-w-[280px]">Thyroid-AI Malignancy Evaluation System - Qalqonsimon bez xavfli o'smalari AI-asosli baholash tizimi</p>
+                  <p class="body2 max-w-[280px]">{% trans "Thyroid-AI Malignancy Evaluation System - Qalqonsimon bez xavfli o'smalari AI-asosli baholash tizimi" %}</p>
                 </div>
 
                 <!-- Language Selector -->
                 <div class="btn-group">
                   <button class="btn btn-outline-primary dropdown-toggle arrow-none w-full" type="button"
                     data-pc-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    O'zbek
+                    {% get_current_language as LANGUAGE_CODE %}
+                    {% if LANGUAGE_CODE == 'uz' %}
+                        O'zbek
+                    {% elif LANGUAGE_CODE == 'ru' %}
+                        Русский
+                    {% elif LANGUAGE_CODE == 'en' %}
+                        English
+                    {% endif %}
                     <i class="ti ti-chevron-down"></i>
                   </button>
                   <div class="dropdown-menu dropdown-center overflow-hidden border border-neutral-200">
-                    <a class="dropdown-item subtitle1 active" href="#!">O'zbek (Uz)</a>
-                    <a class="dropdown-item subtitle1" href="#!">Русский (Ру)</a>
-                    <a class="dropdown-item subtitle1" href="#!">English (En)</a>
+                    <form action="{% url 'set_language' %}" method="post" style="margin: 0;">
+                        {% csrf_token %}
+                        <input name="next" type="hidden" value="{{ request.path }}" />
+
+                        <button type="submit" name="language" value="uz" class="dropdown-item subtitle1 {% if LANGUAGE_CODE == 'uz' %}active{% endif %}">
+                            O'zbek (Uz)
+                        </button>
+                        <button type="submit" name="language" value="ru" class="dropdown-item subtitle1 {% if LANGUAGE_CODE == 'ru' %}active{% endif %}">
+                            Русский (Ру)
+                        </button>
+                        <button type="submit" name="language" value="en" class="dropdown-item subtitle1 {% if LANGUAGE_CODE == 'en' %}active{% endif %}">
+                            English (En)
+                        </button>
+                    </form>
                   </div>
                 </div>
 
                 <!-- Social Links -->
                 <div class="flex flex-col gap-4 max-md:text-center">
-                  <h4>Biz bilan bog'laning</h4>
+                  <h4>{% trans "Biz bilan bog'laning" %}</h4>
                   <div class="flex flex-row flex-wrap gap-1 text-2xl leading-none *:flex *:items-center *:justify-center sm:gap-3 *:w-10 sm:*:w-[52px] md:*:w-14 *:h-10 sm:*:h-[52px] md:*:h-14 *:rounded-xl *:text-primary-500 *:bg-neutral-200 *:hover:bg-neutral-300 *:transition-all *:duration-500">
                     <a href="https://t.me/nnigmatovna" target="_blank" title="Telegram"><i class="ti ti-brand-telegram"></i></a>
                     <a href="mailto:nargizazufarova93@gmail.com" target="_blank" title="Email"><i class="ti ti-mail"></i></a>
-                    <a href="tel:+998998889848" target="_blank" title="Telefon"><i class="ti ti-phone"></i></a>
+                    <a href="tel:+998998889848" target="_blank" title="{% trans 'Telefon' %}"><i class="ti ti-phone"></i></a>
                     <a href="https://tames.uz" target="_blank" title="Website"><i class="ti ti-world"></i></a>
                   </div>
 
@@ -71,12 +91,12 @@
                 <!-- Services Column -->
                 <div class="basis-full sm:basis-auto">
                   <div class="flex flex-col md:gap-6 items-start">
-                    <h4>Xizmatlar</h4>
+                    <h4>{% trans "Xizmatlar" %}</h4>
                     <ul class="*:*:min-h-9 sm:*:*:min-h-10 *:*:py-1.5 *:*:flex *:*:items-center max-sm:caption2 caption1 py-2 *:*:text-neutral-800 *:*:hover:text-primary-500 *:*:transition-all *:*:duration-500">
-                      <li><a href="/#diagnos">AI Diagnostika</a></li>
-                      <li><a href="/#xususiyatlar">Xususiyatlar</a></li>
-                      <li><a href="/#about">Loyiha Haqida</a></li>
-                      <li><a href="/#results">Natijalar</a></li>
+                      <li><a href="/#diagnos">{% trans "AI Diagnostika" %}</a></li>
+                      <li><a href="/#xususiyatlar">{% trans "Xususiyatlar" %}</a></li>
+                      <li><a href="/#about">{% trans "Loyiha Haqida" %}</a></li>
+                      <li><a href="/#results">{% trans "Natijalar" %}</a></li>
                     </ul>
                   </div>
                 </div>
@@ -84,12 +104,12 @@
                 <!-- Help Column -->
                 <div class="basis-5/12 sm:basis-auto">
                   <div class="flex flex-col md:gap-6 items-start">
-                    <h4>Ma'lumot</h4>
+                    <h4>{% trans "Ma'lumot" %}</h4>
                     <ul class="*:*:min-h-9 sm:*:*:min-h-10 *:*:py-1.5 *:*:flex *:*:items-center max-sm:caption2 caption1 py-2 *:*:text-neutral-800 *:*:hover:text-primary-500 *:*:transition-all *:*:duration-500">
-                      <li><a href="#faq">Ko'p So'raladigan Savollar</a></li>
-                      <li><a href="#guide">Qo'llanma</a></li>
-                      <li><a href="#privacy">Maxfiylik</a></li>
-                      <li><a href="mailto:nargizazufarova93@gmail.com">Aloqa</a></li>
+                      <li><a href="#faq">{% trans "Ko'p So'raladigan Savollar" %}</a></li>
+                      <li><a href="#guide">{% trans "Qo'llanma" %}</a></li>
+                      <li><a href="#privacy">{% trans "Maxfiylik" %}</a></li>
+                      <li><a href="mailto:nargizazufarova93@gmail.com">{% trans "Aloqa" %}</a></li>
                     </ul>
                   </div>
                 </div>
@@ -97,7 +117,7 @@
                 <!-- Company Column -->
                 <div class="basis-6/12 sm:basis-auto">
                   <div class="flex flex-col md:gap-6 items-start">
-                    <h4>Muallif</h4>
+                    <h4>{% trans "Muallif" %}</h4>
                     <ul class="*:*:min-h-9 sm:*:*:min-h-10 *:*:py-1.5 *:*:flex *:*:items-center max-sm:caption2 caption1 py-2 *:*:text-neutral-800 *:*:hover:text-primary-500 *:*:transition-all *:*:duration-500">
                       <li><a href="https://t.me/nnigmatovna" target="_blank">Telegram: @nnigmatovna</a></li>
                       <li><a href="mailto:nargizazufarova93@gmail.com">Email</a></li>
@@ -117,11 +137,11 @@
             <span class="caption2">© 2025 TAMES. Thyroid-AI Malignancy Evaluation System</span>
             <div class="border-t sm:border-t-0 sm:border-l border-theme-divider self-stretch h-auto"></div>
             <div class="flex flex-col sm:flex-row items-center caption justify-center md:justify-end gap-3 text-neutral-800">
-              <a href="#privacy" class="hover:text-primary-500 hover:underline">Maxfiylik Siyosati</a>
+              <a href="#privacy" class="hover:text-primary-500 hover:underline">{% trans "Maxfiylik Siyosati" %}</a>
               <div class="border-t sm:border-t-0 sm:border-l border-theme-divider self-stretch h-auto"></div>
-              <a href="#terms" class="hover:text-primary-500 hover:underline">Foydalanish Shartlari</a>
+              <a href="#terms" class="hover:text-primary-500 hover:underline">{% trans "Foydalanish Shartlari" %}</a>
               <div class="border-t sm:border-t-0 sm:border-l border-theme-divider self-stretch h-auto"></div>
-              <span class="text-neutral-600">Muallif: Zufarova N.</span>
+              <span class="text-neutral-600">{% trans "Muallif" %}: Zufarova N.</span>
             </div>
           </div>
         </div>

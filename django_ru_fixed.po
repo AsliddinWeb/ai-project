@@ -1,0 +1,314 @@
+# Russian translation
+# Copyright (C) 2025
+# This file is distributed under the same license as the Django project.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-01 12:00+0500\n"
+"PO-Revision-Date: 2025-11-01 12:00+0500\n"
+"Last-Translator: Admin <admin@example.com>\n"
+"Language-Team: Russian <ru@li.org>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+msgid "Oʻzbekcha"
+msgstr "Узбекский"
+
+msgid "Русский"
+msgstr "Русский"
+
+msgid "English"
+msgstr "Английский"
+
+msgid "Bosh sahifa"
+msgstr "Главная"
+
+msgid "Biz haqimizda"
+msgstr "О нас"
+
+msgid "Tashxis qo'yish"
+msgstr "Диагностика"
+
+msgid "AI Tashxis Tizimi"
+msgstr "Система AI Диагностики"
+
+msgid "Sun'iy Intellekt yordamida Qalqonsimon Bez Tashxisi"
+msgstr "Диагностика щитовидной железы с помощью искусственного интеллекта"
+
+msgid "Ultratovush rasmini yuklang va daqiqalar ichida natija oling"
+msgstr "Загрузите УЗИ изображение и получите результат за несколько минут"
+
+msgid "Hoziroq boshlash"
+msgstr "Начать сейчас"
+
+msgid "Afzalliklar"
+msgstr "Преимущества"
+
+msgid "AI Texnologiyasi"
+msgstr "AI Технология"
+
+msgid "Zamonaviy sun'iy intellekt yordamida aniq tashxis"
+msgstr "Точная диагностика с помощью современного искусственного интеллекта"
+
+msgid "Tez Natija"
+msgstr "Быстрый результат"
+
+msgid "Bir necha daqiqa ichida to'liq hisobot"
+msgstr "Полный отчет за несколько минут"
+
+msgid "Xavfsizlik"
+msgstr "Безопасность"
+
+msgid "Ma'lumotlaringiz to'liq himoyalangan"
+msgstr "Ваши данные полностью защищены"
+
+msgid "Qanday ishlaydi?"
+msgstr "Как это работает?"
+
+msgid "Rasm yuklang"
+msgstr "Загрузите изображение"
+
+msgid "Ultratovush rasmini tizimga yuklang"
+msgstr "Загрузите УЗИ изображение в систему"
+
+msgid "Ma'lumotlarni kiriting"
+msgstr "Введите данные"
+
+msgid "Tibbiy ma'lumotlarni to'ldiring"
+msgstr "Заполните медицинские данные"
+
+msgid "Natijani oling"
+msgstr "Получите результат"
+
+msgid "AI tahlilini va tavsiyalarni ko'ring"
+msgstr "Просмотрите AI анализ и рекомендации"
+
+msgid "Barcha huquqlar himoyalangan"
+msgstr "Все права защищены"
+
+msgid "Identifikator"
+msgstr "Идентификатор"
+
+msgid "Ultratovush rasmi"
+msgstr "УЗИ изображение"
+
+msgid "Qalqonsimon bez ultratovush rasmi"
+msgstr "УЗИ изображение щитовидной железы"
+
+msgid "Yosh"
+msgstr "Возраст"
+
+msgid "Bemorning yoshi"
+msgstr "Возраст пациента"
+
+msgid "Jinsi"
+msgstr "Пол"
+
+msgid "Erkak"
+msgstr "Мужской"
+
+msgid "Ayol"
+msgstr "Женский"
+
+msgid "Mamlakat"
+msgstr "Страна"
+
+msgid "O'zbekiston"
+msgstr "Узбекистан"
+
+msgid "Qozog'iston"
+msgstr "Казахстан"
+
+msgid "Turkmaniston"
+msgstr "Туркменистан"
+
+msgid "Tojikiston"
+msgstr "Таджикистан"
+
+msgid "Qirg'iziston"
+msgstr "Кыргызстан"
+
+msgid "Boshqa"
+msgstr "Другое"
+
+msgid "Milat"
+msgstr "Национальность"
+
+msgid "O'zbek"
+msgstr "Узбек"
+
+msgid "Rus"
+msgstr "Русский"
+
+msgid "Qozoq"
+msgstr "Казах"
+
+msgid "Tojik"
+msgstr "Таджик"
+
+msgid "Turkman"
+msgstr "Туркмен"
+
+msgid "Oilaviy kasallik tarixi"
+msgstr "Семейная история болезни"
+
+msgid "Oilada qalqonsimon bez kasalligi bo'lganmi?"
+msgstr "Были ли в семье заболевания щитовидной железы?"
+
+msgid "Radiatsiya ta'siri"
+msgstr "Воздействие радиации"
+
+msgid "Radiatsiya ta'siriga uchraganmi?"
+msgstr "Подвергались ли воздействию радиации?"
+
+msgid "Yod tanqisligi"
+msgstr "Дефицит йода"
+
+msgid "Yod tanqisligi bormi?"
+msgstr "Есть ли дефицит йода?"
+
+msgid "Chekish"
+msgstr "Курение"
+
+msgid "Chekadimi?"
+msgstr "Курите?"
+
+msgid "Semizlik"
+msgstr "Ожирение"
+
+msgid "Semizlik bormi?"
+msgstr "Есть ли ожирение?"
+
+msgid "Qandli diabet"
+msgstr "Сахарный диабет"
+
+msgid "Qandli diabet bormi?"
+msgstr "Есть ли сахарный диабет?"
+
+msgid "TSH darajasi"
+msgstr "Уровень ТТГ"
+
+msgid "mIU/L birligida (normal: 0.4-4.0)"
+msgstr "в mIU/L (норма: 0.4-4.0)"
+
+msgid "T3 darajasi"
+msgstr "Уровень T3"
+
+msgid "ng/dL birligida (normal: 80-200)"
+msgstr "в ng/dL (норма: 80-200)"
+
+msgid "T4 darajasi"
+msgstr "Уровень T4"
+
+msgid "μg/dL birligida (normal: 5.0-12.0)"
+msgstr "в μg/dL (норма: 5.0-12.0)"
+
+msgid "Tugun o'lchami"
+msgstr "Размер узла"
+
+msgid "Santimetrda"
+msgstr "В сантиметрах"
+
+msgid "Qo'shimcha izohlar"
+msgstr "Дополнительные комментарии"
+
+msgid "Boshqa muhim ma'lumotlar"
+msgstr "Другая важная информация"
+
+msgid "Tashxis"
+msgstr "Диагноз"
+
+msgid "AI tomonidan berilgan tashxis"
+msgstr "Диагноз, поставленный AI"
+
+msgid "Tashxis tafsiloti"
+msgstr "Детали диагноза"
+
+msgid "Batafsil tashxis ma'lumoti"
+msgstr "Подробная информация о диагнозе"
+
+msgid "Ishonch darajasi"
+msgstr "Уровень уверенности"
+
+msgid "Foizda (0-100)"
+msgstr "В процентах (0-100)"
+
+msgid "Xavf darajasi"
+msgstr "Уровень риска"
+
+msgid "Past, O'rta, Yuqori"
+msgstr "Низкий, Средний, Высокий"
+
+msgid "Tashxis klassi"
+msgstr "Класс диагноза"
+
+msgid "Xavfsiz (Benign)"
+msgstr "Безопасный (доброкачественный)"
+
+msgid "O'rtacha xavf"
+msgstr "Средний риск"
+
+msgid "Yuqori xavf (Malignant)"
+msgstr "Высокий риск (злокачественный)"
+
+msgid "Model bashorat qiymati"
+msgstr "Значение предсказания модели"
+
+msgid "AI model chiqargan qiymat (0-1)"
+msgstr "Значение, выданное AI моделью (0-1)"
+
+msgid "Tavsiyalar"
+msgstr "Рекомендации"
+
+msgid "Tibbiy tavsiyalar ro'yxati"
+msgstr "Список медицинских рекомендаций"
+
+msgid "Yuklab olinganmi"
+msgstr "Загружено"
+
+msgid "Bemor xulosani yuklab olganmi?"
+msgstr "Пациент загрузил заключение?"
+
+msgid "Yuklab olishlar soni"
+msgstr "Количество загрузок"
+
+msgid "Necha marta yuklab olingan"
+msgstr "Сколько раз загружено"
+
+msgid "Oxirgi yuklab olish vaqti"
+msgstr "Время последней загрузки"
+
+msgid "Yaratilgan vaqti"
+msgstr "Время создания"
+
+msgid "O'zgartirilgan vaqti"
+msgstr "Время изменения"
+
+msgid "Qalqonsimon Bez Tashxisi"
+msgstr "Диагностика щитовидной железы"
+
+msgid "Qalqonsimon Bez Tashxislari"
+msgstr "Диагностики щитовидной железы"
+
+msgid "yoshli"
+msgstr "лет"
+
+msgid "Kutilmoqda"
+msgstr "Ожидание"
+
+msgid "Voyaga yetmagan"
+msgstr "Несовершеннолетний"
+
+msgid "O'rta yosh"
+msgstr "Средний возраст"
+
+msgid "Keksa"
+msgstr "Пожилой"
+
+msgid "Katta yosh"
+msgstr "Старший возраст"
