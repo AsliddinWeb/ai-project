@@ -340,35 +340,42 @@ const preview = document.getElementById('image-preview');
 
 // Fayl tanlanganda
 fileInput.addEventListener('change', function(e) {
+  const file = e.target.files[0];
+
+  if (!file) return;
+
+  // Hajmni tekshirish
   if (file.size > 5 * 1024 * 1024) {
     alert("{% trans 'Rasm hajmi 5MB dan katta bo\'lmasligi kerak!' %}");
+    fileInput.value = '';
     return;
   }
+
+  // Formatni tekshirish
   if (!file.type.match('image.*')) {
     alert("{% trans 'Faqat rasm fayllarini yuklash mumkin!' %}");
+    fileInput.value = '';
     return;
   }
-});
 
-    // Fayl nomini ko'rsatish
-    fileName.textContent = file.name;
-    fileLabel.classList.add('has-file');
-    clearBtn.classList.remove('hidden');
+  // Fayl nomini ko'rsatish
+  fileName.textContent = file.name;
+  fileLabel.classList.add('has-file');
+  clearBtn.classList.remove('hidden');
 
-    // Preview
-    const reader = new FileReader();
-    reader.onload = function(e) {
-      preview.src = e.target.result;
-      previewContainer.classList.remove('hidden');
-    };
-    reader.readAsDataURL(file);
-  }
+  // Preview
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    preview.src = e.target.result;
+    previewContainer.classList.remove('hidden');
+  };
+  reader.readAsDataURL(file);
 });
 
 // Tozalash
 clearBtn.addEventListener('click', function() {
   fileInput.value = '';
-  fileName.textContent = 'Fayl tanlanmagan';
+  fileName.textContent = "{% trans 'Fayl tanlanmagan' %}";
   fileLabel.classList.remove('has-file');
   clearBtn.classList.add('hidden');
   previewContainer.classList.add('hidden');
@@ -378,7 +385,7 @@ clearBtn.addEventListener('click', function() {
 document.querySelector('form').addEventListener('submit', function() {
   const submitBtn = document.getElementById('submit-btn');
   submitBtn.disabled = true;
-  submitBtn.innerHTML = '<i class="ti ti-loader animate-spin mr-2"></i> Tahlil qilinmoqda...';
+  submitBtn.innerHTML = '<i class="ti ti-loader animate-spin mr-2"></i> {% trans "Tahlil qilinmoqda..." %}';
 });
 </script>
 
