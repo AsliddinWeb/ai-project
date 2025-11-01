@@ -1,121 +1,196 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block extra_css %}
+<style>
+/* Custom fayl yuklash dizayni */
+.custom-file-upload {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.file-upload-label {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  background: white;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 14px;
+  color: #374151;
+}
+
+.file-upload-label:hover {
+  border-color: #3b82f6;
+  background: #f9fafb;
+}
+
+.file-upload-label i {
+  font-size: 20px;
+  color: #3b82f6;
+}
+
+#file-name {
+  color: #6b7280;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.file-upload-label.has-file #file-name {
+  color: #374151;
+  font-weight: 500;
+}
+
+#clear-file {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 20px;
+  transition: all 0.3s;
+}
+
+#clear-file:hover {
+  background: #dc2626;
+}
+
+#thyroid_image {
+  display: none !important;
+}
+</style>
+{% endblock extra_css %}
+
 {% block content %}
+
+
+
 <!-- [ Hero Bo'lim ] Boshlanishi -->
-    <section id="hero" class="relative overflow-hidden">
-      <div class="absolute top-0 z-10 inset-x-0 block bg-neutral-100 h-[540px] sm:h-[738px] lg:h-[878px] overflow-hidden rounded-b-3xl sm:rounded-b-[32px] lg:rounded-b-[40px]">
-        <div class="absolute inset-0 z-20 bg-[radial-gradient(47.33%_47.33%_at_50%_46.88%,_transparent_0%,_var(--neutral-200)_100%)]"></div>
-        <div class="relative z-10 h-full bg-[length:40px_40px] bg-[url('data:image/svg+xml;utf8,<svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2050%2060%22><text%20x=%220%22%20y=%2225%22%20fill=%22%23E6E8EE%22%20font-size=%2280px%22>.%3C/text%3E</svg>')] dark:bg-[url('data:image/svg+xml;utf8,<svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2050%2060%22><text%20x=%220%22%20y=%2225%22%20fill=%22%23272A2E%22%20font-size=%2280px%22>.%3C/text%3E</svg>')]">
+<section id="hero" class="relative overflow-hidden">
+  <div class="absolute top-0 z-10 inset-x-0 block bg-neutral-100 h-[540px] sm:h-[738px] lg:h-[878px] overflow-hidden rounded-b-3xl sm:rounded-b-[32px] lg:rounded-b-[40px]">
+    <div class="absolute inset-0 z-20 bg-[radial-gradient(47.33%_47.33%_at_50%_46.88%,_transparent_0%,_var(--neutral-200)_100%)]"></div>
+    <div class="relative z-10 h-full bg-[length:40px_40px] bg-[url('data:image/svg+xml;utf8,<svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2050%2060%22><text%20x=%220%22%20y=%2225%22%20fill=%22%23E6E8EE%22%20font-size=%2280px%22>.%3C/text%3E</svg>')] dark:bg-[url('data:image/svg+xml;utf8,<svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2050%2060%22><text%20x=%220%22%20y=%2225%22%20fill=%22%23272A2E%22%20font-size=%2280px%22>.%3C/text%3E</svg>')]">
+    </div>
+  </div>
+  <div class="common-section relative z-20">
+    <div class="container animation-ref">
+      <div class="pb-5 sm:pb-11 lg:pb-12">
+        <div class="flex flex-col items-center gap-3">
+          <div class="animate-y delay-reset py-3 px-6 text-theme-textsecondary caption rounded-full border border-theme-divider">
+            <p class="body1">✦&nbsp;&nbsp; TAMES - Thyroid-AI Malignancy Evaluation System &nbsp;&nbsp;✦</p>
+          </div>
+          <h1 class="animate-y max-w-[800px] text-center">
+            Qalqonsimon Bez Xavfli O'smalarini AI Bilan Baholash
+          </h1>
+          <div class="animate-y text-primary-500">
+            <svg class="w-[92px] md:w-[122px] h-auto" viewBox="0 0 122 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                opacity="0.4"
+                d="M1.46484 6.83613L4.45387 3.7103C7.74598 0.267505 13.38 0.760513 16.0241 4.72277L16.5428 5.50001C19.2423 9.54539 25.1877 9.54539 27.8873 5.5V5.5C30.5869 1.45461 36.5322 1.45461 39.2318 5.5V5.5C41.9314 9.54539 47.8768 9.54539 50.5764 5.5V5.5C53.2759 1.45461 59.2213 1.45461 61.9209 5.5V5.5C64.6205 9.54539 70.5658 9.54539 73.2654 5.5V5.5C75.965 1.45461 81.9104 1.45461 84.61 5.5V5.5C87.3096 9.54539 93.2549 9.54539 95.9545 5.5V5.5C98.6541 1.45461 104.599 1.45461 107.299 5.5V5.5C109.999 9.54539 115.944 9.54539 118.644 5.5L120.534 2.66667"
+                stroke="currentColor"
+                strokeLinecap="round"
+              />
+            </svg>
+          </div>
+          <h6 class="animate-y max-w-[650px] text-center text-theme-text-secondary">
+            Sun'iy intellekt yordamida qalqonsimon bez xavfli o'smalari (malignant tugunlar)ni aniq va professional baholash tizimi
+          </h6>
         </div>
-      </div>
-      <div class="common-section relative z-20">
-        <div class="container animation-ref">
-          <div class="pb-5 sm:pb-11 lg:pb-12">
-            <div class="flex flex-col items-center gap-3">
-              <div class="animate-y delay-reset py-3 px-6 text-theme-textsecondary caption rounded-full border border-theme-divider">
-                <p class="body1">✦&nbsp;&nbsp; TAMES - Thyroid-AI Malignancy Evaluation System &nbsp;&nbsp;✦</p>
-              </div>
-              <h1 class="animate-y max-w-[800px] text-center">
-                Qalqonsimon Bez Xavfli O'smalarini AI Bilan Baholash
-              </h1>
-              <div class="animate-y text-primary-500">
-                <svg class="w-[92px] md:w-[122px] h-auto" viewBox="0 0 122 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    opacity="0.4"
-                    d="M1.46484 6.83613L4.45387 3.7103C7.74598 0.267505 13.38 0.760513 16.0241 4.72277L16.5428 5.50001C19.2423 9.54539 25.1877 9.54539 27.8873 5.5V5.5C30.5869 1.45461 36.5322 1.45461 39.2318 5.5V5.5C41.9314 9.54539 47.8768 9.54539 50.5764 5.5V5.5C53.2759 1.45461 59.2213 1.45461 61.9209 5.5V5.5C64.6205 9.54539 70.5658 9.54539 73.2654 5.5V5.5C75.965 1.45461 81.9104 1.45461 84.61 5.5V5.5C87.3096 9.54539 93.2549 9.54539 95.9545 5.5V5.5C98.6541 1.45461 104.599 1.45461 107.299 5.5V5.5C109.999 9.54539 115.944 9.54539 118.644 5.5L120.534 2.66667"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                  />
-                </svg>
-              </div>
-              <h6 class="animate-y max-w-[650px] text-center text-theme-text-secondary">
-                Sun'iy intellekt yordamida qalqonsimon bez xavfli o'smalari (malignant tugunlar)ni aniq va professional baholash tizimi
-              </h6>
+        <div class="flex flex-col items-center gap-4 mt-6 sm:mt-8 lg:mt-10">
+          <div class="animate-y">
+            <a href="#diagnos" class="btn btn-primary btn-md capitalize">
+              <span class="flex items-center gap-2 ltr:-ml-1 rtl:-mr-1">
+                <i class="ti ti-stethoscope text-base leading-none"></i>
+                AI Diagnostikani Boshlash
+              </span>
+            </a>
+          </div>
+          <div class="animate-y flex flex-row gap-2 justify-center sm:gap-6 flex-wrap">
+            <div class="flex flex-row items-center gap-2 text-theme-text-secondary">
+              <i class="ti ti-certificate text-2xl leading-none"></i>
+              <p class="body2">Yuqori Aniqlik</p>
             </div>
-            <div class="flex flex-col items-center gap-4 mt-6 sm:mt-8 lg:mt-10">
-              <div class="animate-y">
-                <a href="#diagnos" class="btn btn-primary btn-md capitalize">
-                  <span class="flex items-center gap-2 ltr:-ml-1 rtl:-mr-1">
-                    <i class="ti ti-stethoscope text-base leading-none"></i>
-                    AI Diagnostikani Boshlash
-                  </span>
-                </a>
-              </div>
-              <div class="animate-y flex flex-row gap-2 justify-center sm:gap-6 flex-wrap">
-                <div class="flex flex-row items-center gap-2 text-theme-text-secondary">
-                  <i class="ti ti-certificate text-2xl leading-none"></i>
-                  <p class="body2">Yuqori Aniqlik</p>
-                </div>
-                <div class="flex flex-row items-center gap-2 text-theme-text-secondary">
-                  <i class="ti ti-clock-hour-3 text-2xl leading-none"></i>
-                  <p class="body2">Tezkor Natija</p>
-                </div>
-                <div class="flex flex-row items-center gap-2 text-theme-text-secondary">
-                  <i class="ti ti-shield-check text-2xl leading-none"></i>
-                  <p class="body2">Tibbiy Standartlar</p>
-                </div>
-              </div>
+            <div class="flex flex-row items-center gap-2 text-theme-text-secondary">
+              <i class="ti ti-clock-hour-3 text-2xl leading-none"></i>
+              <p class="body2">Tezkor Natija</p>
+            </div>
+            <div class="flex flex-row items-center gap-2 text-theme-text-secondary">
+              <i class="ti ti-shield-check text-2xl leading-none"></i>
+              <p class="body2">Tibbiy Standartlar</p>
+            </div>
+          </div>
 
-              <!-- Additional Info -->
-              <div class="animate-y flex flex-col items-center gap-2 mt-4">
-                <div class="flex items-center gap-3 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full border border-neutral-200">
-                  <i class="ti ti-user text-primary-500"></i>
-                  <span class="caption text-neutral-600">Muallif: Nigmatova N.</span>
-                </div>
-                <div class="flex flex-wrap items-center justify-center gap-2 text-xs text-neutral-500">
-                  <a href="https://t.me/nnigmatovna" target="_blank" class="hover:text-primary-500 transition-colors flex items-center gap-1">
-                    <i class="ti ti-brand-telegram"></i>
-                    @nnigmatovna
-                  </a>
-                  <span>•</span>
-                  <a href="mailto:nargizazufarova93@gmail.com" class="hover:text-primary-500 transition-colors">
-                    nargizazufarova93@gmail.com
-                  </a>
-                  <span>•</span>
-                  <a href="tel:+998998889848" class="hover:text-primary-500 transition-colors">
-                    +998 99 888-98-48
-                  </a>
-                </div>
-              </div>
+          <!-- Additional Info -->
+          <div class="animate-y flex flex-col items-center gap-2 mt-4">
+            <div class="flex items-center gap-3 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full border border-neutral-200">
+              <i class="ti ti-user text-primary-500"></i>
+              <span class="caption text-neutral-600">Muallif: Zufarova N.</span>
             </div>
-          </div>
-          <div class="sticky top-0">
-            <div class="img-hero-1">
-              <img src="{% static 'assets/images/desktop1-light.png' %}" alt="TAMES - Qalqonsimon bez AI diagnostika tizimi" class="block dark:hidden w-full border-[5px] border-neutral-300 rounded-2xl">
-              <img src="{% static 'assets/images/desktop1-dark.png' %}" alt="TAMES - Qalqonsimon bez AI diagnostika tizimi" class="hidden dark:block w-full border-[5px] border-neutral-300 rounded-2xl">
+            <div class="flex flex-wrap items-center justify-center gap-2 text-xs text-neutral-500">
+              <a href="https://t.me/nnigmatovna" target="_blank" class="hover:text-primary-500 transition-colors flex items-center gap-1">
+                <i class="ti ti-brand-telegram"></i>
+                @nnigmatovna
+              </a>
+              <span>•</span>
+              <a href="mailto:nargizazufarova93@gmail.com" class="hover:text-primary-500 transition-colors">
+                nargizazufarova93@gmail.com
+              </a>
+              <span>•</span>
+              <a href="tel:+998998889848" class="hover:text-primary-500 transition-colors">
+                +998 99 888-98-48
+              </a>
             </div>
           </div>
         </div>
       </div>
-    </section>
-    <!-- [ Hero Bo'lim ] Tugashi -->
+      <div class="sticky top-0">
+        <div class="img-hero-1">
+          <img src="{% static 'assets/images/desktop1-light.png' %}" alt="TAMES - Qalqonsimon bez AI diagnostika tizimi" class="block dark:hidden w-full border-[5px] border-neutral-300 rounded-2xl">
+          <img src="{% static 'assets/images/desktop1-dark.png' %}" alt="TAMES - Qalqonsimon bez AI diagnostika tizimi" class="hidden dark:block w-full border-[5px] border-neutral-300 rounded-2xl">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- [ Hero Bo'lim ] Tugashi -->
 
-    <!-- [ Statistika ] Boshlanishi -->
-    <section id="statistic" class="common-section overflow-hidden">
-      <div class="container">
-        <div class="flex flex-col items-center justify-center gap-5">
-          <h6 class="animate-y delay-reset subtitle2 text-theme-textsecondary">Bizga 5,000+ bemor ishonch bildirdi</h6>
-          <div class="animate-y w-full">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div class="bg-neutral-100 rounded-2xl p-6 text-center">
-                <h2 class="text-primary-500">98.5%</h2>
-                <p class="body1 text-theme-text-secondary mt-2">Diagnostika Aniqligi</p>
-              </div>
-              <div class="bg-neutral-100 rounded-2xl p-6 text-center">
-                <h2 class="text-primary-500">5000+</h2>
-                <p class="body1 text-theme-text-secondary mt-2">Muvaffaqiyatli Tashxislar</p>
-              </div>
-              <div class="bg-neutral-100 rounded-2xl p-6 text-center">
-                <h2 class="text-primary-500">24/7</h2>
-                <p class="body1 text-theme-text-secondary mt-2">Doimiy Xizmat</p>
-              </div>
-            </div>
+<!-- [ Statistika ] Boshlanishi -->
+<section id="statistic" class="common-section overflow-hidden">
+  <div class="container">
+    <div class="flex flex-col items-center justify-center gap-5">
+      <h6 class="animate-y delay-reset subtitle2 text-theme-textsecondary">Bizga 5,000+ bemor ishonch bildirdi</h6>
+      <div class="animate-y w-full">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="bg-neutral-100 rounded-2xl p-6 text-center">
+            <h2 class="text-primary-500">98.5%</h2>
+            <p class="body1 text-theme-text-secondary mt-2">Diagnostika Aniqligi</p>
+          </div>
+          <div class="bg-neutral-100 rounded-2xl p-6 text-center">
+            <h2 class="text-primary-500">5000+</h2>
+            <p class="body1 text-theme-text-secondary mt-2">Muvaffaqiyatli Tashxislar</p>
+          </div>
+          <div class="bg-neutral-100 rounded-2xl p-6 text-center">
+            <h2 class="text-primary-500">24/7</h2>
+            <p class="body1 text-theme-text-secondary mt-2">Doimiy Xizmat</p>
           </div>
         </div>
       </div>
-    </section>
-    <!-- [ Statistika ] Tugashi -->
+    </div>
+  </div>
+</section>
+<!-- [ Statistika ] Tugashi -->
 
 <!-- [ Tashxis Formasi ] Boshlanishi -->
 <section id="diagnos" class="common-section">
@@ -131,31 +206,39 @@
           </div>
         </div>
         <div class="p-4 sm:p-6 lg:p-10 lg:!px-32">
-          <!-- Form URL ni yangilash - MUHIM: enctype qo'shildi -->
           <form action="{% url 'diagnose' %}" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="flex flex-col gap-6 sm:gap-8">
 
-              <!-- 🆕 ULTRATOVUSH RASMI -->
+              <!-- Ultratovush Rasmi - YANGI DIZAYN -->
               <div class="border-b border-neutral-200 pb-6">
                 <h5 class="subtitle1 mb-4 text-primary-500">Ultratovush Rasmi</h5>
                 <div class="grid grid-cols-12 gap-5">
                   <div class="col-span-12">
                     <div class="flex flex-col gap-2">
-                      <label class="subtitle1">Qalqonsimon bez ultratovush rasmi</label>
-                      <input
-                        type="file"
-                        name="thyroid_image"
-                        id="thyroid_image"
-                        class="form-control !bg-transparent"
-                        accept="image/*"
-                        required
-                        onchange="previewImage(event)">
+                      <label class="subtitle1">Qalqonsimon bez ultratovush rasmi *</label>
+
+                      <!-- Custom Fayl Yuklash -->
+                      <div class="custom-file-upload">
+                        <input
+                          type="file"
+                          name="thyroid_image"
+                          id="thyroid_image"
+                          accept="image/*"
+                          required>
+                        <label for="thyroid_image" class="file-upload-label">
+                          <i class="ti ti-upload"></i>
+                          <span id="file-name">Fayl tanlanmagan</span>
+                        </label>
+                        <button type="button" id="clear-file" class="hidden">×</button>
+                      </div>
+
                       <small class="text-theme-text-secondary">
                         JPG, PNG, JPEG formatdagi rasmlarni yuklang (Max 5MB)
                       </small>
                     </div>
-                    <!-- Rasm oldindan ko'rish -->
+
+                    <!-- Rasm Preview -->
                     <div id="image-preview-container" class="mt-4 hidden">
                       <p class="subtitle2 mb-2">Yuklangan rasm:</p>
                       <img id="image-preview" src="" alt="Preview" class="max-w-full h-auto rounded-lg border-2 border-neutral-300" style="max-height: 300px;">
@@ -170,13 +253,13 @@
                 <div class="grid grid-cols-12 gap-5">
                   <div class="col-span-12 sm:col-span-6">
                     <div class="flex flex-col gap-1">
-                      <label class="subtitle1">Yosh</label>
+                      <label class="subtitle1">Yosh *</label>
                       <input type="number" name="age" class="form-control !bg-transparent" placeholder="Masalan: 35" min="1" max="120" required>
                     </div>
                   </div>
                   <div class="col-span-12 sm:col-span-6">
                     <div class="flex flex-col gap-1">
-                      <label class="subtitle1">Jinsi</label>
+                      <label class="subtitle1">Jinsi *</label>
                       <select name="gender" class="form-control !bg-transparent" required>
                         <option value="">Tanlang</option>
                         <option value="Erkak">Erkak</option>
@@ -186,7 +269,7 @@
                   </div>
                   <div class="col-span-12 sm:col-span-6">
                     <div class="flex flex-col gap-1">
-                      <label class="subtitle1">Mamlakat</label>
+                      <label class="subtitle1">Mamlakat *</label>
                       <select name="country" class="form-control !bg-transparent" required>
                         <option value="">Tanlang</option>
                         <option value="0">O'zbekiston</option>
@@ -196,12 +279,11 @@
                         <option value="4">Qirg'iziston</option>
                         <option value="5">Boshqa</option>
                       </select>
-                      <input type="hidden" name="country_code" id="country_code" value="0">
                     </div>
                   </div>
                   <div class="col-span-12 sm:col-span-6">
                     <div class="flex flex-col gap-1">
-                      <label class="subtitle1">Milat</label>
+                      <label class="subtitle1">Milat *</label>
                       <select name="ethnicity" class="form-control !bg-transparent" required>
                         <option value="">Tanlang</option>
                         <option value="0">O'zbek</option>
@@ -211,7 +293,6 @@
                         <option value="4">Turkman</option>
                         <option value="5">Boshqa</option>
                       </select>
-                      <input type="hidden" name="ethnicity_code" id="ethnicity_code" value="0">
                     </div>
                   </div>
                 </div>
@@ -223,7 +304,7 @@
                 <div class="grid grid-cols-12 gap-5">
                   <div class="col-span-12 sm:col-span-6">
                     <div class="flex flex-col gap-1">
-                      <label class="subtitle1">Oilaviy kasallik tarixi</label>
+                      <label class="subtitle1">Oilaviy kasallik tarixi *</label>
                       <select name="family_history" class="form-control !bg-transparent" required>
                         <option value="">Tanlang</option>
                         <option value="Ha">Ha</option>
@@ -233,7 +314,7 @@
                   </div>
                   <div class="col-span-12 sm:col-span-6">
                     <div class="flex flex-col gap-1">
-                      <label class="subtitle1">Radiatsiya ta'siri</label>
+                      <label class="subtitle1">Radiatsiya ta'siri *</label>
                       <select name="radiation_exposure" class="form-control !bg-transparent" required>
                         <option value="">Tanlang</option>
                         <option value="Ha">Ha</option>
@@ -243,7 +324,7 @@
                   </div>
                   <div class="col-span-12 sm:col-span-6">
                     <div class="flex flex-col gap-1">
-                      <label class="subtitle1">Yod tanqisligi</label>
+                      <label class="subtitle1">Yod tanqisligi *</label>
                       <select name="iodine_deficiency" class="form-control !bg-transparent" required>
                         <option value="">Tanlang</option>
                         <option value="Ha">Ha</option>
@@ -253,7 +334,7 @@
                   </div>
                   <div class="col-span-12 sm:col-span-6">
                     <div class="flex flex-col gap-1">
-                      <label class="subtitle1">Chekish</label>
+                      <label class="subtitle1">Chekish *</label>
                       <select name="smoking" class="form-control !bg-transparent" required>
                         <option value="">Tanlang</option>
                         <option value="Ha">Ha</option>
@@ -263,7 +344,7 @@
                   </div>
                   <div class="col-span-12 sm:col-span-6">
                     <div class="flex flex-col gap-1">
-                      <label class="subtitle1">Semizlik</label>
+                      <label class="subtitle1">Semizlik *</label>
                       <select name="obesity" class="form-control !bg-transparent" required>
                         <option value="">Tanlang</option>
                         <option value="Ha">Ha</option>
@@ -273,7 +354,7 @@
                   </div>
                   <div class="col-span-12 sm:col-span-6">
                     <div class="flex flex-col gap-1">
-                      <label class="subtitle1">Qandli diabet</label>
+                      <label class="subtitle1">Qandli diabet *</label>
                       <select name="diabetes" class="form-control !bg-transparent" required>
                         <option value="">Tanlang</option>
                         <option value="Ha">Ha</option>
@@ -290,28 +371,28 @@
                 <div class="grid grid-cols-12 gap-5">
                   <div class="col-span-12 sm:col-span-6">
                     <div class="flex flex-col gap-1">
-                      <label class="subtitle1">TSH darajasi (mIU/L)</label>
+                      <label class="subtitle1">TSH darajasi (mIU/L) *</label>
                       <input type="number" step="0.01" name="tsh_level" class="form-control !bg-transparent" placeholder="Masalan: 2.5" required>
                       <small class="text-theme-text-secondary">Normal: 0.4-4.0 mIU/L</small>
                     </div>
                   </div>
                   <div class="col-span-12 sm:col-span-6">
                     <div class="flex flex-col gap-1">
-                      <label class="subtitle1">T3 darajasi (ng/dL)</label>
+                      <label class="subtitle1">T3 darajasi (ng/dL) *</label>
                       <input type="number" step="0.01" name="t3_level" class="form-control !bg-transparent" placeholder="Masalan: 120" required>
                       <small class="text-theme-text-secondary">Normal: 80-200 ng/dL</small>
                     </div>
                   </div>
                   <div class="col-span-12 sm:col-span-6">
                     <div class="flex flex-col gap-1">
-                      <label class="subtitle1">T4 darajasi (μg/dL)</label>
+                      <label class="subtitle1">T4 darajasi (μg/dL) *</label>
                       <input type="number" step="0.01" name="t4_level" class="form-control !bg-transparent" placeholder="Masalan: 8.5" required>
                       <small class="text-theme-text-secondary">Normal: 5.0-12.0 μg/dL</small>
                     </div>
                   </div>
                   <div class="col-span-12 sm:col-span-6">
                     <div class="flex flex-col gap-1">
-                      <label class="subtitle1">Tugun o'lchami (sm)</label>
+                      <label class="subtitle1">Tugun o'lchami (sm) *</label>
                       <input type="number" step="0.01" name="nodule_size" class="form-control !bg-transparent" placeholder="Masalan: 1.5" required>
                       <small class="text-theme-text-secondary">Santimetrda o'lchang</small>
                     </div>
@@ -342,119 +423,126 @@
 </section>
 <!-- [ Tashxis Formasi ] Tugashi -->
 
-    <!-- [ Xizmatlar ] Boshlanishi -->
-    <section id="services" class="common-section" style="padding-top:0;">
-      <div class="container">
-        <div class="text-center mb-10">
-          <h2 class="animate-y">Bizning Xizmatlarimiz</h2>
-          <p class="h6 text-theme-text-secondary mt-3 mb-4 animate-y">
-            Professional tibbiy yordam va maslahat
-          </p>
-        </div>
-        <div class="flex flex-col sm:flex-row gap-3">
-          <div class="basis-full sm:basis-4/12">
-            <div class="animate-y rounded-3xl sm:rounded-[32px] bg-neutral-100 overflow-hidden relative w-full h-full">
-              <div class="flex flex-row sm:flex-col gap-4 sm:gap-8 lg:gap-10 h-full p-4 sm:p-6 lg:p-8">
-                <div class="w-[60px] h-[60px] bg-neutral-300 rounded-full flex items-center justify-center shrink-0">
-                  <i class="ti ti-stethoscope text-2xl leading-none text-primary-500"></i>
-                </div>
-                <div class="flex flex-col gap-4 lg:gap-6 h-full items-start justify-between grow">
-                  <div class="flex flex-col gap-2">
-                    <h4>Tashxis Xizmati</h4>
-                    <p class="body1">AI yordamida qalqonsimon bez kasalliklarini aniqlash</p>
-                  </div>
-                  <a href="#diagnosis-form" class="btn btn-md btn-outline-primary">Tashxis Olish</a>
-                </div>
-              </div>
+<!-- [ Xizmatlar ] Boshlanishi -->
+<section id="services" class="common-section" style="padding-top:0;">
+  <div class="container">
+    <div class="text-center mb-10">
+      <h2 class="animate-y">Bizning Xizmatlarimiz</h2>
+      <p class="h6 text-theme-text-secondary mt-3 mb-4 animate-y">
+        Professional tibbiy yordam va maslahat
+      </p>
+    </div>
+    <div class="flex flex-col sm:flex-row gap-3">
+      <div class="basis-full sm:basis-4/12">
+        <div class="animate-y rounded-3xl sm:rounded-[32px] bg-neutral-100 overflow-hidden relative w-full h-full">
+          <div class="flex flex-row sm:flex-col gap-4 sm:gap-8 lg:gap-10 h-full p-4 sm:p-6 lg:p-8">
+            <div class="w-[60px] h-[60px] bg-neutral-300 rounded-full flex items-center justify-center shrink-0">
+              <i class="ti ti-stethoscope text-2xl leading-none text-primary-500"></i>
             </div>
-          </div>
-          <div class="basis-full sm:basis-4/12">
-            <div class="animate-y rounded-3xl sm:rounded-[32px] bg-neutral-100 overflow-hidden relative w-full h-full">
-              <div class="flex flex-row sm:flex-col gap-4 sm:gap-8 lg:gap-10 h-full p-4 sm:p-6 lg:p-8">
-                <div class="w-[60px] h-[60px] bg-neutral-300 rounded-full flex items-center justify-center shrink-0">
-                  <i class="ti ti-report-medical text-2xl leading-none text-primary-500"></i>
-                </div>
-                <div class="flex flex-col gap-4 lg:gap-6 h-full items-start justify-between grow">
-                  <div class="flex flex-col gap-2">
-                    <h4>Batafsil Hisobot</h4>
-                    <p class="body1">To'liq tahlil va maslahatlar bilan hisobot</p>
-                  </div>
-                  <button class="btn btn-md btn-outline-primary">Ko'proq Ma'lumot</button>
-                </div>
+            <div class="flex flex-col gap-4 lg:gap-6 h-full items-start justify-between grow">
+              <div class="flex flex-col gap-2">
+                <h4>Tashxis Xizmati</h4>
+                <p class="body1">AI yordamida qalqonsimon bez kasalliklarini aniqlash</p>
               </div>
-            </div>
-          </div>
-          <div class="basis-full sm:basis-4/12">
-            <div class="animate-y rounded-3xl sm:rounded-[32px] bg-neutral-100 overflow-hidden relative w-full h-full">
-              <div class="flex flex-row sm:flex-col gap-4 sm:gap-8 lg:gap-10 h-full p-4 sm:p-6 lg:p-8">
-                <div class="w-[60px] h-[60px] bg-neutral-300 rounded-full flex items-center justify-center shrink-0">
-                  <i class="ti ti-headset text-2xl leading-none text-primary-500"></i>
-                </div>
-                <div class="flex flex-col gap-4 lg:gap-6 h-full items-start justify-between grow">
-                  <div class="flex flex-col gap-2">
-                    <h4>Maslahat Xizmati</h4>
-                    <p class="body1">Mutaxassislardan professional maslahat</p>
-                  </div>
-                  <button class="btn btn-md btn-outline-primary">Bog'lanish</button>
-                </div>
-              </div>
+              <a href="#diagnosis-form" class="btn btn-md btn-outline-primary">Tashxis Olish</a>
             </div>
           </div>
         </div>
       </div>
-    </section>
-    <!-- [ Xizmatlar ] Tugashi -->
+      <div class="basis-full sm:basis-4/12">
+        <div class="animate-y rounded-3xl sm:rounded-[32px] bg-neutral-100 overflow-hidden relative w-full h-full">
+          <div class="flex flex-row sm:flex-col gap-4 sm:gap-8 lg:gap-10 h-full p-4 sm:p-6 lg:p-8">
+            <div class="w-[60px] h-[60px] bg-neutral-300 rounded-full flex items-center justify-center shrink-0">
+              <i class="ti ti-report-medical text-2xl leading-none text-primary-500"></i>
+            </div>
+            <div class="flex flex-col gap-4 lg:gap-6 h-full items-start justify-between grow">
+              <div class="flex flex-col gap-2">
+                <h4>Batafsil Hisobot</h4>
+                <p class="body1">To'liq tahlil va maslahatlar bilan hisobot</p>
+              </div>
+              <button class="btn btn-md btn-outline-primary">Ko'proq Ma'lumot</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="basis-full sm:basis-4/12">
+        <div class="animate-y rounded-3xl sm:rounded-[32px] bg-neutral-100 overflow-hidden relative w-full h-full">
+          <div class="flex flex-row sm:flex-col gap-4 sm:gap-8 lg:gap-10 h-full p-4 sm:p-6 lg:p-8">
+            <div class="w-[60px] h-[60px] bg-neutral-300 rounded-full flex items-center justify-center shrink-0">
+              <i class="ti ti-headset text-2xl leading-none text-primary-500"></i>
+            </div>
+            <div class="flex flex-col gap-4 lg:gap-6 h-full items-start justify-between grow">
+              <div class="flex flex-col gap-2">
+                <h4>Maslahat Xizmati</h4>
+                <p class="body1">Mutaxassislardan professional maslahat</p>
+              </div>
+              <button class="btn btn-md btn-outline-primary">Bog'lanish</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- [ Xizmatlar ] Tugashi -->
 
 {% endblock %}
 
 {% block extra_js %}
-<!-- JavaScript -->
 <script>
-// Rasm oldindan ko'rish
-function previewImage(event) {
-  const file = event.target.files[0];
-  const previewContainer = document.getElementById('image-preview-container');
-  const preview = document.getElementById('image-preview');
+// Custom fayl yuklash
+const fileInput = document.getElementById('thyroid_image');
+const fileLabel = document.querySelector('.file-upload-label');
+const fileName = document.getElementById('file-name');
+const clearBtn = document.getElementById('clear-file');
+const previewContainer = document.getElementById('image-preview-container');
+const preview = document.getElementById('image-preview');
+
+// Fayl tanlanganda
+fileInput.addEventListener('change', function(e) {
+  const file = this.files[0];
 
   if (file) {
-    // Fayl hajmini tekshirish (5MB)
+    // Hajm tekshirish
     if (file.size > 5 * 1024 * 1024) {
       alert('Rasm hajmi 5MB dan katta bo\'lmasligi kerak!');
-      event.target.value = '';
-      previewContainer.classList.add('hidden');
+      this.value = '';
       return;
     }
 
-    // Rasm formatini tekshirish
+    // Format tekshirish
     if (!file.type.match('image.*')) {
       alert('Faqat rasm fayllarini yuklash mumkin!');
-      event.target.value = '';
-      previewContainer.classList.add('hidden');
+      this.value = '';
       return;
     }
 
+    // Fayl nomini ko'rsatish
+    fileName.textContent = file.name;
+    fileLabel.classList.add('has-file');
+    clearBtn.classList.remove('hidden');
+
+    // Preview
     const reader = new FileReader();
     reader.onload = function(e) {
       preview.src = e.target.result;
       previewContainer.classList.remove('hidden');
     };
     reader.readAsDataURL(file);
-  } else {
-    previewContainer.classList.add('hidden');
   }
-}
-
-// Country va ethnicity kodlarini yangilash
-document.querySelector('select[name="country"]').addEventListener('change', function() {
-  document.getElementById('country_code').value = this.value;
 });
 
-document.querySelector('select[name="ethnicity"]').addEventListener('change', function() {
-  document.getElementById('ethnicity_code').value = this.value;
+// Tozalash
+clearBtn.addEventListener('click', function() {
+  fileInput.value = '';
+  fileName.textContent = 'Fayl tanlanmagan';
+  fileLabel.classList.remove('has-file');
+  clearBtn.classList.add('hidden');
+  previewContainer.classList.add('hidden');
 });
 
-// Form yuborilganda loading ko'rsatish
-document.querySelector('form').addEventListener('submit', function(e) {
+// Form yuborilganda
+document.querySelector('form').addEventListener('submit', function() {
   const submitBtn = document.getElementById('submit-btn');
   submitBtn.disabled = true;
   submitBtn.innerHTML = '<i class="ti ti-loader animate-spin mr-2"></i> Tahlil qilinmoqda...';
