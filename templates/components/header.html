@@ -48,16 +48,18 @@
                 <!-- Til almashtirgich -->
                 <div class="btn-group">
                     <button type="button"
-                       class="flex items-center justify-center h-10 px-4 rounded-full btn-outline-primary dropdown-toggle"
+                       class="flex items-center justify-center h-10 px-4 rounded-full btn-outline-primary dropdown-toggle max-sm:px-2"
                        data-pc-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="ti ti-language text-lg leading-none mr-2"></i>
                         {% get_current_language as LANGUAGE_CODE %}
                         {% if LANGUAGE_CODE == 'uz' %}
-                            O'zbekcha
+                            <span class="text-2xl leading-none mr-2">🇺🇿</span>
+                            <span class="max-sm:hidden">O'zbekcha</span>
                         {% elif LANGUAGE_CODE == 'ru' %}
-                            Русский
+                            <span class="text-2xl leading-none mr-2">🇷🇺</span>
+                            <span class="max-sm:hidden">Русский</span>
                         {% elif LANGUAGE_CODE == 'en' %}
-                            English
+                            <span class="text-2xl leading-none mr-2">🇬🇧</span>
+                            <span class="max-sm:hidden">English</span>
                         {% endif %}
                     </button>
                     <div class="dropdown-menu dropdown-menu-end leading-none !mt-2">
@@ -65,14 +67,17 @@
                             {% csrf_token %}
                             <input name="next" type="hidden" value="{{ request.path }}" />
 
-                            <button type="submit" name="language" value="uz" class="dropdown-item">
-                                <i class="ti ti-flag mr-2"></i> O'zbekcha
+                            <button type="submit" name="language" value="uz" class="dropdown-item flex items-center gap-2">
+                                <span class="text-xl">🇺🇿</span>
+                                <span>O'zbekcha</span>
                             </button>
-                            <button type="submit" name="language" value="ru" class="dropdown-item">
-                                <i class="ti ti-flag mr-2"></i> Русский
+                            <button type="submit" name="language" value="ru" class="dropdown-item flex items-center gap-2">
+                                <span class="text-xl">🇷🇺</span>
+                                <span>Русский</span>
                             </button>
-                            <button type="submit" name="language" value="en" class="dropdown-item">
-                                <i class="ti ti-flag mr-2"></i> English
+                            <button type="submit" name="language" value="en" class="dropdown-item flex items-center gap-2">
+                                <span class="text-xl">🇬🇧</span>
+                                <span>English</span>
                             </button>
                         </form>
                     </div>

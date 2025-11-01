@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block extra_css %}
 <style>
@@ -340,7 +341,7 @@ const preview = document.getElementById('image-preview');
 // Fayl tanlanganda
 fileInput.addEventListener('change', function(e) {
   if (file.size > 5 * 1024 * 1024) {
-    alert("{% trans 'Rasm hajmi 5MB dan katta bo\\'lmasligi kerak!' %}");
+    alert("{% trans 'Rasm hajmi 5MB dan katta bo\'lmasligi kerak!' %}");
     return;
   }
   if (!file.type.match('image.*')) {

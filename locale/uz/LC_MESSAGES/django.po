@@ -1,0 +1,381 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: TAMES 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-01 12:00+0500\n"
+"PO-Revision-Date: 2025-11-01 12:00+0500\n"
+"Last-Translator: Nargiza Zufarova <nargizazufarova93@gmail.com>\n"
+"Language-Team: Uzbek <uz@li.org>\n"
+"Language: uz\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Tungi"
+msgstr "Tungi rejim"
+
+msgid "Bog'lanish"
+msgstr "Bog'lanish"
+
+msgid "Bosh sahifa"
+msgstr "Bosh sahifa"
+
+msgid "Tashxis"
+msgstr "Tashxis"
+
+msgid "Statistika"
+msgstr "Statistika"
+
+msgid "Muallif"
+msgstr "Muallif"
+
+msgid "Thyroid-AI Malignancy Evaluation System - Qalqonsimon bez xavfli o'smalari AI-asosli baholash tizimi"
+msgstr "Thyroid-AI Malignancy Evaluation System - Qalqonsimon bez xavfli o'smalari AI-asosli baholash tizimi"
+
+msgid "Biz bilan bog'laning"
+msgstr "Biz bilan bog'laning"
+
+msgid "Telefon"
+msgstr "Telefon"
+
+msgid "Xizmatlar"
+msgstr "Xizmatlar"
+
+msgid "AI Diagnostika"
+msgstr "AI Diagnostika"
+
+msgid "Xususiyatlar"
+msgstr "Xususiyatlar"
+
+msgid "Loyiha Haqida"
+msgstr "Loyiha Haqida"
+
+msgid "Natijalar"
+msgstr "Natijalar"
+
+msgid "Ma'lumot"
+msgstr "Ma'lumot"
+
+msgid "Ko'p So'raladigan Savollar"
+msgstr "Ko'p So'raladigan Savollar"
+
+msgid "Qo'llanma"
+msgstr "Foydalanish qo'llanmasi"
+
+msgid "Maxfiylik"
+msgstr "Maxfiylik siyosati"
+
+msgid "Aloqa"
+msgstr "Biz bilan bog'lanish"
+
+msgid "Maxfiylik Siyosati"
+msgstr "Maxfiylik Siyosati"
+
+msgid "Foydalanish Shartlari"
+msgstr "Foydalanish Shartlari"
+
+msgid "Qalqonsimon Bez Xavfli O'smalarini AI Bilan Baholash"
+msgstr "Qalqonsimon Bez Xavfli O'smalarini AI Bilan Baholash"
+
+msgid "Sun'iy intellekt yordamida qalqonsimon bez xavfli o'smalari (malignant tugunlar)ni aniq va professional baholash tizimi"
+msgstr "Sun'iy intellekt yordamida qalqonsimon bez xavfli o'smalari (malignant tugunlar)ni aniq va professional baholash tizimi"
+
+msgid "AI Diagnostikani Boshlash"
+msgstr "AI Diagnostikani Boshlash"
+
+msgid "Yuqori Aniqlik"
+msgstr "Yuqori Aniqlik"
+
+msgid "Tezkor Natija"
+msgstr "Tezkor Natija"
+
+msgid "Tibbiy Standartlar"
+msgstr "Tibbiy Standartlar"
+
+msgid "Bizga 5,000+ bemor ishonch bildirdi"
+msgstr "Bizga 5,000+ bemor ishonch bildirdi"
+
+msgid "Diagnostika Aniqligi"
+msgstr "Diagnostika Aniqligi"
+
+msgid "Muvaffaqiyatli Tashxislar"
+msgstr "Muvaffaqiyatli Tashxislar"
+
+msgid "Doimiy Xizmat"
+msgstr "Doimiy Xizmat"
+
+msgid "Tibbiy Ma'lumotlarni Kiriting"
+msgstr "Tibbiy Ma'lumotlarni Kiriting"
+
+msgid "Quyidagi ma'lumotlarni to'liq va to'g'ri kiriting, AI tizimi sizga aniq tashxis beradi"
+msgstr "Quyidagi ma'lumotlarni to'liq va to'g'ri kiriting, AI tizimi sizga aniq tashxis beradi"
+
+msgid "Ultratovush Rasmi"
+msgstr "Ultratovush Rasmi"
+
+msgid "Qalqonsimon bez ultratovush rasmi"
+msgstr "Qalqonsimon bez ultratovush rasmi"
+
+msgid "Fayl tanlanmagan"
+msgstr "Fayl tanlanmagan"
+
+msgid "JPG, PNG, JPEG formatdagi rasmlarni yuklang (Max 5MB)"
+msgstr "JPG, PNG, JPEG formatdagi rasmlarni yuklang (Maksimal 5MB)"
+
+msgid "Yuklangan rasm"
+msgstr "Yuklangan rasm"
+
+msgid "Shaxsiy Ma'lumotlar"
+msgstr "Shaxsiy Ma'lumotlar"
+
+msgid "Yosh"
+msgstr "Yosh"
+
+msgid "Masalan"
+msgstr "Masalan"
+
+msgid "Jinsi"
+msgstr "Jinsi"
+
+msgid "Tanlang"
+msgstr "Tanlang"
+
+msgid "Erkak"
+msgstr "Erkak"
+
+msgid "Ayol"
+msgstr "Ayol"
+
+msgid "Mamlakat"
+msgstr "Mamlakat"
+
+msgid "O'zbekiston"
+msgstr "O'zbekiston"
+
+msgid "Qozog'iston"
+msgstr "Qozog'iston"
+
+msgid "Turkmaniston"
+msgstr "Turkmaniston"
+
+msgid "Tojikiston"
+msgstr "Tojikiston"
+
+msgid "Qirg'iziston"
+msgstr "Qirg'iziston"
+
+msgid "Boshqa"
+msgstr "Boshqa"
+
+msgid "Milat"
+msgstr "Millati"
+
+msgid "O'zbek"
+msgstr "O'zbek"
+
+msgid "Rus"
+msgstr "Rus"
+
+msgid "Qozoq"
+msgstr "Qozoq"
+
+msgid "Tojik"
+msgstr "Tojik"
+
+msgid "Turkman"
+msgstr "Turkman"
+
+msgid "Tibbiy Tarix"
+msgstr "Tibbiy Tarix"
+
+msgid "Oilaviy kasallik tarixi"
+msgstr "Oilaviy kasallik tarixi"
+
+msgid "Ha"
+msgstr "Ha"
+
+msgid "Yo'q"
+msgstr "Yo'q"
+
+msgid "Radiatsiya ta'siri"
+msgstr "Radiatsiya ta'siri"
+
+msgid "Laboratoriya Ko'rsatkichlari"
+msgstr "Laboratoriya Ko'rsatkichlari"
+
+msgid "TSH darajasi"
+msgstr "TSH darajasi"
+
+msgid "Tashxisni Aniqlash"
+msgstr "Tashxisni Aniqlash"
+
+msgid "Bizning Xizmatlarimiz"
+msgstr "Bizning Xizmatlarimiz"
+
+msgid "Professional tibbiy yordam va maslahat"
+msgstr "Professional tibbiy yordam va maslahat"
+
+msgid "Tashxis Tayyor"
+msgstr "Tashxis Tayyor"
+
+msgid "Tibbiy Xulosa"
+msgstr "Tibbiy Xulosa"
+
+msgid "Sun'iy intellekt yordamida tayyorlangan batafsil tahlil natijasi"
+msgstr "Sun'iy intellekt yordamida tayyorlangan batafsil tahlil natijasi"
+
+msgid "Tashxis ID"
+msgstr "Tashxis ID"
+
+msgid "Ishonch darajasi"
+msgstr "Ishonch darajasi"
+
+msgid "Xavf"
+msgstr "Xavf darajasi"
+
+msgid "Bemor Ma'lumotlari"
+msgstr "Bemor Ma'lumotlari"
+
+msgid "Tibbiy Ko'rsatkichlar"
+msgstr "Tibbiy Ko'rsatkichlar"
+
+msgid "Tahlil uchun kiritilgan barcha laboratoriya va klinik ma'lumotlar"
+msgstr "Tahlil uchun kiritilgan barcha laboratoriya va klinik ma'lumotlar"
+
+msgid "yosh"
+msgstr "yosh"
+
+msgid "sm"
+msgstr "sm"
+
+msgid "Tibbiy Tavsiyalar"
+msgstr "Tibbiy Tavsiyalar"
+
+msgid "Mutaxassis Maslahatlari"
+msgstr "Mutaxassis Maslahatlari"
+
+msgid "Profesional shifokorlar tomonidan tavsiya etilgan harakatlar rejasi"
+msgstr "Profesional shifokorlar tomonidan tavsiya etilgan harakatlar rejasi"
+
+msgid "Muhim Tibbiy Ogohlantirish"
+msgstr "Muhim Tibbiy Ogohlantirish"
+
+msgid "Bu natija faqat sun'iy intellekt yordamida berilgan dastlabki tashxis hisoblanadi. Aniq tashxis va to'g'ri davolanish uchun malakali shifokor bilan shaxsiy maslahatlashish majburiy!"
+msgstr "Bu natija faqat sun'iy intellekt yordamida berilgan dastlabki tashxis hisoblanadi. Aniq tashxis va to'g'ri davolanish uchun malakali shifokor bilan shaxsiy maslahatlashish majburiy!"
+
+msgid "Professional Ko'rik"
+msgstr "Professional Ko'rik"
+
+msgid "Endokrinolog yoki onkolog bilan uchrashing"
+msgstr "Endokrinolog yoki onkolog bilan uchrashing"
+
+msgid "Qo'shimcha Tahlillar"
+msgstr "Qo'shimcha Tahlillar"
+
+msgid "Laboratoriya va instrumental tekshiruvlar"
+msgstr "Laboratoriya va instrumental tekshiruvlar"
+
+msgid "Xulosani Yuklab Olish"
+msgstr "Xulosani Yuklab Olish"
+
+msgid "Yangi Tashxis"
+msgstr "Yangi Tashxis"
+
+msgid "Tahlil sanasi"
+msgstr "Tahlil sanasi"
+
+msgid "Muallif Haqida"
+msgstr "Muallif Haqida"
+
+msgid "TAMES Loyihasi Muallifi"
+msgstr "TAMES Loyihasi Muallifi"
+
+msgid "PhD Doktorant, AI Tadqiqotchisi"
+msgstr "PhD Doktorant, AI Tadqiqotchisi"
+
+msgid "Qalqonsimon bez xavfli o'smalari (malignant tugunlar)ni sun'iy intellekt yordamida baholash tizimini ishlab chiqish bo'yicha tadqiqot ishlarini olib bormoqdaman. TAMES loyihasi zamonaviy AI texnologiyalari va tibbiy diagnostika sohasidagi ilmiy tadqiqotlar asosida yaratilgan."
+msgstr "Qalqonsimon bez xavfli o'smalari (malignant tugunlar)ni sun'iy intellekt yordamida baholash tizimini ishlab chiqish bo'yicha tadqiqot ishlarini olib bormoqdaman. TAMES loyihasi zamonaviy AI texnologiyalari va tibbiy diagnostika sohasidagi ilmiy tadqiqotlar asosida yaratilgan."
+
+msgid "Ta'lim"
+msgstr "Ta'lim"
+
+msgid "PhD Doktorant - Muhammad al-Xorazmiy nomidagi Toshkent Axborot Texnologiyalari Universiteti"
+msgstr "PhD Doktorant - Muhammad al-Xorazmiy nomidagi Toshkent Axborot Texnologiyalari Universiteti"
+
+msgid "Ish Tajribasi"
+msgstr "Ish Tajribasi"
+
+msgid "O'zbektelekom AK - 10 yildan ortiq tajriba"
+msgstr "O'zbektelekom AK - 10 yildan ortiq tajriba"
+
+msgid "Tillar"
+msgstr "Tillar"
+
+msgid "O'zbek tili (ona tili)"
+msgstr "O'zbek tili (ona tili)"
+
+msgid "Rus tili (yaxshi)"
+msgstr "Rus tili (yaxshi)"
+
+msgid "Ingliz tili (yaxshi)"
+msgstr "Ingliz tili (yaxshi)"
+
+msgid "Oila"
+msgstr "Oila"
+
+msgid "Oilali, 2 ta farzandli"
+msgstr "Oilali, 2 ta farzandli"
+
+msgid "Tadqiqot Yo'nalishi"
+msgstr "Tadqiqot Yo'nalishi"
+
+msgid "TAMES Loyihasi Haqida"
+msgstr "TAMES Loyihasi Haqida"
+
+msgid "Thyroid-AI Malignancy Evaluation System (TAMES) - bu qalqonsimon bez xavfli o'smalari (malignant nodules)ni aniqlash va baholashda sun'iy intellekt texnologiyalaridan foydalanuvchi innovatsion tizim."
+msgstr "Thyroid-AI Malignancy Evaluation System (TAMES) - bu qalqonsimon bez xavfli o'smalari (malignant nodules)ni aniqlash va baholashda sun'iy intellekt texnologiyalaridan foydalanuvchi innovatsion tizim."
+
+msgid "AI Texnologiyasi"
+msgstr "AI Texnologiyasi"
+
+msgid "Zamonaviy sun'iy intellekt algoritmlari asosida ishlab chiqilgan"
+msgstr "Zamonaviy sun'iy intellekt algoritmlari asosida ishlab chiqilgan"
+
+msgid "Xalqaro tibbiy standartlar va protokollarga muvofiq"
+msgstr "Xalqaro tibbiy standartlar va protokollarga muvofiq"
+
+msgid "Ilmiy tadqiqotlar va klinik testlar asosida tasdiqlangan"
+msgstr "Ilmiy tadqiqotlar va klinik testlar asosida tasdiqlangan"
+
+msgid "Aloqada Bo'ling"
+msgstr "Aloqada Bo'ling"
+
+msgid "TAMES loyihasi, ilmiy hamkorlik yoki AI-tibbiyot sohasidagi tadqiqotlar haqida qo'shimcha ma'lumot olish uchun men bilan bog'laning."
+msgstr "TAMES loyihasi, ilmiy hamkorlik yoki AI-tibbiyot sohasidagi tadqiqotlar haqida qo'shimcha ma'lumot olish uchun men bilan bog'laning."
+
+msgid "Oʻzbekcha"
+msgstr "O'zbekcha"
+
+msgid "Русский"
+msgstr "Русский"
+
+msgid "English"
+msgstr "English"
+
+msgid "Tugun O'lchami"
+msgstr "Tugun O'lchami"
+
+msgid "TSH Darajasi"
+msgstr "TSH Darajasi"
+
+msgid "T3 Darajasi"
+msgstr "T3 Darajasi"
+
+msgid "T4 Darajasi"
+msgstr "T4 Darajasi"

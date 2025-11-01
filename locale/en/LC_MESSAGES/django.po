@@ -1,0 +1,381 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: TAMES 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-01 12:00+0500\n"
+"PO-Revision-Date: 2025-11-01 12:00+0500\n"
+"Last-Translator: Nargiza Zufarova <nargizazufarova93@gmail.com>\n"
+"Language-Team: English <en@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Tungi"
+msgstr "Night Mode"
+
+msgid "Bog'lanish"
+msgstr "Contact"
+
+msgid "Bosh sahifa"
+msgstr "Home"
+
+msgid "Tashxis"
+msgstr "Diagnosis"
+
+msgid "Statistika"
+msgstr "Statistics"
+
+msgid "Muallif"
+msgstr "Author"
+
+msgid "Thyroid-AI Malignancy Evaluation System - Qalqonsimon bez xavfli o'smalari AI-asosli baholash tizimi"
+msgstr "Thyroid-AI Malignancy Evaluation System - AI-based system for evaluating malignant thyroid tumors"
+
+msgid "Biz bilan bog'laning"
+msgstr "Contact us"
+
+msgid "Telefon"
+msgstr "Phone"
+
+msgid "Xizmatlar"
+msgstr "Services"
+
+msgid "AI Diagnostika"
+msgstr "AI Diagnostics"
+
+msgid "Xususiyatlar"
+msgstr "Features"
+
+msgid "Loyiha Haqida"
+msgstr "About Project"
+
+msgid "Natijalar"
+msgstr "Results"
+
+msgid "Ma'lumot"
+msgstr "Information"
+
+msgid "Ko'p So'raladigan Savollar"
+msgstr "Frequently Asked Questions"
+
+msgid "Qo'llanma"
+msgstr "User Guide"
+
+msgid "Maxfiylik"
+msgstr "Privacy Policy"
+
+msgid "Aloqa"
+msgstr "Contact Us"
+
+msgid "Maxfiylik Siyosati"
+msgstr "Privacy Policy"
+
+msgid "Foydalanish Shartlari"
+msgstr "Terms of Use"
+
+msgid "Qalqonsimon Bez Xavfli O'smalarini AI Bilan Baholash"
+msgstr "AI-Based Evaluation of Malignant Thyroid Tumors"
+
+msgid "Sun'iy intellekt yordamida qalqonsimon bez xavfli o'smalari (malignant tugunlar)ni aniq va professional baholash tizimi"
+msgstr "Accurate and professional system for evaluating malignant thyroid tumors (nodules) using artificial intelligence"
+
+msgid "AI Diagnostikani Boshlash"
+msgstr "Start AI Diagnostics"
+
+msgid "Yuqori Aniqlik"
+msgstr "High Accuracy"
+
+msgid "Tezkor Natija"
+msgstr "Quick Results"
+
+msgid "Tibbiy Standartlar"
+msgstr "Medical Standards"
+
+msgid "Bizga 5,000+ bemor ishonch bildirdi"
+msgstr "Trusted by 5,000+ patients"
+
+msgid "Diagnostika Aniqligi"
+msgstr "Diagnostic Accuracy"
+
+msgid "Muvaffaqiyatli Tashxislar"
+msgstr "Successful Diagnoses"
+
+msgid "Doimiy Xizmat"
+msgstr "24/7 Service"
+
+msgid "Tibbiy Ma'lumotlarni Kiriting"
+msgstr "Enter Medical Information"
+
+msgid "Quyidagi ma'lumotlarni to'liq va to'g'ri kiriting, AI tizimi sizga aniq tashxis beradi"
+msgstr "Enter the following information completely and correctly, the AI system will give you an accurate diagnosis"
+
+msgid "Ultratovush Rasmi"
+msgstr "Ultrasound Image"
+
+msgid "Qalqonsimon bez ultratovush rasmi"
+msgstr "Thyroid ultrasound image"
+
+msgid "Fayl tanlanmagan"
+msgstr "No file selected"
+
+msgid "JPG, PNG, JPEG formatdagi rasmlarni yuklang (Max 5MB)"
+msgstr "Upload images in JPG, PNG, JPEG format (Max 5MB)"
+
+msgid "Yuklangan rasm"
+msgstr "Uploaded image"
+
+msgid "Shaxsiy Ma'lumotlar"
+msgstr "Personal Information"
+
+msgid "Yosh"
+msgstr "Age"
+
+msgid "Masalan"
+msgstr "Example"
+
+msgid "Jinsi"
+msgstr "Gender"
+
+msgid "Tanlang"
+msgstr "Select"
+
+msgid "Erkak"
+msgstr "Male"
+
+msgid "Ayol"
+msgstr "Female"
+
+msgid "Mamlakat"
+msgstr "Country"
+
+msgid "O'zbekiston"
+msgstr "Uzbekistan"
+
+msgid "Qozog'iston"
+msgstr "Kazakhstan"
+
+msgid "Turkmaniston"
+msgstr "Turkmenistan"
+
+msgid "Tojikiston"
+msgstr "Tajikistan"
+
+msgid "Qirg'iziston"
+msgstr "Kyrgyzstan"
+
+msgid "Boshqa"
+msgstr "Other"
+
+msgid "Milat"
+msgstr "Ethnicity"
+
+msgid "O'zbek"
+msgstr "Uzbek"
+
+msgid "Rus"
+msgstr "Russian"
+
+msgid "Qozoq"
+msgstr "Kazakh"
+
+msgid "Tojik"
+msgstr "Tajik"
+
+msgid "Turkman"
+msgstr "Turkmen"
+
+msgid "Tibbiy Tarix"
+msgstr "Medical History"
+
+msgid "Oilaviy kasallik tarixi"
+msgstr "Family disease history"
+
+msgid "Ha"
+msgstr "Yes"
+
+msgid "Yo'q"
+msgstr "No"
+
+msgid "Radiatsiya ta'siri"
+msgstr "Radiation exposure"
+
+msgid "Laboratoriya Ko'rsatkichlari"
+msgstr "Laboratory Indicators"
+
+msgid "TSH darajasi"
+msgstr "TSH level"
+
+msgid "Tashxisni Aniqlash"
+msgstr "Get Diagnosis"
+
+msgid "Bizning Xizmatlarimiz"
+msgstr "Our Services"
+
+msgid "Professional tibbiy yordam va maslahat"
+msgstr "Professional medical help and consultation"
+
+msgid "Tashxis Tayyor"
+msgstr "Diagnosis Ready"
+
+msgid "Tibbiy Xulosa"
+msgstr "Medical Report"
+
+msgid "Sun'iy intellekt yordamida tayyorlangan batafsil tahlil natijasi"
+msgstr "Detailed analysis results prepared using artificial intelligence"
+
+msgid "Tashxis ID"
+msgstr "Diagnosis ID"
+
+msgid "Ishonch darajasi"
+msgstr "Confidence level"
+
+msgid "Xavf"
+msgstr "Risk level"
+
+msgid "Bemor Ma'lumotlari"
+msgstr "Patient Information"
+
+msgid "Tibbiy Ko'rsatkichlar"
+msgstr "Medical Indicators"
+
+msgid "Tahlil uchun kiritilgan barcha laboratoriya va klinik ma'lumotlar"
+msgstr "All laboratory and clinical data entered for analysis"
+
+msgid "yosh"
+msgstr "years old"
+
+msgid "sm"
+msgstr "cm"
+
+msgid "Tibbiy Tavsiyalar"
+msgstr "Medical Recommendations"
+
+msgid "Mutaxassis Maslahatlari"
+msgstr "Expert Advice"
+
+msgid "Profesional shifokorlar tomonidan tavsiya etilgan harakatlar rejasi"
+msgstr "Action plan recommended by professional doctors"
+
+msgid "Muhim Tibbiy Ogohlantirish"
+msgstr "Important Medical Warning"
+
+msgid "Bu natija faqat sun'iy intellekt yordamida berilgan dastlabki tashxis hisoblanadi. Aniq tashxis va to'g'ri davolanish uchun malakali shifokor bilan shaxsiy maslahatlashish majburiy!"
+msgstr "This result is only a preliminary diagnosis given with the help of artificial intelligence. For an accurate diagnosis and proper treatment, a personal consultation with a qualified doctor is mandatory!"
+
+msgid "Professional Ko'rik"
+msgstr "Professional Examination"
+
+msgid "Endokrinolog yoki onkolog bilan uchrashing"
+msgstr "Meet with an endocrinologist or oncologist"
+
+msgid "Qo'shimcha Tahlillar"
+msgstr "Additional Tests"
+
+msgid "Laboratoriya va instrumental tekshiruvlar"
+msgstr "Laboratory and instrumental examinations"
+
+msgid "Xulosani Yuklab Olish"
+msgstr "Download Report"
+
+msgid "Yangi Tashxis"
+msgstr "New Diagnosis"
+
+msgid "Tahlil sanasi"
+msgstr "Analysis date"
+
+msgid "Muallif Haqida"
+msgstr "About the Author"
+
+msgid "TAMES Loyihasi Muallifi"
+msgstr "Author of TAMES Project"
+
+msgid "PhD Doktorant, AI Tadqiqotchisi"
+msgstr "PhD Candidate, AI Researcher"
+
+msgid "Qalqonsimon bez xavfli o'smalari (malignant tugunlar)ni sun'iy intellekt yordamida baholash tizimini ishlab chiqish bo'yicha tadqiqot ishlarini olib bormoqdaman. TAMES loyihasi zamonaviy AI texnologiyalari va tibbiy diagnostika sohasidagi ilmiy tadqiqotlar asosida yaratilgan."
+msgstr "I am conducting research on developing a system for evaluating malignant thyroid tumors (nodules) using artificial intelligence. The TAMES project was created based on modern AI technologies and scientific research in the field of medical diagnostics."
+
+msgid "Ta'lim"
+msgstr "Education"
+
+msgid "PhD Doktorant - Muhammad al-Xorazmiy nomidagi Toshkent Axborot Texnologiyalari Universiteti"
+msgstr "PhD Candidate - Tashkent University of Information Technologies named after Muhammad Al-Khwarizmi"
+
+msgid "Ish Tajribasi"
+msgstr "Work Experience"
+
+msgid "O'zbektelekom AK - 10 yildan ortiq tajriba"
+msgstr "Uzbektelecom JSC - over 10 years of experience"
+
+msgid "Tillar"
+msgstr "Languages"
+
+msgid "O'zbek tili (ona tili)"
+msgstr "Uzbek (native)"
+
+msgid "Rus tili (yaxshi)"
+msgstr "Russian (good)"
+
+msgid "Ingliz tili (yaxshi)"
+msgstr "English (good)"
+
+msgid "Oila"
+msgstr "Family"
+
+msgid "Oilali, 2 ta farzandli"
+msgstr "Married, 2 children"
+
+msgid "Tadqiqot Yo'nalishi"
+msgstr "Research Direction"
+
+msgid "TAMES Loyihasi Haqida"
+msgstr "About TAMES Project"
+
+msgid "Thyroid-AI Malignancy Evaluation System (TAMES) - bu qalqonsimon bez xavfli o'smalari (malignant nodules)ni aniqlash va baholashda sun'iy intellekt texnologiyalaridan foydalanuvchi innovatsion tizim."
+msgstr "Thyroid-AI Malignancy Evaluation System (TAMES) is an innovative system that uses artificial intelligence technologies to detect and evaluate malignant thyroid tumors (nodules)."
+
+msgid "AI Texnologiyasi"
+msgstr "AI Technology"
+
+msgid "Zamonaviy sun'iy intellekt algoritmlari asosida ishlab chiqilgan"
+msgstr "Developed based on modern artificial intelligence algorithms"
+
+msgid "Xalqaro tibbiy standartlar va protokollarga muvofiq"
+msgstr "In accordance with international medical standards and protocols"
+
+msgid "Ilmiy tadqiqotlar va klinik testlar asosida tasdiqlangan"
+msgstr "Confirmed by scientific research and clinical trials"
+
+msgid "Aloqada Bo'ling"
+msgstr "Stay in Touch"
+
+msgid "TAMES loyihasi, ilmiy hamkorlik yoki AI-tibbiyot sohasidagi tadqiqotlar haqida qo'shimcha ma'lumot olish uchun men bilan bog'laning."
+msgstr "Contact me for more information about the TAMES project, scientific cooperation, or research in the field of AI medicine."
+
+msgid "Oʻzbekcha"
+msgstr "Uzbek"
+
+msgid "Русский"
+msgstr "Russian"
+
+msgid "English"
+msgstr "English"
+
+msgid "Tugun O'lchami"
+msgstr "Nodule Size"
+
+msgid "TSH Darajasi"
+msgstr "TSH Level"
+
+msgid "T3 Darajasi"
+msgstr "T3 Level"
+
+msgid "T4 Darajasi"
+msgstr "T4 Level"
