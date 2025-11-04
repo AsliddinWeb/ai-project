@@ -368,7 +368,7 @@ def diagnose_thyroid(request):
             # AI natija
             diagnosis=diagnosis,
             diagnosis_detail=diagnosis_detail,
-            confidence=confidence,
+            confidence=f"{confidence:.2f}",
             risk_level=risk_level,
             diagnosis_class=diagnosis_class,
             prediction_value=pred_value,
