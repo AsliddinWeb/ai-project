@@ -78,7 +78,6 @@
 
 <!-- [ Hero Bo'lim ] -->
 <section id="hero" class="relative overflow-hidden">
-  <!-- Background elementi o'zgarmaydi -->
   <div class="common-section relative z-20">
     <div class="container animation-ref">
       <div class="pb-5 sm:pb-11 lg:pb-12">
@@ -89,7 +88,6 @@
           <h1 class="animate-y max-w-[800px] text-center">
             {% trans "Qalqonsimon Bez Xavfli O'smalarini AI Bilan Baholash" %}
           </h1>
-          <!-- SVG o'zgarmaydi -->
           <h6 class="animate-y max-w-[650px] text-center text-theme-text-secondary">
             {% trans "Sun'iy intellekt yordamida qalqonsimon bez xavfli o'smalari (malignant tugunlar)ni aniq va professional baholash tizimi" %}
           </h6>
@@ -118,17 +116,14 @@
             </div>
           </div>
 
-          <!-- Additional Info -->
           <div class="animate-y flex flex-col items-center gap-2 mt-4">
             <div class="flex items-center gap-3 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full border border-neutral-200">
               <i class="ti ti-user text-primary-500"></i>
               <span class="caption text-neutral-600">{% trans "Muallif" %}: Zufarova N.</span>
             </div>
-            <!-- Aloqa ma'lumotlari o'zgarmaydi -->
           </div>
         </div>
       </div>
-      <!-- Hero rasm -->
     </div>
   </div>
 </section>
@@ -280,7 +275,46 @@
                       </select>
                     </div>
                   </div>
-                  <!-- Qolgan fieldlar ham xuddi shunday -->
+                  <div class="col-span-12 sm:col-span-6">
+                    <div class="flex flex-col gap-1">
+                      <label class="subtitle1">Yod tanqisligi *</label>
+                      <select name="iodine_deficiency" class="form-control !bg-transparent" required>
+                        <option value="">{% trans "Tanlang" %}</option>
+                        <option value="Ha">{% trans "Ha" %}</option>
+                        <option value="Yo'q">{% trans "Yo'q" %}</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-span-12 sm:col-span-6">
+                    <div class="flex flex-col gap-1">
+                      <label class="subtitle1">Chekish *</label>
+                      <select name="smoking" class="form-control !bg-transparent" required>
+                        <option value="">{% trans "Tanlang" %}</option>
+                        <option value="Ha">{% trans "Ha" %}</option>
+                        <option value="Yo'q">{% trans "Yo'q" %}</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-span-12 sm:col-span-6">
+                    <div class="flex flex-col gap-1">
+                      <label class="subtitle1">Semizlik *</label>
+                      <select name="obesity" class="form-control !bg-transparent" required>
+                        <option value="">{% trans "Tanlang" %}</option>
+                        <option value="Ha">{% trans "Ha" %}</option>
+                        <option value="Yo'q">{% trans "Yo'q" %}</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-span-12 sm:col-span-6">
+                    <div class="flex flex-col gap-1">
+                      <label class="subtitle1">Qandli diabet *</label>
+                      <select name="diabetes" class="form-control !bg-transparent" required>
+                        <option value="">{% trans "Tanlang" %}</option>
+                        <option value="Ha">{% trans "Ha" %}</option>
+                        <option value="Yo'q">{% trans "Yo'q" %}</option>
+                      </select>
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -295,7 +329,40 @@
                       <small class="text-theme-text-secondary">Normal: 0.4-4.0 mIU/L</small>
                     </div>
                   </div>
-                  <!-- T3, T4, Tugun o'lchami ham xuddi shunday -->
+                  <div class="col-span-12 sm:col-span-6">
+                    <div class="flex flex-col gap-1">
+                      <label class="subtitle1">T3 darajasi (ng/dL) *</label>
+                      <input type="number" step="0.01" name="t3_level" class="form-control !bg-transparent" placeholder="{% trans 'Masalan' %}: 120" required>
+                      <small class="text-theme-text-secondary">Normal: 80-200 ng/dL</small>
+                    </div>
+                  </div>
+                  <div class="col-span-12 sm:col-span-6">
+                    <div class="flex flex-col gap-1">
+                      <label class="subtitle1">T4 darajasi (μg/dL) *</label>
+                      <input type="number" step="0.01" name="t4_level" class="form-control !bg-transparent" placeholder="{% trans 'Masalan' %}: 8.0" required>
+                      <small class="text-theme-text-secondary">Normal: 5.0-12.0 μg/dL</small>
+                    </div>
+                  </div>
+                  <div class="col-span-12 sm:col-span-6">
+                    <div class="flex flex-col gap-1">
+                      <label class="subtitle1">Tugun o'lchami (sm) *</label>
+                      <input type="number" step="0.01" name="nodule_size" class="form-control !bg-transparent" placeholder="{% trans 'Masalan' %}: 1.5" required>
+                      <small class="text-theme-text-secondary">Santimetrda kiriting</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Qo'shimcha Izohlar -->
+              <div class="border-b border-neutral-200 pb-6">
+                <h5 class="subtitle1 mb-4 text-primary-500">Qo'shimcha Ma'lumot</h5>
+                <div class="grid grid-cols-12 gap-5">
+                  <div class="col-span-12">
+                    <div class="flex flex-col gap-1">
+                      <label class="subtitle1">Qo'shimcha izohlar (ixtiyoriy)</label>
+                      <textarea name="notes" rows="4" class="form-control !bg-transparent" placeholder="Agar qo'shimcha ma'lumotlar bo'lsa, bu yerga yozing..."></textarea>
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -322,7 +389,6 @@
         {% trans "Professional tibbiy yordam va maslahat" %}
       </p>
     </div>
-    <!-- Xizmatlar kartochkalari -->
   </div>
 </section>
 
