@@ -426,7 +426,7 @@ def diagnosis_detail(request, uuid):
         'uuid': str(diagnosis.uuid),
         'diagnosis': diagnosis.diagnosis,
         'diagnosis_detail': diagnosis.diagnosis_detail,
-        'confidence': diagnosis.confidence,
+        'confidence': f"{diagnosis.confidence:.2f}",
         'risk_level': diagnosis.risk_level,
         'diagnosis_class': diagnosis.diagnosis_class,
         'recommendations': diagnosis.recommendations,
