@@ -379,3 +379,7 @@ msgstr "T3 Darajasi"
 
 msgid "T4 Darajasi"
 msgstr "T4 Darajasi"
+
+# Yangi qo'shilgan - 2025-11-04
+msgid "Qalqonsimon Bez Xavfli O'smalarini AI Bilan Diagnostika qilish"
+msgstr "Qalqonsimon Bez Xavfli O'smalarini AI Bilan Diagnostika qilish"

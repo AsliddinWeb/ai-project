@@ -379,3 +379,7 @@ msgstr "Уровень Т3"
 
 msgid "T4 Darajasi"
 msgstr "Уровень Т4"
+
+# Yangi qo'shilgan - 2025-11-04
+msgid "Qalqonsimon Bez Xavfli O'smalarini AI Bilan Diagnostika qilish"
+msgstr "Диагностика злокачественных новообразований щитовидной железы с помощью AI"

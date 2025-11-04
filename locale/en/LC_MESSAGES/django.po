@@ -379,3 +379,7 @@ msgstr "T3 Level"
 
 msgid "T4 Darajasi"
 msgstr "T4 Level"
+
+# Yangi qo'shilgan - 2025-11-04
+msgid "Qalqonsimon Bez Xavfli O'smalarini AI Bilan Diagnostika qilish"
+msgstr "AI-Based Diagnosis of Malignant Thyroid Tumors"
