@@ -383,3 +383,90 @@ msgstr "Уровень Т4"
 # Yangi qo'shilgan - 2025-11-04
 msgid "Qalqonsimon Bez Xavfli O'smalarini AI Bilan Diagnostika qilish"
 msgstr "Диагностика злокачественных новообразований щитовидной железы с помощью AI"
+
+# Yangi tarjimalar - diagnosis_list uchun qo'shimcha (Русский)
+
+msgid "Ro'yxat"
+msgstr "Список"
+
+msgid "Tashxislar Ro'yxati"
+msgstr "Список диагнозов"
+
+msgid "Barcha Tashxislar"
+msgstr "Все диагнозы"
+
+msgid "Sun'iy intellekt yordamida amalga oshirilgan barcha tashxislar ro'yxati"
+msgstr "Список всех диагнозов, выполненных с помощью искусственного интеллекта"
+
+msgid "Jami Tashxislar"
+msgstr "Всего диагнозов"
+
+msgid "Xavfsiz"
+msgstr "Безопасно"
+
+msgid "O'rtacha Xavf"
+msgstr "Средний риск"
+
+msgid "Yuqori Xavf"
+msgstr "Высокий риск"
+
+msgid "ID, tashxis bo'yicha qidirish..."
+msgstr "Поиск по ID, диагнозу..."
+
+msgid "Barchasi"
+msgstr "Все"
+
+msgid "O'rtacha"
+msgstr "Средний"
+
+msgid "Xavfli"
+msgstr "Опасно"
+
+msgid "Saralash"
+msgstr "Сортировка"
+
+msgid "Eng yangi"
+msgstr "Новейшие"
+
+msgid "Eng eski"
+msgstr "Старейшие"
+
+msgid "Yuqori xavf"
+msgstr "Высокий риск"
+
+msgid "Past xavf"
+msgstr "Низкий риск"
+
+msgid "yoshli"
+msgstr "лет"
+
+msgid "Ishonch"
+msgstr "Уверенность"
+
+msgid "Tugun"
+msgstr "Узел"
+
+msgid "Yuklab olingan"
+msgstr "Загружено"
+
+msgid "Yuklab olinmagan"
+msgstr "Не загружено"
+
+msgid "Ko'rish"
+msgstr "Просмотр"
+
+msgid "Hech qanday tashxis topilmadi"
+msgstr "Диагнозы не найдены"
+
+msgid "Hozircha hech qanday tashxis amalga oshirilmagan yoki sizning qidiruvingizga mos natija yo'q"
+msgstr "Пока не выполнено ни одного диагноза или нет результатов, соответствующих вашему запросу"
+
+msgid "Yangi Tashxis Qo'shish"
+msgstr "Добавить новый диагноз"
+
+msgid "Yangi Tashxis O'tkazish"
+msgstr "Провести новый диагноз"
+
+msgid "Sun'iy intellekt yordamida qalqonsimon bez xavfli o'smalarini professional baholash"
+msgstr "Профессиональная оценка злокачественных новообразований щитовидной железы с помощью искусственного интеллекта"
+

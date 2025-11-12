@@ -7,6 +7,8 @@ from django.core.files.base import ContentFile
 from django.conf import settings
 from django.utils import timezone
 from django.template.loader import render_to_string
+from django.core.paginator import Paginator
+from django.db.models import Count, Q
 import os
 import json
 
@@ -472,11 +474,52 @@ def download_diagnosis(request, uuid):
 
 
 def diagnosis_list(request):
-    """Barcha tashxislar ro'yxati (Admin panel uchun)"""
-    diagnoses = ThyroidDiagnosis.objects.all()[:50]
-    return render(request, 'diagnosis_list.html', {'diagnoses': diagnoses})
+    """Barcha tashxislar ro'yxati - pagination va statistics bilan"""
+    # Get all diagnoses
+    diagnoses = ThyroidDiagnosis.objects.all()
+
+    # Sorting
+    sort = request.GET.get('sort', 'newest')
+    if sort == 'newest':
+        diagnoses = diagnoses.order_by('-created_at')
+    elif sort == 'oldest':
+        diagnoses = diagnoses.order_by('created_at')
+    elif sort == 'high_risk':
+        diagnoses = diagnoses.filter(diagnosis_class='danger').order_by('-confidence')
+    elif sort == 'low_risk':
+        diagnoses = diagnoses.filter(diagnosis_class='success').order_by('-confidence')
+    else:
+        diagnoses = diagnoses.order_by('-created_at')
+
+    # Statistics
+    total_count = ThyroidDiagnosis.objects.count()
+    success_count = ThyroidDiagnosis.objects.filter(diagnosis_class='success').count()
+    warning_count = ThyroidDiagnosis.objects.filter(diagnosis_class='warning').count()
+    danger_count = ThyroidDiagnosis.objects.filter(diagnosis_class='danger').count()
+
+    # Pagination
+    paginator = Paginator(diagnoses, 10)  # 10 ta tashxis har bir sahifada
+    page_number = request.GET.get('page', 1)
+    page_obj = paginator.get_page(page_number)
+
+    context = {
+        'diagnoses': page_obj,
+        'page_obj': page_obj,
+        'is_paginated': page_obj.has_other_pages(),
+        'total_count': total_count,
+        'success_count': success_count,
+        'warning_count': warning_count,
+        'danger_count': danger_count,
+    }
+
+    return render(request, 'diagnosis_list.html', context)
 
 
 def about(request):
     """About page"""
     return render(request, 'about.html')
+
+
+def faq(request):
+    """FAQ - Ko'p So'raladigan Savollar sahifasi"""
+    return render(request, 'faq.html')

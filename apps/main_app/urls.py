@@ -19,4 +19,7 @@ urlpatterns = [
 
     # Ro'yxat (Admin uchun)
     path('diagnoses/', views.diagnosis_list, name='diagnosis_list'),
+
+    # FAQ sahifasi
+    path('faq/', views.faq, name='faq'),
 ]

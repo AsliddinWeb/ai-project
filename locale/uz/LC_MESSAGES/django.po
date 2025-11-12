@@ -383,3 +383,90 @@ msgstr "T4 Darajasi"
 # Yangi qo'shilgan - 2025-11-04
 msgid "Qalqonsimon Bez Xavfli O'smalarini AI Bilan Diagnostika qilish"
 msgstr "Qalqonsimon Bez Xavfli O'smalarini AI Bilan Diagnostika qilish"
+
+# Yangi tarjimalar - diagnosis_list uchun qo'shimcha
+
+msgid "Ro'yxat"
+msgstr "Ro'yxat"
+
+msgid "Tashxislar Ro'yxati"
+msgstr "Tashxislar Ro'yxati"
+
+msgid "Barcha Tashxislar"
+msgstr "Barcha Tashxislar"
+
+msgid "Sun'iy intellekt yordamida amalga oshirilgan barcha tashxislar ro'yxati"
+msgstr "Sun'iy intellekt yordamida amalga oshirilgan barcha tashxislar ro'yxati"
+
+msgid "Jami Tashxislar"
+msgstr "Jami Tashxislar"
+
+msgid "Xavfsiz"
+msgstr "Xavfsiz"
+
+msgid "O'rtacha Xavf"
+msgstr "O'rtacha Xavf"
+
+msgid "Yuqori Xavf"
+msgstr "Yuqori Xavf"
+
+msgid "ID, tashxis bo'yicha qidirish..."
+msgstr "ID, tashxis bo'yicha qidirish..."
+
+msgid "Barchasi"
+msgstr "Barchasi"
+
+msgid "O'rtacha"
+msgstr "O'rtacha"
+
+msgid "Xavfli"
+msgstr "Xavfli"
+
+msgid "Saralash"
+msgstr "Saralash"
+
+msgid "Eng yangi"
+msgstr "Eng yangi"
+
+msgid "Eng eski"
+msgstr "Eng eski"
+
+msgid "Yuqori xavf"
+msgstr "Yuqori xavf"
+
+msgid "Past xavf"
+msgstr "Past xavf"
+
+msgid "yoshli"
+msgstr "yoshli"
+
+msgid "Ishonch"
+msgstr "Ishonch"
+
+msgid "Tugun"
+msgstr "Tugun"
+
+msgid "Yuklab olingan"
+msgstr "Yuklab olingan"
+
+msgid "Yuklab olinmagan"
+msgstr "Yuklab olinmagan"
+
+msgid "Ko'rish"
+msgstr "Ko'rish"
+
+msgid "Hech qanday tashxis topilmadi"
+msgstr "Hech qanday tashxis topilmadi"
+
+msgid "Hozircha hech qanday tashxis amalga oshirilmagan yoki sizning qidiruvingizga mos natija yo'q"
+msgstr "Hozircha hech qanday tashxis amalga oshirilmagan yoki sizning qidiruvingizga mos natija yo'q"
+
+msgid "Yangi Tashxis Qo'shish"
+msgstr "Yangi Tashxis Qo'shish"
+
+msgid "Yangi Tashxis O'tkazish"
+msgstr "Yangi Tashxis O'tkazish"
+
+msgid "Sun'iy intellekt yordamida qalqonsimon bez xavfli o'smalarini professional baholash"
+msgstr "Sun'iy intellekt yordamida qalqonsimon bez xavfli o'smalarini professional baholash"
+

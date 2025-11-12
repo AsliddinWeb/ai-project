@@ -1,0 +1,539 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block extra_css %}
+<style>
+/* Custom styles for diagnosis list */
+.diagnosis-card {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.diagnosis-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status-success {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.status-warning {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.status-danger {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.filter-btn {
+  padding: 8px 16px;
+  border-radius: 12px;
+  border: 2px solid #e5e7eb;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.filter-btn:hover {
+  border-color: #3b82f6;
+  background: #eff6ff;
+}
+
+.filter-btn.active {
+  background: #3b82f6;
+  color: white;
+  border-color: #3b82f6;
+}
+
+.search-box {
+  position: relative;
+}
+
+.search-box input {
+  padding-left: 40px;
+}
+
+.search-box i {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+}
+
+.pagination {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 32px;
+}
+
+.page-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: 2px solid #e5e7eb;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: 600;
+}
+
+.page-btn:hover {
+  border-color: #3b82f6;
+  background: #eff6ff;
+}
+
+.page-btn.active {
+  background: #3b82f6;
+  color: white;
+  border-color: #3b82f6;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.empty-state-icon {
+  width: 120px;
+  height: 120px;
+  background: #f3f4f6;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  border: 2px solid #e5e7eb;
+  transition: all 0.3s;
+}
+
+.stat-card:hover {
+  border-color: #3b82f6;
+  transform: translateY(-2px);
+}
+</style>
+{% endblock extra_css %}
+
+{% block content %}
+
+<!-- [ Breadcrumb ] start -->
+<div class="py-6 md:py-16 sm:py-10 [background-image:var(--breadcrumb-bg)] dark:[background-image:var(--breadcrumb-bg-dark)] bg-[length:30px_30px] bg-neutral-100 rounded-b-3xl sm:rounded-b-[40px]">
+  <div class="text-center container flex flex-col items-center gap-4">
+    <ul class="breadcrumb justify-center bg-neutral-100 border border-theme-divider rounded-full px-3 py-2">
+      <li class="breadcrumb-item"><a href="{% url 'home' %}">{% trans "Bosh sahifa" %}</a></li>
+      <li class="breadcrumb-item active" aria-current="page">{% trans "Tashxislar Ro'yxati" %}</li>
+    </ul>
+
+    <div class="page-header-title font-archivo w-[345px] sm:w-[550px] md:w-[700px]">
+      <h1 class="mb-0">{% trans "Barcha Tashxislar" %} ✦</h1>
+    </div>
+
+    <p class="h6 text-theme-text-secondary max-w-[620px]">
+      {% trans "Sun'iy intellekt yordamida amalga oshirilgan barcha tashxislar ro'yxati" %}
+    </p>
+
+    <div class="text-primary-500 py-[4.6px] lg:py-[7px]">
+      <svg class="w-[92px] md:w-[122px] h-auto" viewBox="0 0 122 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path opacity="0.4" d="M1.46484 6.83613L4.45387 3.7103C7.74598 0.267505 13.38 0.760513 16.0241 4.72277L16.5428 5.50001C19.2423 9.54539 25.1877 9.54539 27.8873 5.5V5.5C30.5869 1.45461 36.5322 1.45461 39.2318 5.5V5.5C41.9314 9.54539 47.8768 9.54539 50.5764 5.5V5.5C53.2759 1.45461 59.2213 1.45461 61.9209 5.5V5.5C64.6205 9.54539 70.5658 9.54539 73.2654 5.5V5.5C75.965 1.45461 81.9104 1.45461 84.61 5.5V5.5C87.3096 9.54539 93.2549 9.54539 95.9545 5.5V5.5C98.6541 1.45461 104.599 1.45461 107.299 5.5V5.5C109.999 9.54539 115.944 9.54539 118.644 5.5L120.534 2.66667" stroke="currentColor" strokeLinecap="round"/>
+      </svg>
+    </div>
+  </div>
+</div>
+<!-- [ Breadcrumb ] end -->
+
+<!-- [ Statistics ] start -->
+<section class="common-section">
+  <div class="container">
+    <div class="animate-y delay-reset grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <!-- Total -->
+      <div class="stat-card">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+            <i class="ti ti-files text-2xl text-blue-600"></i>
+          </div>
+          <div>
+            <p class="caption text-neutral-600">{% trans "Jami Tashxislar" %}</p>
+            <h3 class="text-blue-600">{{ total_count }}</h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- Success -->
+      <div class="stat-card">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
+            <i class="ti ti-circle-check text-2xl text-green-600"></i>
+          </div>
+          <div>
+            <p class="caption text-neutral-600">{% trans "Xavfsiz" %}</p>
+            <h3 class="text-green-600">{{ success_count }}</h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- Warning -->
+      <div class="stat-card">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center">
+            <i class="ti ti-alert-triangle text-2xl text-yellow-600"></i>
+          </div>
+          <div>
+            <p class="caption text-neutral-600">{% trans "O'rtacha Xavf" %}</p>
+            <h3 class="text-yellow-600">{{ warning_count }}</h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- Danger -->
+      <div class="stat-card">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center">
+            <i class="ti ti-alert-circle text-2xl text-red-600"></i>
+          </div>
+          <div>
+            <p class="caption text-neutral-600">{% trans "Yuqori Xavf" %}</p>
+            <h3 class="text-red-600">{{ danger_count }}</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- [ Statistics ] end -->
+
+<!-- [ Filter & Search ] start -->
+<section class="common-section" style="padding-top: 0;">
+  <div class="container">
+    <div class="animate-y delay-reset rounded-3xl sm:rounded-[32px] md:rounded-[40px] bg-neutral-100 overflow-hidden">
+      <div class="p-6 sm:p-8">
+        <div class="flex flex-col lg:flex-row gap-4 items-center justify-between">
+          <!-- Search -->
+          <div class="search-box flex-1 w-full lg:max-w-md">
+            <i class="ti ti-search"></i>
+            <input type="text" 
+                   id="search-input" 
+                   class="form-control !bg-white" 
+                   placeholder="{% trans 'ID, tashxis bo\'yicha qidirish...' %}">
+          </div>
+
+          <!-- Filters -->
+          <div class="flex flex-wrap gap-2">
+            <button class="filter-btn active" data-filter="all">
+              <i class="ti ti-list mr-1"></i>
+              {% trans "Barchasi" %}
+            </button>
+            <button class="filter-btn" data-filter="success">
+              <i class="ti ti-circle-check mr-1"></i>
+              {% trans "Xavfsiz" %}
+            </button>
+            <button class="filter-btn" data-filter="warning">
+              <i class="ti ti-alert-triangle mr-1"></i>
+              {% trans "O'rtacha" %}
+            </button>
+            <button class="filter-btn" data-filter="danger">
+              <i class="ti ti-alert-circle mr-1"></i>
+              {% trans "Xavfli" %}
+            </button>
+          </div>
+
+          <!-- Sort -->
+          <div class="btn-group">
+            <button class="btn btn-outline-primary dropdown-toggle arrow-none" type="button"
+              data-pc-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="ti ti-sort-descending"></i>
+              {% trans "Saralash" %}
+            </button>
+            <div class="dropdown-menu dropdown-menu-end">
+              <a class="dropdown-item" href="?sort=newest">{% trans "Eng yangi" %}</a>
+              <a class="dropdown-item" href="?sort=oldest">{% trans "Eng eski" %}</a>
+              <a class="dropdown-item" href="?sort=high_risk">{% trans "Yuqori xavf" %}</a>
+              <a class="dropdown-item" href="?sort=low_risk">{% trans "Past xavf" %}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- [ Filter & Search ] end -->
+
+<!-- [ Diagnosis List ] start -->
+<section class="common-section" style="padding-top: 0;">
+  <div class="container">
+    {% if diagnoses %}
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6" id="diagnosis-grid">
+      {% for diagnosis in diagnoses %}
+      <div class="animate-y delay-reset diagnosis-card rounded-3xl sm:rounded-[32px] overflow-hidden bg-neutral-100 border-2 border-neutral-200" 
+           data-filter-class="{{ diagnosis.diagnosis_class }}"
+           data-uuid="{{ diagnosis.uuid }}"
+           data-diagnosis="{{ diagnosis.diagnosis|lower }}"
+           onclick="window.location.href='{% url 'diagnosis_detail' uuid=diagnosis.uuid %}'">
+        <div class="p-6 sm:p-8">
+          <div class="flex flex-col gap-4">
+            
+            <!-- Header -->
+            <div class="flex items-start justify-between gap-4">
+              <div class="flex items-center gap-3 flex-1">
+                {% if diagnosis.thyroid_image %}
+                <div class="w-16 h-16 rounded-xl overflow-hidden border-2 border-neutral-300 shrink-0">
+                  <img src="{{ diagnosis.thyroid_image.url }}" alt="Ultrasound" class="w-full h-full object-cover">
+                </div>
+                {% else %}
+                <div class="w-16 h-16 rounded-xl bg-neutral-300 flex items-center justify-center shrink-0">
+                  <i class="ti ti-photo text-2xl text-neutral-500"></i>
+                </div>
+                {% endif %}
+                
+                <div class="flex-1 min-w-0">
+                  <p class="caption text-neutral-600 mb-1">ID: {{ diagnosis.uuid|slice:":8" }}...{{ diagnosis.uuid|slice:"-4:" }}</p>
+                  <h5 class="truncate">{{ diagnosis.age }} {% trans "yoshli" %} {{ diagnosis.gender }}</h5>
+                  <p class="caption text-neutral-600">{{ diagnosis.created_at|date:"d.m.Y H:i" }}</p>
+                </div>
+              </div>
+
+              <!-- Status Badge -->
+              <div class="status-badge status-{{ diagnosis.diagnosis_class }} shrink-0">
+                <div class="w-2 h-2 rounded-full {% if diagnosis.diagnosis_class == 'success' %}bg-green-600{% elif diagnosis.diagnosis_class == 'warning' %}bg-yellow-600{% else %}bg-red-600{% endif %} animate-pulse"></div>
+                {{ diagnosis.risk_level }}
+              </div>
+            </div>
+
+            <!-- Diagnosis -->
+            <div class="rounded-2xl bg-white p-4 border border-neutral-200">
+              <div class="flex items-center gap-2 mb-2">
+                <i class="ti ti-stethoscope text-primary-500"></i>
+                <p class="subtitle2">{% trans "Tashxis" %}</p>
+              </div>
+              <h6 class="{% if diagnosis.diagnosis_class == 'success' %}text-green-700{% elif diagnosis.diagnosis_class == 'warning' %}text-yellow-700{% else %}text-red-700{% endif %}">
+                {{ diagnosis.diagnosis }}
+              </h6>
+              <p class="caption text-neutral-600 mt-2 line-clamp-2">
+                {{ diagnosis.diagnosis_detail|truncatewords:20 }}
+              </p>
+            </div>
+
+            <!-- Stats -->
+            <div class="grid grid-cols-3 gap-3">
+              <!-- Confidence -->
+              <div class="rounded-xl bg-white p-3 border border-neutral-200 text-center">
+                <p class="caption text-neutral-600 mb-1">{% trans "Ishonch" %}</p>
+                <p class="subtitle1 text-primary-600">{{ diagnosis.confidence|floatformat:1 }}%</p>
+              </div>
+
+              <!-- TSH -->
+              <div class="rounded-xl bg-white p-3 border border-neutral-200 text-center">
+                <p class="caption text-neutral-600 mb-1">TSH</p>
+                <p class="subtitle1">{{ diagnosis.tsh_level }}</p>
+              </div>
+
+              <!-- Nodule -->
+              <div class="rounded-xl bg-white p-3 border border-neutral-200 text-center">
+                <p class="caption text-neutral-600 mb-1">{% trans "Tugun" %}</p>
+                <p class="subtitle1">{{ diagnosis.nodule_size }} {% trans "sm" %}</p>
+              </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="flex items-center justify-between pt-3 border-t border-neutral-200">
+              <div class="flex items-center gap-2 text-neutral-600">
+                {% if diagnosis.is_downloaded %}
+                <i class="ti ti-download text-green-500"></i>
+                <span class="caption">{% trans "Yuklab olingan" %} ({{ diagnosis.download_count }}x)</span>
+                {% else %}
+                <i class="ti ti-download text-neutral-400"></i>
+                <span class="caption">{% trans "Yuklab olinmagan" %}</span>
+                {% endif %}
+              </div>
+
+              <a href="{% url 'diagnosis_detail' uuid=diagnosis.uuid %}" 
+                 class="btn btn-sm btn-primary"
+                 onclick="event.stopPropagation()">
+                {% trans "Ko'rish" %}
+                <i class="ti ti-arrow-right ml-1"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- Pagination -->
+    {% if is_paginated %}
+    <div class="pagination animate-y delay-reset">
+      {% if page_obj.has_previous %}
+      <a href="?page=1" class="page-btn">
+        <i class="ti ti-chevrons-left"></i>
+      </a>
+      <a href="?page={{ page_obj.previous_page_number }}" class="page-btn">
+        <i class="ti ti-chevron-left"></i>
+      </a>
+      {% endif %}
+
+      {% for num in page_obj.paginator.page_range %}
+        {% if page_obj.number == num %}
+        <button class="page-btn active">{{ num }}</button>
+        {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+        <a href="?page={{ num }}" class="page-btn">{{ num }}</a>
+        {% endif %}
+      {% endfor %}
+
+      {% if page_obj.has_next %}
+      <a href="?page={{ page_obj.next_page_number }}" class="page-btn">
+        <i class="ti ti-chevron-right"></i>
+      </a>
+      <a href="?page={{ page_obj.paginator.num_pages }}" class="page-btn">
+        <i class="ti ti-chevrons-right"></i>
+      </a>
+      {% endif %}
+    </div>
+    {% endif %}
+
+    {% else %}
+    <!-- Empty State -->
+    <div class="animate-y delay-reset rounded-3xl sm:rounded-[32px] md:rounded-[40px] bg-neutral-100 overflow-hidden">
+      <div class="empty-state">
+        <div class="empty-state-icon">
+          <i class="ti ti-folder-open text-5xl text-neutral-400"></i>
+        </div>
+        <h3 class="mb-3">{% trans "Hech qanday tashxis topilmadi" %}</h3>
+        <p class="body1 text-neutral-600 mb-6">
+          {% trans "Hozircha hech qanday tashxis amalga oshirilmagan yoki sizning qidiruvingizga mos natija yo'q" %}
+        </p>
+        <a href="{% url 'home' %}#diagnos" class="btn btn-primary">
+          <i class="ti ti-plus"></i>
+          {% trans "Yangi Tashxis Qo'shish" %}
+        </a>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</section>
+<!-- [ Diagnosis List ] end -->
+
+<!-- [ Action Section ] start -->
+<section class="common-section" style="padding-top: 0;">
+  <div class="container">
+    <div class="animate-y delay-reset rounded-3xl sm:rounded-[32px] md:rounded-[40px] bg-gradient-to-br from-primary-50 to-purple-50 overflow-hidden border-2 border-primary-200">
+      <div class="p-8 sm:p-10 text-center">
+        <div class="max-w-2xl mx-auto">
+          <div class="w-16 h-16 bg-primary-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+            <i class="ti ti-stethoscope text-3xl text-white"></i>
+          </div>
+          <h3 class="mb-3">{% trans "Yangi Tashxis O'tkazish" %}</h3>
+          <p class="body1 text-neutral-700 mb-6">
+            {% trans "Sun'iy intellekt yordamida qalqonsimon bez xavfli o'smalarini professional baholash" %}
+          </p>
+          <a href="{% url 'home' %}#diagnos" class="btn btn-primary btn-lg">
+            <i class="ti ti-plus"></i>
+            {% trans "AI Diagnostikani Boshlash" %}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- [ Action Section ] end -->
+
+{% endblock content %}
+
+{% block extra_js %}
+<script>
+// Filter functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.diagnosis-card');
+  const searchInput = document.getElementById('search-input');
+
+  // Filter by status
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      // Update active state
+      filterBtns.forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+
+      const filter = this.dataset.filter;
+
+      // Filter cards
+      cards.forEach(card => {
+        const cardClass = card.dataset.filterClass;
+        
+        if (filter === 'all' || cardClass === filter) {
+          card.style.display = '';
+          setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          }, 10);
+        } else {
+          card.style.opacity = '0';
+          card.style.transform = 'translateY(20px)';
+          setTimeout(() => {
+            card.style.display = 'none';
+          }, 300);
+        }
+      });
+    });
+  });
+
+  // Search functionality
+  if (searchInput) {
+    searchInput.addEventListener('input', function(e) {
+      const searchTerm = e.target.value.toLowerCase();
+
+      cards.forEach(card => {
+        const uuid = card.dataset.uuid.toLowerCase();
+        const diagnosis = card.dataset.diagnosis;
+        
+        if (uuid.includes(searchTerm) || diagnosis.includes(searchTerm)) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  }
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+});
+</script>
+{% endblock extra_js %}

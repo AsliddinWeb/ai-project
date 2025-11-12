@@ -1,0 +1,251 @@
+# FAQ sahifasi uchun tarjimalar - O'zbekcha
+
+# Asosiy sarlavhalar
+msgid "Ko'p So'raladigan Savollar"
+msgstr "Ko'p So'raladigan Savollar"
+
+msgid "Qalqonsimon bez saratoni va TAMES tizimi haqida eng ko'p beriladigan savollarga javoblar"
+msgstr "Qalqonsimon bez saratoni va TAMES tizimi haqida eng ko'p beriladigan savollarga javoblar"
+
+msgid "Savollar bo'yicha qidirish..."
+msgstr "Savollar bo'yicha qidirish..."
+
+# Kategoriyalar
+msgid "Umumiy Ma'lumot"
+msgstr "Umumiy Ma'lumot"
+
+msgid "Xavf Omillari"
+msgstr "Xavf Omillari"
+
+msgid "Turlari"
+msgstr "Turlari"
+
+msgid "Belgilar"
+msgstr "Belgilar"
+
+msgid "Diagnostika"
+msgstr "Diagnostika"
+
+msgid "Davolash"
+msgstr "Davolash"
+
+msgid "Yuqumlilik"
+msgstr "Yuqumlilik"
+
+msgid "Prognoz"
+msgstr "Prognoz"
+
+# Savollar
+msgid "Qalqonsimon bez saratoni nima?"
+msgstr "Qalqonsimon bez saratoni nima?"
+
+msgid "Qalqonsimon bez saratoni sabablari nima bo'lishi mumkin?"
+msgstr "Qalqonsimon bez saratoni sabablari nima bo'lishi mumkin?"
+
+msgid "Qalqonsimon bez saratonining turlari qanday?"
+msgstr "Qalqonsimon bez saratonining turlari qanday?"
+
+msgid "Kasallikning dastlabki belgilari qanday bo'ladi?"
+msgstr "Kasallikning dastlabki belgilari qanday bo'ladi?"
+
+msgid "Qanday qilib aniqlanadi (diagnostika)?"
+msgstr "Qanday qilib aniqlanadi (diagnostika)?"
+
+msgid "Davolash qanday amalga oshiriladi?"
+msgstr "Davolash qanday amalga oshiriladi?"
+
+msgid "Qalqonsimon bez saratoni yuqumlimi?"
+msgstr "Qalqonsimon bez saratoni yuqumlimi?"
+
+msgid "Odam to'liq sog'ayib ketishi mumkinmi?"
+msgstr "Odam to'liq sog'ayib ketishi mumkinmi?"
+
+# Javoblar - FAQ 1
+msgid "Qalqonsimon bez saratoni — bu bo'yinning old qismida joylashgan qalqonsimon bez hujayralarining nazoratsiz o'sishi natijasida paydo bo'ladigan o'sma kasalligidir."
+msgstr "Qalqonsimon bez saratoni — bu bo'yinning old qismida joylashgan qalqonsimon bez hujayralarining nazoratsiz o'sishi natijasida paydo bo'ladigan o'sma kasalligidir."
+
+msgid "Muhim:"
+msgstr "Muhim:"
+
+msgid "Qalqonsimon bez metabolizm va gormonlar ishlab chiqarishda muhim rol o'ynaydi. Bu bezning saratoni erta bosqichda aniqlanganida davolash samaradorligi yuqori."
+msgstr "Qalqonsimon bez metabolizm va gormonlar ishlab chiqarishda muhim rol o'ynaydi. Bu bezning saratoni erta bosqichda aniqlanganida davolash samaradorligi yuqori."
+
+# FAQ 2
+msgid "Asosiy xavf omillari:"
+msgstr "Asosiy xavf omillari:"
+
+msgid "Irsi omillar (oila a'zolarida bo'lgan holatlar)"
+msgstr "Irsi omillar (oila a'zolarida bo'lgan holatlar)"
+
+msgid "Radiatsiyaga ta'sirlanish (bolalikda nurlanish olgan bo'lish)"
+msgstr "Radiatsiyaga ta'sirlanish (bolalikda nurlanish olgan bo'lish)"
+
+msgid "Gormon disbalansi yoki yod yetishmasligi"
+msgstr "Gormon disbalansi yoki yod yetishmasligi"
+
+msgid "Ba'zi genetik sindromlar (masalan, MEN 2 sindromi)"
+msgstr "Ba'zi genetik sindromlar (masalan, MEN 2 sindromi)"
+
+msgid "Ogohlantirish:"
+msgstr "Ogohlantirish:"
+
+msgid "Agar oilangizda qalqonsimon bez kasalliklari bo'lgan bo'lsa, muntazam tekshiruvdan o'tishni tavsiya etamiz."
+msgstr "Agar oilangizda qalqonsimon bez kasalliklari bo'lgan bo'lsa, muntazam tekshiruvdan o'tishni tavsiya etamiz."
+
+# FAQ 3
+msgid "Eng ko'p uchraydigan turlari:"
+msgstr "Eng ko'p uchraydigan turlari:"
+
+msgid "Papillyar"
+msgstr "Papillyar"
+
+msgid "eng keng tarqalgan, sekin o'sadi"
+msgstr "eng keng tarqalgan, sekin o'sadi"
+
+msgid "Follikulyar"
+msgstr "Follikulyar"
+
+msgid "ikkinchi darajada keng tarqalgan"
+msgstr "ikkinchi darajada keng tarqalgan"
+
+msgid "Medullyar"
+msgstr "Medullyar"
+
+msgid "kamroq uchraydi"
+msgstr "kamroq uchraydi"
+
+msgid "Anaplastik"
+msgstr "Anaplastik"
+
+msgid "kam uchraydi, lekin agressiv kechadi"
+msgstr "kam uchraydi, lekin agressiv kechadi"
+
+msgid "Yaxshi xabar:"
+msgstr "Yaxshi xabar:"
+
+msgid "Papillyar va follikulyar turlarining davolash natijalari juda yaxshi, agar erta aniqlansa prognoz ijobiy."
+msgstr "Papillyar va follikulyar turlarining davolash natijalari juda yaxshi, agar erta aniqlansa prognoz ijobiy."
+
+# FAQ 4
+msgid "Asosiy simptomlar:"
+msgstr "Asosiy simptomlar:"
+
+msgid "Bo'yinda tugun yoki shish paydo bo'lishi"
+msgstr "Bo'yinda tugun yoki shish paydo bo'lishi"
+
+msgid "Yutishda yoki nafas olishda qiyinchilik"
+msgstr "Yutishda yoki nafas olishda qiyinchilik"
+
+msgid "Ovozda o'zgarish (xirillash)"
+msgstr "Ovozda o'zgarish (xirillash)"
+
+msgid "Bo'yin og'rigi yoki noqulaylik"
+msgstr "Bo'yin og'rigi yoki noqulaylik"
+
+msgid "Ba'zida hech qanday simptom bo'lmasligi ham mumkin"
+msgstr "Ba'zida hech qanday simptom bo'lmasligi ham mumkin"
+
+msgid "Agar bu belgilardan birortasini sezsangiz, darhol shifokorga murojaat qiling!"
+msgstr "Agar bu belgilardan birortasini sezsangiz, darhol shifokorga murojaat qiling!"
+
+# FAQ 5
+msgid "Diagnostika usullari:"
+msgstr "Diagnostika usullari:"
+
+msgid "Qalqonsimon bez UZI"
+msgstr "Qalqonsimon bez UZI"
+
+msgid "Qon tahlillari (TSH, T3, T4, kalsitonin va h.k.)"
+msgstr "Qon tahlillari (TSH, T3, T4, kalsitonin va h.k.)"
+
+msgid "Biopsiya (o'sma hujayralarini mikroskopda tekshirish)"
+msgstr "Biopsiya (o'sma hujayralarini mikroskopda tekshirish)"
+
+msgid "KT yoki MRT (kengaygan holatlarni aniqlash uchun)"
+msgstr "KT yoki MRT (kengaygan holatlarni aniqlash uchun)"
+
+msgid "Bizning sun'iy intellekt tizimimiz ultratovush rasmlari va laboratoriya ma'lumotlarini tahlil qilib, dastlabki tashxis berishda yordam beradi!"
+msgstr "Bizning sun'iy intellekt tizimimiz ultratovush rasmlari va laboratoriya ma'lumotlarini tahlil qilib, dastlabki tashxis berishda yordam beradi!"
+
+# FAQ 6
+msgid "Davolash usullari:"
+msgstr "Davolash usullari:"
+
+msgid "Jarrohlik"
+msgstr "Jarrohlik"
+
+msgid "bezni qisman yoki to'liq olib tashlash"
+msgstr "bezni qisman yoki to'liq olib tashlash"
+
+msgid "Radioaktiv yod bilan davolash"
+msgstr "Radioaktiv yod bilan davolash"
+
+msgid "qoldiq saraton hujayralarini yo'q qilish"
+msgstr "qoldiq saraton hujayralarini yo'q qilish"
+
+msgid "Gormon terapiyasi"
+msgstr "Gormon terapiyasi"
+
+msgid "TSH darajasini boshqarish uchun"
+msgstr "TSH darajasini boshqarish uchun"
+
+msgid "Kimyo- yoki nurlanish terapiyasi"
+msgstr "Kimyo- yoki nurlanish terapiyasi"
+
+msgid "ba'zi hollarda"
+msgstr "ba'zi hollarda"
+
+msgid "Davolash rejasi individual bo'lib, kasallikning turi va bosqichiga qarab belgilanadi."
+msgstr "Davolash rejasi individual bo'lib, kasallikning turi va bosqichiga qarab belgilanadi."
+
+# FAQ 7
+msgid "Yo'q!"
+msgstr "Yo'q!"
+
+msgid "Qalqonsimon bez saratoni yuqumli emas — ya'ni boshqalarga o'tmaydi."
+msgstr "Qalqonsimon bez saratoni yuqumli emas — ya'ni boshqalarga o'tmaydi."
+
+msgid "Saraton kasalliklari odamdan odamga yuqmaydi. Bu hujayralarning genetik o'zgarishlari natijasida yuzaga keladigan kasallikdir."
+msgstr "Saraton kasalliklari odamdan odamga yuqmaydi. Bu hujayralarning genetik o'zgarishlari natijasida yuzaga keladigan kasallikdir."
+
+# FAQ 8
+msgid "Ha!"
+msgstr "Ha!"
+
+msgid "Ko'pchilik bemorlar to'liq sog'ayib ketadi, ayniqsa papillyar va follikulyar turlarida. Erta bosqichda aniqlansa, prognoz juda yaxshi."
+msgstr "Ko'pchilik bemorlar to'liq sog'ayib ketadi, ayniqsa papillyar va follikulyar turlarida. Erta bosqichda aniqlansa, prognoz juda yaxshi."
+
+msgid "Statistika:"
+msgstr "Statistika:"
+
+msgid "Papillyar saraton: 98% dan ortiq 5 yillik omon qolish"
+msgstr "Papillyar saraton: 98% dan ortiq 5 yillik omon qolish"
+
+msgid "Follikulyar saraton: 95% dan ortiq 5 yillik omon qolish"
+msgstr "Follikulyar saraton: 95% dan ortiq 5 yillik omon qolish"
+
+msgid "Erta aniqlangan holatda: deyarli 100% davolanadi"
+msgstr "Erta aniqlangan holatda: deyarli 100% davolanadi"
+
+msgid "Maslahat:"
+msgstr "Maslahat:"
+
+msgid "Muntazam tekshiruvdan o'ting va shifokor tavsiyalariga rioya qiling!"
+msgstr "Muntazam tekshiruvdan o'ting va shifokor tavsiyalariga rioya qiling!"
+
+# CTA Section
+msgid "TAMES AI Tizimi Bilan Tashxis"
+msgstr "TAMES AI Tizimi Bilan Tashxis"
+
+msgid "Sun'iy intellekt yordamida qalqonsimon bez xavfli o'smalarini professional baholash. Dastlabki tashxisni bir necha daqiqada oling!"
+msgstr "Sun'iy intellekt yordamida qalqonsimon bez xavfli o'smalarini professional baholash. Dastlabki tashxisni bir necha daqiqada oling!"
+
+msgid "Tizim Haqida"
+msgstr "Tizim Haqida"
+
+# Contact Section
+msgid "Savolingiz Qoldimi?"
+msgstr "Savolingiz Qoldimi?"
+
+msgid "Biz bilan bog'laning va barcha savollaringizga javob olamiz"
+msgstr "Biz bilan bog'laning va barcha savollaringizga javob olamiz"

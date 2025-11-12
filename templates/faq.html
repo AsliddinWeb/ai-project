@@ -1,0 +1,673 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block extra_css %}
+<style>
+/* FAQ Custom Styles */
+.faq-item {
+  transition: all 0.3s ease;
+  border: 2px solid #e5e7eb;
+  border-radius: 16px;
+  margin-bottom: 16px;
+  overflow: hidden;
+  background: white;
+}
+
+.faq-item:hover {
+  border-color: #3b82f6;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
+}
+
+.faq-question {
+  padding: 20px 24px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  transition: all 0.3s;
+  user-select: none;
+}
+
+.faq-question:hover {
+  background: #f9fafb;
+}
+
+.faq-question.active {
+  background: #eff6ff;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.faq-number {
+  width: 40px;
+  height: 40px;
+  background: #3b82f6;
+  color: white;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.faq-question.active .faq-number {
+  background: #2563eb;
+  transform: scale(1.1);
+}
+
+.faq-title {
+  flex: 1;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1f2937;
+  line-height: 1.5;
+}
+
+.faq-icon {
+  width: 32px;
+  height: 32px;
+  background: #f3f4f6;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  flex-shrink: 0;
+}
+
+.faq-question.active .faq-icon {
+  background: #3b82f6;
+  color: white;
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, padding 0.3s ease;
+  padding: 0 24px;
+}
+
+.faq-answer.active {
+  max-height: 1000px;
+  padding: 0 24px 24px;
+}
+
+.faq-answer-content {
+  color: #4b5563;
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+.faq-answer-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0;
+}
+
+.faq-answer-content ul li {
+  padding: 8px 0;
+  padding-left: 28px;
+  position: relative;
+}
+
+.faq-answer-content ul li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #10b981;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.highlight-box {
+  background: #f0fdf4;
+  border-left: 4px solid #10b981;
+  padding: 16px;
+  margin: 16px 0;
+  border-radius: 8px;
+}
+
+.highlight-box.warning {
+  background: #fef3c7;
+  border-left-color: #f59e0b;
+}
+
+.highlight-box.danger {
+  background: #fee2e2;
+  border-left-color: #ef4444;
+}
+
+.highlight-box.info {
+  background: #eff6ff;
+  border-left-color: #3b82f6;
+}
+
+.category-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.category-general {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.category-risk {
+  background: #fed7aa;
+  color: #9a3412;
+}
+
+.category-diagnosis {
+  background: #e9d5ff;
+  color: #6b21a8;
+}
+
+.category-treatment {
+  background: #bbf7d0;
+  color: #166534;
+}
+
+.search-box-faq {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto 40px;
+}
+
+.search-box-faq input {
+  padding-left: 48px;
+  height: 56px;
+  border-radius: 16px;
+  border: 2px solid #e5e7eb;
+  font-size: 16px;
+}
+
+.search-box-faq input:focus {
+  border-color: #3b82f6;
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+
+.search-box-faq i {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+  font-size: 20px;
+}
+
+@media (max-width: 768px) {
+  .faq-title {
+    font-size: 16px;
+  }
+  
+  .faq-number {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+  }
+  
+  .faq-question {
+    padding: 16px;
+  }
+  
+  .faq-answer.active {
+    padding: 0 16px 16px;
+  }
+}
+</style>
+{% endblock extra_css %}
+
+{% block content %}
+
+<!-- [ Breadcrumb ] start -->
+<div class="py-6 md:py-16 sm:py-10 [background-image:var(--breadcrumb-bg)] dark:[background-image:var(--breadcrumb-bg-dark)] bg-[length:30px_30px] bg-neutral-100 rounded-b-3xl sm:rounded-b-[40px]">
+  <div class="text-center container flex flex-col items-center gap-4">
+    <ul class="breadcrumb justify-center bg-neutral-100 border border-theme-divider rounded-full px-3 py-2">
+      <li class="breadcrumb-item"><a href="{% url 'home' %}">{% trans "Bosh sahifa" %}</a></li>
+      <li class="breadcrumb-item active" aria-current="page">{% trans "Ko'p So'raladigan Savollar" %}</li>
+    </ul>
+
+    <div class="page-header-title font-archivo w-[345px] sm:w-[550px] md:w-[700px]">
+      <h1 class="mb-0">{% trans "Ko'p So'raladigan Savollar" %} ✦</h1>
+    </div>
+
+    <p class="h6 text-theme-text-secondary max-w-[620px]">
+      {% trans "Qalqonsimon bez saratoni va TAMES tizimi haqida eng ko'p beriladigan savollarga javoblar" %}
+    </p>
+
+    <div class="text-primary-500 py-[4.6px] lg:py-[7px]">
+      <svg class="w-[92px] md:w-[122px] h-auto" viewBox="0 0 122 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path opacity="0.4" d="M1.46484 6.83613L4.45387 3.7103C7.74598 0.267505 13.38 0.760513 16.0241 4.72277L16.5428 5.50001C19.2423 9.54539 25.1877 9.54539 27.8873 5.5V5.5C30.5869 1.45461 36.5322 1.45461 39.2318 5.5V5.5C41.9314 9.54539 47.8768 9.54539 50.5764 5.5V5.5C53.2759 1.45461 59.2213 1.45461 61.9209 5.5V5.5C64.6205 9.54539 70.5658 9.54539 73.2654 5.5V5.5C75.965 1.45461 81.9104 1.45461 84.61 5.5V5.5C87.3096 9.54539 93.2549 9.54539 95.9545 5.5V5.5C98.6541 1.45461 104.599 1.45461 107.299 5.5V5.5C109.999 9.54539 115.944 9.54539 118.644 5.5L120.534 2.66667" stroke="currentColor" strokeLinecap="round"/>
+      </svg>
+    </div>
+  </div>
+</div>
+<!-- [ Breadcrumb ] end -->
+
+<!-- [ Search Box ] start -->
+<section class="common-section">
+  <div class="container">
+
+  </div>
+</section>
+<!-- [ Search Box ] end -->
+
+<!-- [ FAQ Section ] start -->
+<section class="common-section" style="padding-top: 0;">
+  <div class="container">
+    <div class="animate-y delay-reset" id="faq-container">
+      
+      <!-- FAQ 1 -->
+      <div class="faq-item" data-category="general">
+        <div class="faq-question">
+          <div class="faq-number">1</div>
+          <div class="flex-1">
+            <span class="category-badge category-general">
+              <i class="ti ti-info-circle"></i>
+              {% trans "Umumiy Ma'lumot" %}
+            </span>
+            <div class="faq-title">{% trans "Qalqonsimon bez saratoni nima?" %}</div>
+          </div>
+          <div class="faq-icon">
+            <i class="ti ti-chevron-down"></i>
+          </div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-content">
+            <p>
+              {% trans "Qalqonsimon bez saratoni — bu bo'yinning old qismida joylashgan qalqonsimon bez hujayralarining nazoratsiz o'sishi natijasida paydo bo'ladigan o'sma kasalligidir." %}
+            </p>
+            <div class="highlight-box info">
+              <strong>{% trans "Muhim:" %}</strong> {% trans "Qalqonsimon bez metabolizm va gormonlar ishlab chiqarishda muhim rol o'ynaydi. Bu bezning saratoni erta bosqichda aniqlanganida davolash samaradorligi yuqori." %}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 2 -->
+      <div class="faq-item" data-category="risk">
+        <div class="faq-question">
+          <div class="faq-number">2</div>
+          <div class="flex-1">
+            <span class="category-badge category-risk">
+              <i class="ti ti-alert-triangle"></i>
+              {% trans "Xavf Omillari" %}
+            </span>
+            <div class="faq-title">{% trans "Qalqonsimon bez saratoni sabablari nima bo'lishi mumkin?" %}</div>
+          </div>
+          <div class="faq-icon">
+            <i class="ti ti-chevron-down"></i>
+          </div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-content">
+            <p><strong>{% trans "Asosiy xavf omillari:" %}</strong></p>
+            <ul>
+              <li>{% trans "Irsi omillar (oila a'zolarida bo'lgan holatlar)" %}</li>
+              <li>{% trans "Radiatsiyaga ta'sirlanish (bolalikda nurlanish olgan bo'lish)" %}</li>
+              <li>{% trans "Gormon disbalansi yoki yod yetishmasligi" %}</li>
+              <li>{% trans "Ba'zi genetik sindromlar (masalan, MEN 2 sindromi)" %}</li>
+            </ul>
+            <div class="highlight-box warning">
+              <strong>⚠️ {% trans "Ogohlantirish:" %}</strong> {% trans "Agar oilangizda qalqonsimon bez kasalliklari bo'lgan bo'lsa, muntazam tekshiruvdan o'tishni tavsiya etamiz." %}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 3 -->
+      <div class="faq-item" data-category="general">
+        <div class="faq-question">
+          <div class="faq-number">3</div>
+          <div class="flex-1">
+            <span class="category-badge category-general">
+              <i class="ti ti-category"></i>
+              {% trans "Turlari" %}
+            </span>
+            <div class="faq-title">{% trans "Qalqonsimon bez saratonining turlari qanday?" %}</div>
+          </div>
+          <div class="faq-icon">
+            <i class="ti ti-chevron-down"></i>
+          </div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-content">
+            <p><strong>{% trans "Eng ko'p uchraydigan turlari:" %}</strong></p>
+            <ul>
+              <li><strong>{% trans "Papillyar" %}</strong> — {% trans "eng keng tarqalgan, sekin o'sadi" %}</li>
+              <li><strong>{% trans "Follikulyar" %}</strong> — {% trans "ikkinchi darajada keng tarqalgan" %}</li>
+              <li><strong>{% trans "Medullyar" %}</strong> — {% trans "kamroq uchraydi" %}</li>
+              <li><strong>{% trans "Anaplastik" %}</strong> — {% trans "kam uchraydi, lekin agressiv kechadi" %}</li>
+            </ul>
+            <div class="highlight-box">
+              <strong>✓ {% trans "Yaxshi xabar:" %}</strong> {% trans "Papillyar va follikulyar turlarining davolash natijalari juda yaxshi, agar erta aniqlansa prognoz ijobiy." %}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 4 -->
+      <div class="faq-item" data-category="diagnosis">
+        <div class="faq-question">
+          <div class="faq-number">4</div>
+          <div class="flex-1">
+            <span class="category-badge category-diagnosis">
+              <i class="ti ti-stethoscope"></i>
+              {% trans "Belgilar" %}
+            </span>
+            <div class="faq-title">{% trans "Kasallikning dastlabki belgilari qanday bo'ladi?" %}</div>
+          </div>
+          <div class="faq-icon">
+            <i class="ti ti-chevron-down"></i>
+          </div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-content">
+            <p><strong>{% trans "Asosiy simptomlar:" %}</strong></p>
+            <ul>
+              <li>{% trans "Bo'yinda tugun yoki shish paydo bo'lishi" %}</li>
+              <li>{% trans "Yutishda yoki nafas olishda qiyinchilik" %}</li>
+              <li>{% trans "Ovozda o'zgarish (xirillash)" %}</li>
+              <li>{% trans "Bo'yin og'rigi yoki noqulaylik" %}</li>
+              <li>{% trans "Ba'zida hech qanday simptom bo'lmasligi ham mumkin" %}</li>
+            </ul>
+            <div class="highlight-box warning">
+              <strong>⚠️ {% trans "Muhim:" %}</strong> {% trans "Agar bu belgilardan birortasini sezsangiz, darhol shifokorga murojaat qiling!" %}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 5 -->
+      <div class="faq-item" data-category="diagnosis">
+        <div class="faq-question">
+          <div class="faq-number">5</div>
+          <div class="flex-1">
+            <span class="category-badge category-diagnosis">
+              <i class="ti ti-microscope"></i>
+              {% trans "Diagnostika" %}
+            </span>
+            <div class="faq-title">{% trans "Qanday qilib aniqlanadi (diagnostika)?" %}</div>
+          </div>
+          <div class="faq-icon">
+            <i class="ti ti-chevron-down"></i>
+          </div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-content">
+            <p><strong>{% trans "Diagnostika usullari:" %}</strong></p>
+            <ul>
+              <li>{% trans "Qalqonsimon bez UZI" %}</li>
+              <li>{% trans "Qon tahlillari (TSH, T3, T4, kalsitonin va h.k.)" %}</li>
+              <li>{% trans "Biopsiya (o'sma hujayralarini mikroskopda tekshirish)" %}</li>
+              <li>{% trans "KT yoki MRT (kengaygan holatlarni aniqlash uchun)" %}</li>
+            </ul>
+            <div class="highlight-box info">
+              <strong>🤖 TAMES Tizimi:</strong> {% trans "Bizning sun'iy intellekt tizimimiz ultratovush rasmlari va laboratoriya ma'lumotlarini tahlil qilib, dastlabki tashxis berishda yordam beradi!" %}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 6 -->
+      <div class="faq-item" data-category="treatment">
+        <div class="faq-question">
+          <div class="faq-number">6</div>
+          <div class="flex-1">
+            <span class="category-badge category-treatment">
+              <i class="ti ti-pill"></i>
+              {% trans "Davolash" %}
+            </span>
+            <div class="faq-title">{% trans "Davolash qanday amalga oshiriladi?" %}</div>
+          </div>
+          <div class="faq-icon">
+            <i class="ti ti-chevron-down"></i>
+          </div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-content">
+            <p><strong>{% trans "Davolash usullari:" %}</strong></p>
+            <ul>
+              <li><strong>{% trans "Jarrohlik" %}</strong> — {% trans "bezni qisman yoki to'liq olib tashlash" %}</li>
+              <li><strong>{% trans "Radioaktiv yod bilan davolash" %}</strong> — {% trans "qoldiq saraton hujayralarini yo'q qilish" %}</li>
+              <li><strong>{% trans "Gormon terapiyasi" %}</strong> — {% trans "TSH darajasini boshqarish uchun" %}</li>
+              <li><strong>{% trans "Kimyo- yoki nurlanish terapiyasi" %}</strong> — {% trans "ba'zi hollarda" %}</li>
+            </ul>
+            <div class="highlight-box">
+              <strong>✓ {% trans "Muhim:" %}</strong> {% trans "Davolash rejasi individual bo'lib, kasallikning turi va bosqichiga qarab belgilanadi." %}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 7 -->
+      <div class="faq-item" data-category="general">
+        <div class="faq-question">
+          <div class="faq-number">7</div>
+          <div class="flex-1">
+            <span class="category-badge category-general">
+              <i class="ti ti-virus-off"></i>
+              {% trans "Yuqumlilik" %}
+            </span>
+            <div class="faq-title">{% trans "Qalqonsimon bez saratoni yuqumlimi?" %}</div>
+          </div>
+          <div class="faq-icon">
+            <i class="ti ti-chevron-down"></i>
+          </div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-content">
+            <div class="highlight-box">
+              <strong>❌ {% trans "Yo'q!" %}</strong> {% trans "Qalqonsimon bez saratoni yuqumli emas — ya'ni boshqalarga o'tmaydi." %}
+            </div>
+            <p>
+              {% trans "Saraton kasalliklari odamdan odamga yuqmaydi. Bu hujayralarning genetik o'zgarishlari natijasida yuzaga keladigan kasallikdir." %}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 8 -->
+      <div class="faq-item" data-category="treatment">
+        <div class="faq-question">
+          <div class="faq-number">8</div>
+          <div class="flex-1">
+            <span class="category-badge category-treatment">
+              <i class="ti ti-heart-handshake"></i>
+              {% trans "Prognoz" %}
+            </span>
+            <div class="faq-title">{% trans "Odam to'liq sog'ayib ketishi mumkinmi?" %}</div>
+          </div>
+          <div class="faq-icon">
+            <i class="ti ti-chevron-down"></i>
+          </div>
+        </div>
+        <div class="faq-answer">
+          <div class="faq-answer-content">
+            <div class="highlight-box">
+              <strong>✅ {% trans "Ha!" %}</strong> {% trans "Ko'pchilik bemorlar to'liq sog'ayib ketadi, ayniqsa papillyar va follikulyar turlarida. Erta bosqichda aniqlansa, prognoz juda yaxshi." %}
+            </div>
+            <p><strong>{% trans "Statistika:" %}</strong></p>
+            <ul>
+              <li>{% trans "Papillyar saraton: 98% dan ortiq 5 yillik omon qolish" %}</li>
+              <li>{% trans "Follikulyar saraton: 95% dan ortiq 5 yillik omon qolish" %}</li>
+              <li>{% trans "Erta aniqlangan holatda: deyarli 100% davolanadi" %}</li>
+            </ul>
+            <div class="highlight-box info">
+              <strong>💡 {% trans "Maslahat:" %}</strong> {% trans "Muntazam tekshiruvdan o'ting va shifokor tavsiyalariga rioya qiling!" %}
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- [ FAQ Section ] end -->
+
+<!-- [ CTA Section ] start -->
+<section class="common-section" style="padding-top: 0;">
+  <div class="container">
+    <div class="animate-y delay-reset rounded-3xl sm:rounded-[32px] md:rounded-[40px] bg-gradient-to-br from-primary-50 to-purple-50 overflow-hidden border-2 border-primary-200">
+      <div class="p-8 sm:p-10 text-center">
+        <div class="max-w-2xl mx-auto">
+          <div class="w-16 h-16 bg-primary-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+            <i class="ti ti-robot text-3xl text-white"></i>
+          </div>
+          <h3 class="mb-3">{% trans "TAMES AI Tizimi Bilan Tashxis" %}</h3>
+          <p class="body1 text-neutral-700 mb-6">
+            {% trans "Sun'iy intellekt yordamida qalqonsimon bez xavfli o'smalarini professional baholash. Dastlabki tashxisni bir necha daqiqada oling!" %}
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3 justify-center">
+            <a href="{% url 'home' %}#diagnos" class="btn btn-primary btn-lg">
+              <i class="ti ti-stethoscope"></i>
+              {% trans "AI Diagnostikani Boshlash" %}
+            </a>
+            <a href="{% url 'about' %}" class="btn btn-outline-primary btn-lg">
+              <i class="ti ti-info-circle"></i>
+              {% trans "Tizim Haqida" %}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- [ CTA Section ] end -->
+
+<!-- [ Contact Section ] start -->
+<section class="common-section" style="padding-top: 0;">
+  <div class="container">
+    <div class="animate-y delay-reset rounded-3xl sm:rounded-[32px] md:rounded-[40px] bg-neutral-100 overflow-hidden">
+      <div class="p-8 sm:p-10">
+        <div class="text-center mb-8">
+          <h3>{% trans "Savolingiz Qoldimi?" %}</h3>
+          <p class="body1 text-neutral-700 mt-3">
+            {% trans "Biz bilan bog'laning va barcha savollaringizga javob olamiz" %}
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
+          <a href="tel:+998998889848" class="rounded-xl p-5 bg-white border-2 border-neutral-200 hover:border-primary-300 transition-all text-center">
+            <div class="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center mx-auto mb-3">
+              <i class="ti ti-phone text-2xl text-primary-500"></i>
+            </div>
+            <p class="subtitle1 mb-1">{% trans "Telefon" %}</p>
+            <p class="caption text-neutral-600">+998 99 888-98-48</p>
+          </a>
+
+          <a href="mailto:nargizazufarova93@gmail.com" class="rounded-xl p-5 bg-white border-2 border-neutral-200 hover:border-primary-300 transition-all text-center">
+            <div class="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center mx-auto mb-3">
+              <i class="ti ti-mail text-2xl text-primary-500"></i>
+            </div>
+            <p class="subtitle1 mb-1">Email</p>
+            <p class="caption text-neutral-600">nargizazufarova93@gmail.com</p>
+          </a>
+
+          <a href="https://t.me/nnigmatovna" target="_blank" class="rounded-xl p-5 bg-white border-2 border-neutral-200 hover:border-primary-300 transition-all text-center">
+            <div class="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center mx-auto mb-3">
+              <i class="ti ti-brand-telegram text-2xl text-primary-500"></i>
+            </div>
+            <p class="subtitle1 mb-1">Telegram</p>
+            <p class="caption text-neutral-600">@nnigmatovna</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- [ Contact Section ] end -->
+
+{% endblock content %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Accordion functionality
+  const faqQuestions = document.querySelectorAll('.faq-question');
+  
+  faqQuestions.forEach(question => {
+    question.addEventListener('click', function() {
+      const faqItem = this.closest('.faq-item');
+      const answer = faqItem.querySelector('.faq-answer');
+      const isActive = this.classList.contains('active');
+      
+      // Close all other FAQs
+      document.querySelectorAll('.faq-question.active').forEach(activeQuestion => {
+        if (activeQuestion !== this) {
+          activeQuestion.classList.remove('active');
+          activeQuestion.closest('.faq-item').querySelector('.faq-answer').classList.remove('active');
+        }
+      });
+      
+      // Toggle current FAQ
+      if (isActive) {
+        this.classList.remove('active');
+        answer.classList.remove('active');
+      } else {
+        this.classList.add('active');
+        answer.classList.add('active');
+      }
+    });
+  });
+  
+  // Search functionality
+  const searchInput = document.getElementById('faq-search');
+  const faqItems = document.querySelectorAll('.faq-item');
+  
+  if (searchInput) {
+    searchInput.addEventListener('input', function(e) {
+      const searchTerm = e.target.value.toLowerCase();
+      
+      faqItems.forEach(item => {
+        const title = item.querySelector('.faq-title').textContent.toLowerCase();
+        const content = item.querySelector('.faq-answer-content').textContent.toLowerCase();
+        
+        if (title.includes(searchTerm) || content.includes(searchTerm)) {
+          item.style.display = '';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+      
+      // If search term is empty, show all
+      if (searchTerm === '') {
+        faqItems.forEach(item => {
+          item.style.display = '';
+        });
+      }
+    });
+  }
+  
+  // Auto-open first FAQ
+  if (faqQuestions.length > 0) {
+    faqQuestions[0].click();
+  }
+  
+  // Smooth scroll for internal links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+});
+</script>
+{% endblock extra_js %}

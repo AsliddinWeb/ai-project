@@ -1,0 +1,251 @@
+# FAQ sahifasi uchun tarjimalar - English
+
+# Asosiy sarlavhalar
+msgid "Ko'p So'raladigan Savollar"
+msgstr "Frequently Asked Questions"
+
+msgid "Qalqonsimon bez saratoni va TAMES tizimi haqida eng ko'p beriladigan savollarga javoblar"
+msgstr "Answers to the most frequently asked questions about thyroid cancer and the TAMES system"
+
+msgid "Savollar bo'yicha qidirish..."
+msgstr "Search questions..."
+
+# Kategoriyalar
+msgid "Umumiy Ma'lumot"
+msgstr "General Information"
+
+msgid "Xavf Omillari"
+msgstr "Risk Factors"
+
+msgid "Turlari"
+msgstr "Types"
+
+msgid "Belgilar"
+msgstr "Symptoms"
+
+msgid "Diagnostika"
+msgstr "Diagnosis"
+
+msgid "Davolash"
+msgstr "Treatment"
+
+msgid "Yuqumlilik"
+msgstr "Contagiousness"
+
+msgid "Prognoz"
+msgstr "Prognosis"
+
+# Savollar
+msgid "Qalqonsimon bez saratoni nima?"
+msgstr "What is thyroid cancer?"
+
+msgid "Qalqonsimon bez saratoni sabablari nima bo'lishi mumkin?"
+msgstr "What are the causes of thyroid cancer?"
+
+msgid "Qalqonsimon bez saratonining turlari qanday?"
+msgstr "What are the types of thyroid cancer?"
+
+msgid "Kasallikning dastlabki belgilari qanday bo'ladi?"
+msgstr "What are the early signs of the disease?"
+
+msgid "Qanday qilib aniqlanadi (diagnostika)?"
+msgstr "How is it diagnosed?"
+
+msgid "Davolash qanday amalga oshiriladi?"
+msgstr "How is treatment carried out?"
+
+msgid "Qalqonsimon bez saratoni yuqumlimi?"
+msgstr "Is thyroid cancer contagious?"
+
+msgid "Odam to'liq sog'ayib ketishi mumkinmi?"
+msgstr "Can a person fully recover?"
+
+# Javoblar - FAQ 1
+msgid "Qalqonsimon bez saratoni — bu bo'yinning old qismida joylashgan qalqonsimon bez hujayralarining nazoratsiz o'sishi natijasida paydo bo'ladigan o'sma kasalligidir."
+msgstr "Thyroid cancer is a tumor disease that occurs as a result of uncontrolled growth of thyroid gland cells located in the front of the neck."
+
+msgid "Muhim:"
+msgstr "Important:"
+
+msgid "Qalqonsimon bez metabolizm va gormonlar ishlab chiqarishda muhim rol o'ynaydi. Bu bezning saratoni erta bosqichda aniqlanganida davolash samaradorligi yuqori."
+msgstr "The thyroid gland plays an important role in metabolism and hormone production. Treatment effectiveness is high when thyroid cancer is detected at an early stage."
+
+# FAQ 2
+msgid "Asosiy xavf omillari:"
+msgstr "Main risk factors:"
+
+msgid "Irsi omillar (oila a'zolarida bo'lgan holatlar)"
+msgstr "Hereditary factors (cases in family members)"
+
+msgid "Radiatsiyaga ta'sirlanish (bolalikda nurlanish olgan bo'lish)"
+msgstr "Radiation exposure (being irradiated in childhood)"
+
+msgid "Gormon disbalansi yoki yod yetishmasligi"
+msgstr "Hormonal imbalance or iodine deficiency"
+
+msgid "Ba'zi genetik sindromlar (masalan, MEN 2 sindromi)"
+msgstr "Some genetic syndromes (for example, MEN 2 syndrome)"
+
+msgid "Ogohlantirish:"
+msgstr "Warning:"
+
+msgid "Agar oilangizda qalqonsimon bez kasalliklari bo'lgan bo'lsa, muntazam tekshiruvdan o'tishni tavsiya etamiz."
+msgstr "If there have been thyroid diseases in your family, we recommend regular check-ups."
+
+# FAQ 3
+msgid "Eng ko'p uchraydigan turlari:"
+msgstr "Most common types:"
+
+msgid "Papillyar"
+msgstr "Papillary"
+
+msgid "eng keng tarqalgan, sekin o'sadi"
+msgstr "most widespread, grows slowly"
+
+msgid "Follikulyar"
+msgstr "Follicular"
+
+msgid "ikkinchi darajada keng tarqalgan"
+msgstr "second most common"
+
+msgid "Medullyar"
+msgstr "Medullary"
+
+msgid "kamroq uchraydi"
+msgstr "less common"
+
+msgid "Anaplastik"
+msgstr "Anaplastic"
+
+msgid "kam uchraydi, lekin agressiv kechadi"
+msgstr "rare but aggressive"
+
+msgid "Yaxshi xabar:"
+msgstr "Good news:"
+
+msgid "Papillyar va follikulyar turlarining davolash natijalari juda yaxshi, agar erta aniqlansa prognoz ijobiy."
+msgstr "Treatment outcomes for papillary and follicular types are very good, prognosis is positive if detected early."
+
+# FAQ 4
+msgid "Asosiy simptomlar:"
+msgstr "Main symptoms:"
+
+msgid "Bo'yinda tugun yoki shish paydo bo'lishi"
+msgstr "Appearance of a lump or swelling in the neck"
+
+msgid "Yutishda yoki nafas olishda qiyinchilik"
+msgstr "Difficulty swallowing or breathing"
+
+msgid "Ovozda o'zgarish (xirillash)"
+msgstr "Voice changes (hoarseness)"
+
+msgid "Bo'yin og'rigi yoki noqulaylik"
+msgstr "Neck pain or discomfort"
+
+msgid "Ba'zida hech qanday simptom bo'lmasligi ham mumkin"
+msgstr "Sometimes there may be no symptoms at all"
+
+msgid "Agar bu belgilardan birortasini sezsangiz, darhol shifokorga murojaat qiling!"
+msgstr "If you notice any of these signs, contact a doctor immediately!"
+
+# FAQ 5
+msgid "Diagnostika usullari:"
+msgstr "Diagnostic methods:"
+
+msgid "Qalqonsimon bez UZI"
+msgstr "Thyroid ultrasound"
+
+msgid "Qon tahlillari (TSH, T3, T4, kalsitonin va h.k.)"
+msgstr "Blood tests (TSH, T3, T4, calcitonin, etc.)"
+
+msgid "Biopsiya (o'sma hujayralarini mikroskopda tekshirish)"
+msgstr "Biopsy (microscopic examination of tumor cells)"
+
+msgid "KT yoki MRT (kengaygan holatlarni aniqlash uchun)"
+msgstr "CT or MRI (to detect advanced cases)"
+
+msgid "Bizning sun'iy intellekt tizimimiz ultratovush rasmlari va laboratoriya ma'lumotlarini tahlil qilib, dastlabki tashxis berishda yordam beradi!"
+msgstr "Our artificial intelligence system analyzes ultrasound images and laboratory data, helping to provide an initial diagnosis!"
+
+# FAQ 6
+msgid "Davolash usullari:"
+msgstr "Treatment methods:"
+
+msgid "Jarrohlik"
+msgstr "Surgery"
+
+msgid "bezni qisman yoki to'liq olib tashlash"
+msgstr "partial or complete removal of the gland"
+
+msgid "Radioaktiv yod bilan davolash"
+msgstr "Radioactive iodine treatment"
+
+msgid "qoldiq saraton hujayralarini yo'q qilish"
+msgstr "destroying residual cancer cells"
+
+msgid "Gormon terapiyasi"
+msgstr "Hormone therapy"
+
+msgid "TSH darajasini boshqarish uchun"
+msgstr "to control TSH levels"
+
+msgid "Kimyo- yoki nurlanish terapiyasi"
+msgstr "Chemotherapy or radiation therapy"
+
+msgid "ba'zi hollarda"
+msgstr "in some cases"
+
+msgid "Davolash rejasi individual bo'lib, kasallikning turi va bosqichiga qarab belgilanadi."
+msgstr "The treatment plan is individual and is determined by the type and stage of the disease."
+
+# FAQ 7
+msgid "Yo'q!"
+msgstr "No!"
+
+msgid "Qalqonsimon bez saratoni yuqumli emas — ya'ni boshqalarga o'tmaydi."
+msgstr "Thyroid cancer is not contagious — meaning it does not spread to others."
+
+msgid "Saraton kasalliklari odamdan odamga yuqmaydi. Bu hujayralarning genetik o'zgarishlari natijasida yuzaga keladigan kasallikdir."
+msgstr "Cancer diseases do not spread from person to person. This is a disease that occurs as a result of genetic changes in cells."
+
+# FAQ 8
+msgid "Ha!"
+msgstr "Yes!"
+
+msgid "Ko'pchilik bemorlar to'liq sog'ayib ketadi, ayniqsa papillyar va follikulyar turlarida. Erta bosqichda aniqlansa, prognoz juda yaxshi."
+msgstr "Most patients fully recover, especially with papillary and follicular types. If detected at an early stage, the prognosis is very good."
+
+msgid "Statistika:"
+msgstr "Statistics:"
+
+msgid "Papillyar saraton: 98% dan ortiq 5 yillik omon qolish"
+msgstr "Papillary cancer: over 98% 5-year survival"
+
+msgid "Follikulyar saraton: 95% dan ortiq 5 yillik omon qolish"
+msgstr "Follicular cancer: over 95% 5-year survival"
+
+msgid "Erta aniqlangan holatda: deyarli 100% davolanadi"
+msgstr "When detected early: nearly 100% curable"
+
+msgid "Maslahat:"
+msgstr "Advice:"
+
+msgid "Muntazam tekshiruvdan o'ting va shifokor tavsiyalariga rioya qiling!"
+msgstr "Get regular check-ups and follow your doctor's recommendations!"
+
+# CTA Section
+msgid "TAMES AI Tizimi Bilan Tashxis"
+msgstr "Diagnosis with TAMES AI System"
+
+msgid "Sun'iy intellekt yordamida qalqonsimon bez xavfli o'smalarini professional baholash. Dastlabki tashxisni bir necha daqiqada oling!"
+msgstr "Professional assessment of malignant thyroid tumors using artificial intelligence. Get a preliminary diagnosis in minutes!"
+
+msgid "Tizim Haqida"
+msgstr "About System"
+
+# Contact Section
+msgid "Savolingiz Qoldimi?"
+msgstr "Have Questions?"
+
+msgid "Biz bilan bog'laning va barcha savollaringizga javob olamiz"
+msgstr "Contact us and get answers to all your questions"

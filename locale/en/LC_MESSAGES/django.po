@@ -383,3 +383,90 @@ msgstr "T4 Level"
 # Yangi qo'shilgan - 2025-11-04
 msgid "Qalqonsimon Bez Xavfli O'smalarini AI Bilan Diagnostika qilish"
 msgstr "AI-Based Diagnosis of Malignant Thyroid Tumors"
+
+# Yangi tarjimalar - diagnosis_list uchun qo'shimcha (English)
+
+msgid "Ro'yxat"
+msgstr "List"
+
+msgid "Tashxislar Ro'yxati"
+msgstr "Diagnosis List"
+
+msgid "Barcha Tashxislar"
+msgstr "All Diagnoses"
+
+msgid "Sun'iy intellekt yordamida amalga oshirilgan barcha tashxislar ro'yxati"
+msgstr "List of all diagnoses performed using artificial intelligence"
+
+msgid "Jami Tashxislar"
+msgstr "Total Diagnoses"
+
+msgid "Xavfsiz"
+msgstr "Safe"
+
+msgid "O'rtacha Xavf"
+msgstr "Medium Risk"
+
+msgid "Yuqori Xavf"
+msgstr "High Risk"
+
+msgid "ID, tashxis bo'yicha qidirish..."
+msgstr "Search by ID, diagnosis..."
+
+msgid "Barchasi"
+msgstr "All"
+
+msgid "O'rtacha"
+msgstr "Medium"
+
+msgid "Xavfli"
+msgstr "Dangerous"
+
+msgid "Saralash"
+msgstr "Sort"
+
+msgid "Eng yangi"
+msgstr "Newest"
+
+msgid "Eng eski"
+msgstr "Oldest"
+
+msgid "Yuqori xavf"
+msgstr "High risk"
+
+msgid "Past xavf"
+msgstr "Low risk"
+
+msgid "yoshli"
+msgstr "years old"
+
+msgid "Ishonch"
+msgstr "Confidence"
+
+msgid "Tugun"
+msgstr "Nodule"
+
+msgid "Yuklab olingan"
+msgstr "Downloaded"
+
+msgid "Yuklab olinmagan"
+msgstr "Not downloaded"
+
+msgid "Ko'rish"
+msgstr "View"
+
+msgid "Hech qanday tashxis topilmadi"
+msgstr "No diagnoses found"
+
+msgid "Hozircha hech qanday tashxis amalga oshirilmagan yoki sizning qidiruvingizga mos natija yo'q"
+msgstr "No diagnoses have been performed yet or there are no results matching your search"
+
+msgid "Yangi Tashxis Qo'shish"
+msgstr "Add New Diagnosis"
+
+msgid "Yangi Tashxis O'tkazish"
+msgstr "Perform New Diagnosis"
+
+msgid "Sun'iy intellekt yordamida qalqonsimon bez xavfli o'smalarini professional baholash"
+msgstr "Professional assessment of malignant thyroid tumors using artificial intelligence"
+
