@@ -470,3 +470,7 @@ msgstr "Yangi Tashxis O'tkazish"
 msgid "Sun'iy intellekt yordamida qalqonsimon bez xavfli o'smalarini professional baholash"
 msgstr "Sun'iy intellekt yordamida qalqonsimon bez xavfli o'smalarini professional baholash"
 
+# New
+msgid "Sun'iy intellekt modeli asosida qalqonsimon bez saratonini erta aniqlash va diagnostika qilish"
+msgstr "Sun'iy intellekt modeli asosida qalqonsimon bez saratonini erta aniqlash va diagnostika qilish"
+

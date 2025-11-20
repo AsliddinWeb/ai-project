@@ -470,3 +470,7 @@ msgstr "Провести новый диагноз"
 msgid "Sun'iy intellekt yordamida qalqonsimon bez xavfli o'smalarini professional baholash"
 msgstr "Профессиональная оценка злокачественных новообразований щитовидной железы с помощью искусственного интеллекта"
 
+# New
+msgid "Sun'iy intellekt modeli asosida qalqonsimon bez saratonini erta aniqlash va diagnostika qilish"
+msgstr "Раннее выявление и диагностика рака щитовидной железы на основе модели искусственного интеллекта"
+
