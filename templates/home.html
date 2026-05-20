@@ -277,7 +277,7 @@
                   </div>
                   <div class="col-span-12 sm:col-span-6">
                     <div class="flex flex-col gap-1">
-                      <label class="subtitle1">Yod tanqisligi *</label>
+                      <label class="subtitle1">{% trans "Yod tanqisligi" %} *</label>
                       <select name="iodine_deficiency" class="form-control !bg-transparent" required>
                         <option value="">{% trans "Tanlang" %}</option>
                         <option value="Ha">{% trans "Ha" %}</option>
@@ -287,7 +287,7 @@
                   </div>
                   <div class="col-span-12 sm:col-span-6">
                     <div class="flex flex-col gap-1">
-                      <label class="subtitle1">Chekish *</label>
+                      <label class="subtitle1">{% trans "Chekish" %} *</label>
                       <select name="smoking" class="form-control !bg-transparent" required>
                         <option value="">{% trans "Tanlang" %}</option>
                         <option value="Ha">{% trans "Ha" %}</option>
@@ -297,7 +297,7 @@
                   </div>
                   <div class="col-span-12 sm:col-span-6">
                     <div class="flex flex-col gap-1">
-                      <label class="subtitle1">Semizlik *</label>
+                      <label class="subtitle1">{% trans "Semizlik" %} *</label>
                       <select name="obesity" class="form-control !bg-transparent" required>
                         <option value="">{% trans "Tanlang" %}</option>
                         <option value="Ha">{% trans "Ha" %}</option>
@@ -307,7 +307,7 @@
                   </div>
                   <div class="col-span-12 sm:col-span-6">
                     <div class="flex flex-col gap-1">
-                      <label class="subtitle1">Qandli diabet *</label>
+                      <label class="subtitle1">{% trans "Qandli diabet" %} *</label>
                       <select name="diabetes" class="form-control !bg-transparent" required>
                         <option value="">{% trans "Tanlang" %}</option>
                         <option value="Ha">{% trans "Ha" %}</option>
@@ -331,23 +331,23 @@
                   </div>
                   <div class="col-span-12 sm:col-span-6">
                     <div class="flex flex-col gap-1">
-                      <label class="subtitle1">T3 darajasi (ng/dL) *</label>
+                      <label class="subtitle1">{% trans "T3 darajasi" %} (ng/dL) *</label>
                       <input type="number" step="0.01" name="t3_level" class="form-control !bg-transparent" placeholder="{% trans 'Masalan' %}: 120" required>
-                      <small class="text-theme-text-secondary">Normal: 80-200 ng/dL</small>
+                      <small class="text-theme-text-secondary">{% trans "Normal" %}: 80-200 ng/dL</small>
                     </div>
                   </div>
                   <div class="col-span-12 sm:col-span-6">
                     <div class="flex flex-col gap-1">
-                      <label class="subtitle1">T4 darajasi (μg/dL) *</label>
+                      <label class="subtitle1">{% trans "T4 darajasi" %} (μg/dL) *</label>
                       <input type="number" step="0.01" name="t4_level" class="form-control !bg-transparent" placeholder="{% trans 'Masalan' %}: 8.0" required>
-                      <small class="text-theme-text-secondary">Normal: 5.0-12.0 μg/dL</small>
+                      <small class="text-theme-text-secondary">{% trans "Normal" %}: 5.0-12.0 μg/dL</small>
                     </div>
                   </div>
                   <div class="col-span-12 sm:col-span-6">
                     <div class="flex flex-col gap-1">
-                      <label class="subtitle1">Tugun o'lchami (sm) *</label>
+                      <label class="subtitle1">{% trans "Tugun o'lchami" %} (sm) *</label>
                       <input type="number" step="0.01" name="nodule_size" class="form-control !bg-transparent" placeholder="{% trans 'Masalan' %}: 1.5" required>
-                      <small class="text-theme-text-secondary">Santimetrda kiriting</small>
+                      <small class="text-theme-text-secondary">{% trans "Santimetrda kiriting" %}</small>
                     </div>
                   </div>
                 </div>
@@ -355,12 +355,13 @@
 
               <!-- Qo'shimcha Izohlar -->
               <div class="border-b border-neutral-200 pb-6">
-                <h5 class="subtitle1 mb-4 text-primary-500">Qo'shimcha Ma'lumot</h5>
+                <h5 class="subtitle1 mb-4 text-primary-500">{% trans "Qo'shimcha Ma'lumot" %}</h5>
                 <div class="grid grid-cols-12 gap-5">
                   <div class="col-span-12">
                     <div class="flex flex-col gap-1">
-                      <label class="subtitle1">Qo'shimcha izohlar (ixtiyoriy)</label>
-                      <textarea name="notes" rows="4" class="form-control !bg-transparent" placeholder="Agar qo'shimcha ma'lumotlar bo'lsa, bu yerga yozing..."></textarea>
+                      <label class="subtitle1">{% trans "Qo'shimcha izohlar (ixtiyoriy)" %}</label>
+                      {% trans "Agar qo'shimcha ma'lumotlar bo'lsa, bu yerga yozing..." as notes_placeholder %}
+                      <textarea name="notes" rows="4" class="form-control !bg-transparent" placeholder="{{ notes_placeholder }}"></textarea>
                     </div>
                   </div>
                 </div>

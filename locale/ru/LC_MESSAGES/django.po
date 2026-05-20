@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TAMES 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-01 12:00+0500\n"
+"POT-Creation-Date: 2026-05-20 13:31+0500\n"
 "PO-Revision-Date: 2025-11-01 12:00+0500\n"
 "Last-Translator: Nargiza Zufarova <nargizazufarova93@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
@@ -15,462 +15,1379 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-msgid "Tungi"
-msgstr "Ночной режим"
+#: apps/main_app/admin.py:51 apps/main_app/models.py:11
+msgid "Identifikator"
+msgstr ""
 
-msgid "Bog'lanish"
-msgstr "Связаться"
+#: apps/main_app/admin.py:54 apps/main_app/admin.py:124
+msgid "Rasm"
+msgstr ""
 
-msgid "Bosh sahifa"
-msgstr "Главная"
-
-msgid "Tashxis"
-msgstr "Диагностика"
-
-msgid "Statistika"
-msgstr "Статистика"
-
-msgid "Muallif"
-msgstr "Автор"
-
-msgid "Thyroid-AI Malignancy Evaluation System - Qalqonsimon bez xavfli o'smalari AI-asosli baholash tizimi"
-msgstr "Thyroid-AI Malignancy Evaluation System - AI-система оценки злокачественных новообразований щитовидной железы"
-
-msgid "Biz bilan bog'laning"
-msgstr "Свяжитесь с нами"
-
-msgid "Telefon"
-msgstr "Телефон"
-
-msgid "Xizmatlar"
-msgstr "Услуги"
-
-msgid "AI Diagnostika"
-msgstr "AI Диагностика"
-
-msgid "Xususiyatlar"
-msgstr "Возможности"
-
-msgid "Loyiha Haqida"
-msgstr "О проекте"
-
-msgid "Natijalar"
-msgstr "Результаты"
-
-msgid "Ma'lumot"
-msgstr "Информация"
-
-msgid "Ko'p So'raladigan Savollar"
-msgstr "Часто задаваемые вопросы"
-
-msgid "Qo'llanma"
-msgstr "Руководство пользователя"
-
-msgid "Maxfiylik"
-msgstr "Политика конфиденциальности"
-
-msgid "Aloqa"
-msgstr "Связаться с нами"
-
-msgid "Maxfiylik Siyosati"
-msgstr "Политика конфиденциальности"
-
-msgid "Foydalanish Shartlari"
-msgstr "Условия использования"
-
-msgid "Qalqonsimon Bez Xavfli O'smalarini AI Bilan Baholash"
-msgstr "Оценка злокачественных новообразований щитовидной железы с помощью AI"
-
-msgid "Sun'iy intellekt yordamida qalqonsimon bez xavfli o'smalari (malignant tugunlar)ni aniq va professional baholash tizimi"
-msgstr "Точная и профессиональная система оценки злокачественных новообразований (узлов) щитовидной железы с помощью искусственного интеллекта"
-
-msgid "AI Diagnostikani Boshlash"
-msgstr "Начать AI диагностику"
-
-msgid "Yuqori Aniqlik"
-msgstr "Высокая точность"
-
-msgid "Tezkor Natija"
-msgstr "Быстрый результат"
-
-msgid "Tibbiy Standartlar"
-msgstr "Медицинские стандарты"
-
-msgid "Bizga 5,000+ bemor ishonch bildirdi"
-msgstr "Нам доверяют более 5 000+ пациентов"
-
-msgid "Diagnostika Aniqligi"
-msgstr "Точность диагностики"
-
-msgid "Muvaffaqiyatli Tashxislar"
-msgstr "Успешные диагнозы"
-
-msgid "Doimiy Xizmat"
-msgstr "Постоянное обслуживание"
-
-msgid "Tibbiy Ma'lumotlarni Kiriting"
-msgstr "Введите медицинские данные"
-
-msgid "Quyidagi ma'lumotlarni to'liq va to'g'ri kiriting, AI tizimi sizga aniq tashxis beradi"
-msgstr "Введите следующую информацию полностью и правильно, AI-система даст вам точный диагноз"
-
-msgid "Ultratovush Rasmi"
-msgstr "УЗИ изображение"
-
-msgid "Qalqonsimon bez ultratovush rasmi"
-msgstr "УЗИ изображение щитовидной железы"
-
-msgid "Fayl tanlanmagan"
-msgstr "Файл не выбран"
-
-msgid "JPG, PNG, JPEG formatdagi rasmlarni yuklang (Max 5MB)"
-msgstr "Загрузите изображения в формате JPG, PNG, JPEG (Максимум 5MB)"
-
-msgid "Yuklangan rasm"
-msgstr "Загруженное изображение"
-
-msgid "Shaxsiy Ma'lumotlar"
+#: apps/main_app/admin.py:57
+#, fuzzy
+#| msgid "Shaxsiy Ma'lumotlar"
+msgid "Shaxsiy Malumotlar"
 msgstr "Личные данные"
 
-msgid "Yosh"
-msgstr "Возраст"
-
-msgid "Masalan"
-msgstr "Например"
-
-msgid "Jinsi"
-msgstr "Пол"
-
-msgid "Tanlang"
-msgstr "Выберите"
-
-msgid "Erkak"
-msgstr "Мужской"
-
-msgid "Ayol"
-msgstr "Женский"
-
-msgid "Mamlakat"
-msgstr "Страна"
-
-msgid "O'zbekiston"
-msgstr "Узбекистан"
-
-msgid "Qozog'iston"
-msgstr "Казахстан"
-
-msgid "Turkmaniston"
-msgstr "Туркменистан"
-
-msgid "Tojikiston"
-msgstr "Таджикистан"
-
-msgid "Qirg'iziston"
-msgstr "Кыргызстан"
-
-msgid "Boshqa"
-msgstr "Другое"
-
-msgid "Milat"
-msgstr "Национальность"
-
-msgid "O'zbek"
-msgstr "Узбек"
-
-msgid "Rus"
-msgstr "Русский"
-
-msgid "Qozoq"
-msgstr "Казах"
-
-msgid "Tojik"
-msgstr "Таджик"
-
-msgid "Turkman"
-msgstr "Туркмен"
-
+#: apps/main_app/admin.py:60 templates/home.html:256
 msgid "Tibbiy Tarix"
 msgstr "Медицинская история"
 
-msgid "Oilaviy kasallik tarixi"
-msgstr "Семейная история заболеваний"
-
-msgid "Ha"
-msgstr "Да"
-
-msgid "Yo'q"
-msgstr "Нет"
-
-msgid "Radiatsiya ta'siri"
-msgstr "Воздействие радиации"
-
-msgid "Laboratoriya Ko'rsatkichlari"
+#: apps/main_app/admin.py:70
+#, fuzzy
+#| msgid "Laboratoriya Ko'rsatkichlari"
+msgid "Laboratoriya Korsatkichlari"
 msgstr "Лабораторные показатели"
 
-msgid "TSH darajasi"
-msgstr "Уровень ТТГ"
-
-msgid "Tashxisni Aniqlash"
-msgstr "Определить диагноз"
-
-msgid "Bizning Xizmatlarimiz"
-msgstr "Наши услуги"
-
-msgid "Professional tibbiy yordam va maslahat"
-msgstr "Профессиональная медицинская помощь и консультация"
-
-msgid "Tashxis Tayyor"
-msgstr "Диагноз готов"
-
-msgid "Tibbiy Xulosa"
-msgstr "Медицинское заключение"
-
-msgid "Sun'iy intellekt yordamida tayyorlangan batafsil tahlil natijasi"
-msgstr "Подробный результат анализа, подготовленный с помощью искусственного интеллекта"
-
-msgid "Tashxis ID"
-msgstr "ID диагноза"
-
-msgid "Ishonch darajasi"
-msgstr "Уровень уверенности"
-
-msgid "Xavf"
-msgstr "Уровень риска"
-
-msgid "Bemor Ma'lumotlari"
-msgstr "Данные пациента"
-
-msgid "Tibbiy Ko'rsatkichlar"
-msgstr "Медицинские показатели"
-
-msgid "Tahlil uchun kiritilgan barcha laboratoriya va klinik ma'lumotlar"
-msgstr "Все лабораторные и клинические данные, введенные для анализа"
-
-msgid "yosh"
-msgstr "лет"
-
-msgid "sm"
-msgstr "см"
-
-msgid "Tibbiy Tavsiyalar"
-msgstr "Медицинские рекомендации"
-
-msgid "Mutaxassis Maslahatlari"
-msgstr "Советы специалиста"
-
-msgid "Profesional shifokorlar tomonidan tavsiya etilgan harakatlar rejasi"
-msgstr "План действий, рекомендованный профессиональными врачами"
-
-msgid "Muhim Tibbiy Ogohlantirish"
-msgstr "Важное медицинское предупреждение"
-
-msgid "Bu natija faqat sun'iy intellekt yordamida berilgan dastlabki tashxis hisoblanadi. Aniq tashxis va to'g'ri davolanish uchun malakali shifokor bilan shaxsiy maslahatlashish majburiy!"
-msgstr "Этот результат является лишь предварительным диагнозом, поставленным с помощью искусственного интеллекта. Для точного диагноза и правильного лечения обязательна личная консультация с квалифицированным врачом!"
-
-msgid "Professional Ko'rik"
-msgstr "Профессиональный осмотр"
-
-msgid "Endokrinolog yoki onkolog bilan uchrashing"
-msgstr "Встретьтесь с эндокринологом или онкологом"
-
-msgid "Qo'shimcha Tahlillar"
+#: apps/main_app/admin.py:73
+#, fuzzy
+#| msgid "Qo'shimcha Tahlillar"
+msgid "Qoshimcha"
 msgstr "Дополнительные анализы"
 
-msgid "Laboratoriya va instrumental tekshiruvlar"
-msgstr "Лабораторные и инструментальные исследования"
+#: apps/main_app/admin.py:77
+#, fuzzy
+#| msgid "Tashxis"
+msgid "AI Tashxis"
+msgstr "Диагностика"
 
-msgid "Xulosani Yuklab Olish"
+#: apps/main_app/admin.py:88
+#, fuzzy
+#| msgid "Xulosani Yuklab Olish"
+msgid "Yuklab Olish"
 msgstr "Скачать заключение"
 
-msgid "Yangi Tashxis"
-msgstr "Новый диагноз"
+#: apps/main_app/admin.py:91 apps/main_app/admin.py:265
+#, fuzzy
+#| msgid "Shaxsiy Ma'lumotlar"
+msgid "Batafsil Malumot"
+msgstr "Личные данные"
 
-msgid "Tahlil sanasi"
-msgstr "Дата анализа"
+#: apps/main_app/admin.py:101
+msgid "ID"
+msgstr ""
 
-msgid "Muallif Haqida"
-msgstr "Об авторе"
+#: apps/main_app/admin.py:113
+msgid "Bemor"
+msgstr ""
 
-msgid "TAMES Loyihasi Muallifi"
-msgstr "Автор проекта TAMES"
+#: apps/main_app/admin.py:135 templates/home.html:178
+msgid "Ultratovush Rasmi"
+msgstr "УЗИ изображение"
 
-msgid "PhD Doktorant, AI Tadqiqotchisi"
-msgstr "PhD докторант, Исследователь AI"
+#: apps/main_app/admin.py:156 apps/main_app/models.py:149
+#: templates/components/header.html:32 templates/diagnosis_list.html:333
+msgid "Tashxis"
+msgstr "Диагностика"
 
-msgid "Qalqonsimon bez xavfli o'smalari (malignant tugunlar)ni sun'iy intellekt yordamida baholash tizimini ishlab chiqish bo'yicha tadqiqot ishlarini olib bormoqdaman. TAMES loyihasi zamonaviy AI texnologiyalari va tibbiy diagnostika sohasidagi ilmiy tadqiqotlar asosida yaratilgan."
-msgstr "Провожу исследования по разработке системы оценки злокачественных новообразований (узлов) щитовидной железы с помощью искусственного интеллекта. Проект TAMES создан на основе современных AI-технологий и научных исследований в области медицинской диагностики."
-
-msgid "Ta'lim"
-msgstr "Образование"
-
-msgid "PhD Doktorant - Muhammad al-Xorazmiy nomidagi Toshkent Axborot Texnologiyalari Universiteti"
-msgstr "PhD докторант - Ташкентский университет информационных технологий имени Мухаммада Аль-Хорезми"
-
-msgid "Ish Tajribasi"
-msgstr "Опыт работы"
-
-msgid "O'zbektelekom AK - 10 yildan ortiq tajriba"
-msgstr "АО Узбектелеком - более 10 лет опыта"
-
-msgid "Tillar"
-msgstr "Языки"
-
-msgid "O'zbek tili (ona tili)"
-msgstr "Узбекский язык (родной)"
-
-msgid "Rus tili (yaxshi)"
-msgstr "Русский язык (хороший)"
-
-msgid "Ingliz tili (yaxshi)"
-msgstr "Английский язык (хороший)"
-
-msgid "Oila"
-msgstr "Семья"
-
-msgid "Oilali, 2 ta farzandli"
-msgstr "Замужем, 2 детей"
-
-msgid "Tadqiqot Yo'nalishi"
-msgstr "Направление исследований"
-
-msgid "TAMES Loyihasi Haqida"
-msgstr "О проекте TAMES"
-
-msgid "Thyroid-AI Malignancy Evaluation System (TAMES) - bu qalqonsimon bez xavfli o'smalari (malignant nodules)ni aniqlash va baholashda sun'iy intellekt texnologiyalaridan foydalanuvchi innovatsion tizim."
-msgstr "Thyroid-AI Malignancy Evaluation System (TAMES) - это инновационная система, использующая технологии искусственного интеллекта для выявления и оценки злокачественных новообразований (узлов) щитовидной железы."
-
-msgid "AI Texnologiyasi"
-msgstr "AI Технология"
-
-msgid "Zamonaviy sun'iy intellekt algoritmlari asosida ishlab chiqilgan"
-msgstr "Разработана на основе современных алгоритмов искусственного интеллекта"
-
-msgid "Xalqaro tibbiy standartlar va protokollarga muvofiq"
-msgstr "В соответствии с международными медицинскими стандартами и протоколами"
-
-msgid "Ilmiy tadqiqotlar va klinik testlar asosida tasdiqlangan"
-msgstr "Подтверждено научными исследованиями и клиническими испытаниями"
-
-msgid "Aloqada Bo'ling"
-msgstr "Оставайтесь на связи"
-
-msgid "TAMES loyihasi, ilmiy hamkorlik yoki AI-tibbiyot sohasidagi tadqiqotlar haqida qo'shimcha ma'lumot olish uchun men bilan bog'laning."
-msgstr "Свяжитесь со мной для получения дополнительной информации о проекте TAMES, научном сотрудничестве или исследованиях в области AI-медицины."
-
-msgid "Oʻzbekcha"
-msgstr "Узбекский"
-
-msgid "Русский"
-msgstr "Русский"
-
-msgid "English"
-msgstr "English"
-
-msgid "Tugun O'lchami"
-msgstr "Размер узла"
-
-msgid "TSH Darajasi"
-msgstr "Уровень ТТГ"
-
-msgid "T3 Darajasi"
-msgstr "Уровень Т3"
-
-msgid "T4 Darajasi"
-msgstr "Уровень Т4"
-
-# Yangi qo'shilgan - 2025-11-04
-msgid "Qalqonsimon Bez Xavfli O'smalarini AI Bilan Diagnostika qilish"
-msgstr "Диагностика злокачественных новообразований щитовидной железы с помощью AI"
-
-# Yangi tarjimalar - diagnosis_list uchun qo'shimcha (Русский)
-
-msgid "Ro'yxat"
-msgstr "Список"
-
-msgid "Tashxislar Ro'yxati"
-msgstr "Список диагнозов"
-
-msgid "Barcha Tashxislar"
-msgstr "Все диагнозы"
-
-msgid "Sun'iy intellekt yordamida amalga oshirilgan barcha tashxislar ro'yxati"
-msgstr "Список всех диагнозов, выполненных с помощью искусственного интеллекта"
-
-msgid "Jami Tashxislar"
-msgstr "Всего диагнозов"
-
-msgid "Xavfsiz"
-msgstr "Безопасно"
-
-msgid "O'rtacha Xavf"
-msgstr "Средний риск"
-
-msgid "Yuqori Xavf"
-msgstr "Высокий риск"
-
-msgid "ID, tashxis bo'yicha qidirish..."
-msgstr "Поиск по ID, диагнозу..."
-
-msgid "Barchasi"
-msgstr "Все"
-
-msgid "O'rtacha"
-msgstr "Средний"
-
-msgid "Xavfli"
-msgstr "Опасно"
-
-msgid "Saralash"
-msgstr "Сортировка"
-
-msgid "Eng yangi"
-msgstr "Новейшие"
-
-msgid "Eng eski"
-msgstr "Старейшие"
-
-msgid "Yuqori xavf"
-msgstr "Высокий риск"
-
-msgid "Past xavf"
-msgstr "Низкий риск"
-
-msgid "yoshli"
-msgstr "лет"
-
+#: apps/main_app/admin.py:180 templates/diagnosis_list.html:347
 msgid "Ishonch"
 msgstr "Уверенность"
 
+#: apps/main_app/admin.py:201 templates/diagnosis_result.html:97
+msgid "Xavf"
+msgstr "Уровень риска"
+
+#: apps/main_app/admin.py:212
+#, fuzzy
+#| msgid "Yuklab olingan"
+msgid "Yuklab olish"
+msgstr "Загружено"
+
+#: apps/main_app/admin.py:225
+msgid "Harakatlar"
+msgstr ""
+
+#: apps/main_app/models.py:22
+#, fuzzy
+#| msgid "Ultratovush Rasmi"
+msgid "Ultratovush rasmi"
+msgstr "УЗИ изображение"
+
+#: apps/main_app/models.py:24 templates/home.html:182
+msgid "Qalqonsimon bez ultratovush rasmi"
+msgstr "УЗИ изображение щитовидной железы"
+
+#: apps/main_app/models.py:31 apps/main_app/models.py:282
+#: templates/home.html:209
+msgid "Yosh"
+msgstr "Возраст"
+
+#: apps/main_app/models.py:32
+msgid "Bemorning yoshi"
+msgstr ""
+
+#: apps/main_app/models.py:36 templates/home.html:218
+msgid "Erkak"
+msgstr "Мужской"
+
+#: apps/main_app/models.py:37 templates/home.html:219
+msgid "Ayol"
+msgstr "Женский"
+
+#: apps/main_app/models.py:40 templates/diagnosis_result.html:151
+#: templates/home.html:215
+msgid "Jinsi"
+msgstr "Пол"
+
+#: apps/main_app/models.py:46 templates/home.html:228
+msgid "O'zbekiston"
+msgstr "Узбекистан"
+
+#: apps/main_app/models.py:47 templates/home.html:229
+msgid "Qozog'iston"
+msgstr "Казахстан"
+
+#: apps/main_app/models.py:48 templates/home.html:230
+msgid "Turkmaniston"
+msgstr "Туркменистан"
+
+#: apps/main_app/models.py:49 templates/home.html:231
+msgid "Tojikiston"
+msgstr "Таджикистан"
+
+#: apps/main_app/models.py:50 templates/home.html:232
+msgid "Qirg'iziston"
+msgstr "Кыргызстан"
+
+#: apps/main_app/models.py:51 apps/main_app/models.py:65
+#: templates/home.html:233 templates/home.html:247
+msgid "Boshqa"
+msgstr "Другое"
+
+#: apps/main_app/models.py:54 templates/home.html:225
+msgid "Mamlakat"
+msgstr "Страна"
+
+#: apps/main_app/models.py:60 templates/home.html:242
+msgid "O'zbek"
+msgstr "Узбек"
+
+#: apps/main_app/models.py:61 templates/home.html:243
+msgid "Rus"
+msgstr "Русский"
+
+#: apps/main_app/models.py:62 templates/home.html:244
+msgid "Qozoq"
+msgstr "Казах"
+
+#: apps/main_app/models.py:63 templates/home.html:245
+msgid "Tojik"
+msgstr "Таджик"
+
+#: apps/main_app/models.py:64 templates/home.html:246
+msgid "Turkman"
+msgstr "Туркмен"
+
+#: apps/main_app/models.py:68 templates/home.html:239
+msgid "Milat"
+msgstr "Национальность"
+
+#: apps/main_app/models.py:77 templates/home.html:260
+msgid "Oilaviy kasallik tarixi"
+msgstr "Семейная история заболеваний"
+
+#: apps/main_app/models.py:79
+msgid "Oilada qalqonsimon bez kasalligi bo'lganmi?"
+msgstr ""
+
+#: apps/main_app/models.py:83 templates/home.html:270
+msgid "Radiatsiya ta'siri"
+msgstr "Воздействие радиации"
+
+#: apps/main_app/models.py:85
+#, fuzzy
+#| msgid "Radiatsiya ta'siri"
+msgid "Radiatsiya ta'siriga uchraganmi?"
+msgstr "Воздействие радиации"
+
+#: apps/main_app/models.py:89 templates/home.html:280
+msgid "Yod tanqisligi"
+msgstr "Дефицит йода"
+
+#: apps/main_app/models.py:91
+msgid "Yod tanqisligi bormi?"
+msgstr "Есть ли дефицит йода?"
+
+#: apps/main_app/models.py:95 templates/home.html:290
+msgid "Chekish"
+msgstr "Курение"
+
+#: apps/main_app/models.py:97
+msgid "Chekadimi?"
+msgstr "Курит?"
+
+#: apps/main_app/models.py:101 templates/home.html:300
+msgid "Semizlik"
+msgstr "Ожирение"
+
+#: apps/main_app/models.py:103
+msgid "Semizlik bormi?"
+msgstr "Есть ли ожирение?"
+
+#: apps/main_app/models.py:107 templates/home.html:310
+msgid "Qandli diabet"
+msgstr "Сахарный диабет"
+
+#: apps/main_app/models.py:109
+msgid "Qandli diabet bormi?"
+msgstr "Есть ли сахарный диабет?"
+
+#: apps/main_app/models.py:116 templates/home.html:327
+msgid "TSH darajasi"
+msgstr "Уровень ТТГ"
+
+#: apps/main_app/models.py:117
+msgid "mIU/L birligida (normal: 0.4-4.0)"
+msgstr ""
+
+#: apps/main_app/models.py:121 templates/home.html:334
+msgid "T3 darajasi"
+msgstr "Уровень Т3"
+
+#: apps/main_app/models.py:122
+msgid "ng/dL birligida (normal: 80-200)"
+msgstr "В единицах нг/дЛ (норма: 80-200)"
+
+#: apps/main_app/models.py:126 templates/home.html:341
+msgid "T4 darajasi"
+msgstr "Уровень Т4"
+
+#: apps/main_app/models.py:127
+msgid "μg/dL birligida (normal: 5.0-12.0)"
+msgstr "В единицах мкг/дЛ (норма: 5.0-12.0)"
+
+#: apps/main_app/models.py:131 templates/home.html:348
+msgid "Tugun o'lchami"
+msgstr "Размер узла"
+
+#: apps/main_app/models.py:132
+msgid "Santimetrda"
+msgstr "В сантиметрах"
+
+#: apps/main_app/models.py:139
+msgid "Qo'shimcha izohlar"
+msgstr "Дополнительные комментарии"
+
+#: apps/main_app/models.py:142
+#, fuzzy
+#| msgid "Shaxsiy Ma'lumotlar"
+msgid "Boshqa muhim ma'lumotlar"
+msgstr "Личные данные"
+
+#: apps/main_app/models.py:153
+msgid "AI tomonidan berilgan tashxis"
+msgstr ""
+
+#: apps/main_app/models.py:157
+#, fuzzy
+#| msgid "Tashxis Tayyor"
+msgid "Tashxis tafsiloti"
+msgstr "Диагноз готов"
+
+#: apps/main_app/models.py:160
+msgid "Batafsil tashxis ma'lumoti"
+msgstr ""
+
+#: apps/main_app/models.py:164 templates/diagnosis_result.html:60
+msgid "Ishonch darajasi"
+msgstr "Уровень уверенности"
+
+#: apps/main_app/models.py:167
+msgid "Foizda (0-100)"
+msgstr ""
+
+#: apps/main_app/models.py:171
+#, fuzzy
+#| msgid "TSH darajasi"
+msgid "Xavf darajasi"
+msgstr "Уровень ТТГ"
+
+#: apps/main_app/models.py:175
+msgid "Past, O'rta, Yuqori"
+msgstr ""
+
+#: apps/main_app/models.py:179
+#, fuzzy
+#| msgid "Xavfsiz"
+msgid "Xavfsiz (Benign)"
+msgstr "Безопасно"
+
+#: apps/main_app/models.py:180
+#, fuzzy
+#| msgid "O'rtacha Xavf"
+msgid "O'rtacha xavf"
+msgstr "Средний риск"
+
+#: apps/main_app/models.py:181
+#, fuzzy
+#| msgid "Yuqori xavf"
+msgid "Yuqori xavf (Malignant)"
+msgstr "Высокий риск"
+
+#: apps/main_app/models.py:184
+#, fuzzy
+#| msgid "Tashxisni Aniqlash"
+msgid "Tashxis klassi"
+msgstr "Определить диагноз"
+
+#: apps/main_app/models.py:192
+msgid "Model bashorat qiymati"
+msgstr ""
+
+#: apps/main_app/models.py:195
+msgid "AI model chiqargan qiymat (0-1)"
+msgstr ""
+
+#: apps/main_app/models.py:199
+#, fuzzy
+#| msgid "Tibbiy Tavsiyalar"
+msgid "Tavsiyalar"
+msgstr "Медицинские рекомендации"
+
+#: apps/main_app/models.py:202
+#, fuzzy
+#| msgid "Tibbiy Tavsiyalar"
+msgid "Tibbiy tavsiyalar ro'yxati"
+msgstr "Медицинские рекомендации"
+
+#: apps/main_app/models.py:209
+#, fuzzy
+#| msgid "Yuklab olingan"
+msgid "Yuklab olinganmi"
+msgstr "Загружено"
+
+#: apps/main_app/models.py:211
+#, fuzzy
+#| msgid "Xulosani Yuklab Olish"
+msgid "Bemor xulosani yuklab olganmi?"
+msgstr "Скачать заключение"
+
+#: apps/main_app/models.py:215
+#, fuzzy
+#| msgid "Yuklab olingan"
+msgid "Yuklab olishlar soni"
+msgstr "Загружено"
+
+#: apps/main_app/models.py:217
+#, fuzzy
+#| msgid "Yuklab olingan"
+msgid "Necha marta yuklab olingan"
+msgstr "Загружено"
+
+#: apps/main_app/models.py:221
+msgid "Oxirgi yuklab olish vaqti"
+msgstr ""
+
+#: apps/main_app/models.py:230
+msgid "Yaratilgan vaqti"
+msgstr ""
+
+#: apps/main_app/models.py:235
+msgid "O'zgartirilgan vaqti"
+msgstr ""
+
+#: apps/main_app/models.py:240
+#, fuzzy
+#| msgid "Qalqonsimon bez ultratovush rasmi"
+msgid "Qalqonsimon Bez Tashxisi"
+msgstr "УЗИ изображение щитовидной железы"
+
+#: apps/main_app/models.py:241
+#, fuzzy
+#| msgid "Qalqonsimon bez ultratovush rasmi"
+msgid "Qalqonsimon Bez Tashxislari"
+msgstr "УЗИ изображение щитовидной железы"
+
+#: apps/main_app/models.py:250 templates/diagnosis_list.html:317
+msgid "yoshli"
+msgstr "лет"
+
+#: apps/main_app/models.py:250
+msgid "Kutilmoqda"
+msgstr ""
+
+#: apps/main_app/models.py:280
+msgid "Voyaga yetmagan"
+msgstr ""
+
+#: apps/main_app/models.py:284
+#, fuzzy
+#| msgid "O'rtacha"
+msgid "O'rta yosh"
+msgstr "Средний"
+
+#: apps/main_app/models.py:286
+msgid "Keksa"
+msgstr ""
+
+#: apps/main_app/models.py:288
+msgid "Katta yosh"
+msgstr ""
+
+#: config/settings/base.py:93
+msgid "Oʻzbekcha"
+msgstr "Узбекский"
+
+#: config/settings/base.py:94
+msgid "Русский"
+msgstr "Русский"
+
+#: config/settings/base.py:95
+msgid "English"
+msgstr "English"
+
+#: templates/about.html:10 templates/components/header.html:27
+#: templates/diagnosis_list.html:151 templates/diagnosis_result.html:336
+#: templates/faq.html:237
+msgid "Bosh sahifa"
+msgstr "Главная"
+
+#: templates/about.html:11
+msgid "Muallif Haqida"
+msgstr "Об авторе"
+
+#: templates/about.html:15 templates/about.html:60
+msgid "TAMES Loyihasi Muallifi"
+msgstr "Автор проекта TAMES"
+
+#: templates/about.html:47
+msgid "PhD Doktorant, AI Tadqiqotchisi"
+msgstr "PhD докторант, Исследователь AI"
+
+#: templates/about.html:66
+msgid ""
+"Qalqonsimon bez xavfli o'smalari (malignant tugunlar)ni sun'iy intellekt "
+"yordamida baholash tizimini ishlab chiqish bo'yicha tadqiqot ishlarini olib "
+"bormoqdaman. TAMES loyihasi zamonaviy AI texnologiyalari va tibbiy "
+"diagnostika sohasidagi ilmiy tadqiqotlar asosida yaratilgan."
+msgstr ""
+"Провожу исследования по разработке системы оценки злокачественных "
+"новообразований (узлов) щитовидной железы с помощью искусственного "
+"интеллекта. Проект TAMES создан на основе современных AI-технологий и "
+"научных исследований в области медицинской диагностики."
+
+#: templates/about.html:79
+msgid "Ta'lim"
+msgstr "Образование"
+
+#: templates/about.html:81
+msgid ""
+"PhD Doktorant - Muhammad al-Xorazmiy nomidagi Toshkent Axborot "
+"Texnologiyalari Universiteti"
+msgstr ""
+"PhD докторант - Ташкентский университет информационных технологий имени "
+"Мухаммада Аль-Хорезми"
+
+#: templates/about.html:94
+msgid "Ish Tajribasi"
+msgstr "Опыт работы"
+
+#: templates/about.html:96
+msgid "O'zbektelekom AK - 10 yildan ortiq tajriba"
+msgstr "АО Узбектелеком - более 10 лет опыта"
+
+#: templates/about.html:109
+msgid "Tillar"
+msgstr "Языки"
+
+#: templates/about.html:111
+msgid "O'zbek tili (ona tili)"
+msgstr "Узбекский язык (родной)"
+
+#: templates/about.html:112
+msgid "Rus tili (yaxshi)"
+msgstr "Русский язык (хороший)"
+
+#: templates/about.html:113
+msgid "Ingliz tili (yaxshi)"
+msgstr "Английский язык (хороший)"
+
+#: templates/about.html:126
+msgid "Oila"
+msgstr "Семья"
+
+#: templates/about.html:128
+msgid "Oilali, 2 ta farzandli"
+msgstr "Замужем, 2 детей"
+
+#: templates/about.html:160
+msgid "Tadqiqot Yo'nalishi"
+msgstr "Направление исследований"
+
+#: templates/about.html:162
+msgid "TAMES Loyihasi Haqida"
+msgstr "О проекте TAMES"
+
+#: templates/about.html:164
+msgid ""
+"Thyroid-AI Malignancy Evaluation System (TAMES) - bu qalqonsimon bez xavfli "
+"o'smalari (malignant nodules)ni aniqlash va baholashda sun'iy intellekt "
+"texnologiyalaridan foydalanuvchi innovatsion tizim."
+msgstr ""
+"Thyroid-AI Malignancy Evaluation System (TAMES) - это инновационная система, "
+"использующая технологии искусственного интеллекта для выявления и оценки "
+"злокачественных новообразований (узлов) щитовидной железы."
+
+#: templates/about.html:174
+msgid "AI Texnologiyasi"
+msgstr "AI Технология"
+
+#: templates/about.html:176
+msgid "Zamonaviy sun'iy intellekt algoritmlari asosida ishlab chiqilgan"
+msgstr "Разработана на основе современных алгоритмов искусственного интеллекта"
+
+#: templates/about.html:184 templates/home.html:115
+msgid "Tibbiy Standartlar"
+msgstr "Медицинские стандарты"
+
+#: templates/about.html:186
+msgid "Xalqaro tibbiy standartlar va protokollarga muvofiq"
+msgstr "В соответствии с международными медицинскими стандартами и протоколами"
+
+#: templates/about.html:194 templates/home.html:107
+msgid "Yuqori Aniqlik"
+msgstr "Высокая точность"
+
+#: templates/about.html:196
+msgid "Ilmiy tadqiqotlar va klinik testlar asosida tasdiqlangan"
+msgstr "Подтверждено научными исследованиями и клиническими испытаниями"
+
+#: templates/about.html:211
+msgid "Aloqada Bo'ling"
+msgstr "Оставайтесь на связи"
+
+#: templates/about.html:213
+msgid ""
+"TAMES loyihasi, ilmiy hamkorlik yoki AI-tibbiyot sohasidagi tadqiqotlar "
+"haqida qo'shimcha ma'lumot olish uchun men bilan bog'laning."
+msgstr ""
+"Свяжитесь со мной для получения дополнительной информации о проекте TAMES, "
+"научном сотрудничестве или исследованиях в области AI-медицины."
+
+#: templates/about.html:221 templates/components/footer.html:64
+#: templates/faq.html:566
+msgid "Telefon"
+msgstr "Телефон"
+
+#: templates/components/footer.html:23
+msgid ""
+"Thyroid-AI Malignancy Evaluation System - Qalqonsimon bez xavfli o'smalari "
+"AI-asosli baholash tizimi"
+msgstr ""
+"Thyroid-AI Malignancy Evaluation System - AI-система оценки злокачественных "
+"новообразований щитовидной железы"
+
+#: templates/components/footer.html:60
+msgid "Biz bilan bog'laning"
+msgstr "Свяжитесь с нами"
+
+#: templates/components/footer.html:94
+msgid "Xizmatlar"
+msgstr "Услуги"
+
+#: templates/components/footer.html:96
+msgid "AI Diagnostika"
+msgstr "AI Диагностика"
+
+#: templates/components/footer.html:97
+msgid "Loyiha Haqida"
+msgstr "О проекте"
+
+#: templates/components/footer.html:98
+msgid "Natijalar"
+msgstr "Результаты"
+
+#: templates/components/footer.html:106
+msgid "Ma'lumot"
+msgstr "Информация"
+
+#: templates/components/footer.html:108 templates/faq.html:238
+#: templates/faq.html:242
+msgid "Ko'p So'raladigan Savollar"
+msgstr "Часто задаваемые вопросы"
+
+#: templates/components/footer.html:109
+msgid "Aloqa"
+msgstr "Связаться с нами"
+
+#: templates/components/footer.html:117 templates/components/footer.html:138
+#: templates/components/header.html:47 templates/home.html:122
+msgid "Muallif"
+msgstr "Автор"
+
+# Yangi tarjimalar - diagnosis_list uchun qo'shimcha (Русский)
+#: templates/components/header.html:37
+msgid "Ro'yxat"
+msgstr "Список"
+
+#: templates/components/header.html:42
+msgid "Statistika"
+msgstr "Статистика"
+
+#: templates/components/header.html:103
+msgid "Tungi"
+msgstr "Ночной режим"
+
+#: templates/components/header.html:115
+msgid "Bog'lanish"
+msgstr "Связаться"
+
+#: templates/diagnosis_list.html:152
+msgid "Tashxislar Ro'yxati"
+msgstr "Список диагнозов"
+
+#: templates/diagnosis_list.html:156
+msgid "Barcha Tashxislar"
+msgstr "Все диагнозы"
+
+#: templates/diagnosis_list.html:160
+msgid "Sun'iy intellekt yordamida amalga oshirilgan barcha tashxislar ro'yxati"
+msgstr "Список всех диагнозов, выполненных с помощью искусственного интеллекта"
+
+#: templates/diagnosis_list.html:183
+msgid "Jami Tashxislar"
+msgstr "Всего диагнозов"
+
+#: templates/diagnosis_list.html:196 templates/diagnosis_list.html:255
+msgid "Xavfsiz"
+msgstr "Безопасно"
+
+#: templates/diagnosis_list.html:209
+msgid "O'rtacha Xavf"
+msgstr "Средний риск"
+
+#: templates/diagnosis_list.html:222
+msgid "Yuqori Xavf"
+msgstr "Высокий риск"
+
+#: templates/diagnosis_list.html:244
+msgid "ID, tashxis bo\\"
+msgstr ""
+
+#: templates/diagnosis_list.html:251
+msgid "Barchasi"
+msgstr "Все"
+
+#: templates/diagnosis_list.html:259
+msgid "O'rtacha"
+msgstr "Средний"
+
+#: templates/diagnosis_list.html:263
+msgid "Xavfli"
+msgstr "Опасно"
+
+#: templates/diagnosis_list.html:272
+msgid "Saralash"
+msgstr "Сортировка"
+
+#: templates/diagnosis_list.html:275
+msgid "Eng yangi"
+msgstr "Новейшие"
+
+#: templates/diagnosis_list.html:276
+msgid "Eng eski"
+msgstr "Старейшие"
+
+#: templates/diagnosis_list.html:277
+msgid "Yuqori xavf"
+msgstr "Высокий риск"
+
+#: templates/diagnosis_list.html:278
+msgid "Past xavf"
+msgstr "Низкий риск"
+
+#: templates/diagnosis_list.html:359
 msgid "Tugun"
 msgstr "Узел"
 
+#: templates/diagnosis_list.html:360 templates/diagnosis_result.html:229
+msgid "sm"
+msgstr "см"
+
+#: templates/diagnosis_list.html:369
 msgid "Yuklab olingan"
 msgstr "Загружено"
 
+#: templates/diagnosis_list.html:372
 msgid "Yuklab olinmagan"
 msgstr "Не загружено"
 
+#: templates/diagnosis_list.html:379
 msgid "Ko'rish"
 msgstr "Просмотр"
 
+#: templates/diagnosis_list.html:427
 msgid "Hech qanday tashxis topilmadi"
 msgstr "Диагнозы не найдены"
 
-msgid "Hozircha hech qanday tashxis amalga oshirilmagan yoki sizning qidiruvingizga mos natija yo'q"
-msgstr "Пока не выполнено ни одного диагноза или нет результатов, соответствующих вашему запросу"
+#: templates/diagnosis_list.html:429
+msgid ""
+"Hozircha hech qanday tashxis amalga oshirilmagan yoki sizning qidiruvingizga "
+"mos natija yo'q"
+msgstr ""
+"Пока не выполнено ни одного диагноза или нет результатов, соответствующих "
+"вашему запросу"
 
+#: templates/diagnosis_list.html:433
 msgid "Yangi Tashxis Qo'shish"
 msgstr "Добавить новый диагноз"
 
+#: templates/diagnosis_list.html:451
 msgid "Yangi Tashxis O'tkazish"
 msgstr "Провести новый диагноз"
 
-msgid "Sun'iy intellekt yordamida qalqonsimon bez xavfli o'smalarini professional baholash"
-msgstr "Профессиональная оценка злокачественных новообразований щитовидной железы с помощью искусственного интеллекта"
+#: templates/diagnosis_list.html:453
+msgid ""
+"Sun'iy intellekt yordamida qalqonsimon bez xavfli o'smalarini professional "
+"baholash"
+msgstr ""
+"Профессиональная оценка злокачественных новообразований щитовидной железы с "
+"помощью искусственного интеллекта"
+
+#: templates/diagnosis_list.html:457 templates/faq.html:535
+#: templates/home.html:100
+msgid "AI Diagnostikani Boshlash"
+msgstr "Начать AI диагностику"
+
+#: templates/diagnosis_result.html:14
+msgid "Tashxis Tayyor"
+msgstr "Диагноз готов"
+
+#: templates/diagnosis_result.html:19
+msgid "Tibbiy Xulosa"
+msgstr "Медицинское заключение"
+
+#: templates/diagnosis_result.html:24
+msgid "Sun'iy intellekt yordamida tayyorlangan batafsil tahlil natijasi"
+msgstr ""
+"Подробный результат анализа, подготовленный с помощью искусственного "
+"интеллекта"
+
+#: templates/diagnosis_result.html:32
+msgid "Tashxis ID"
+msgstr "ID диагноза"
+
+#: templates/diagnosis_result.html:113
+msgid "Bemor Ma'lumotlari"
+msgstr "Данные пациента"
+
+#: templates/diagnosis_result.html:115
+msgid "Tibbiy Ko'rsatkichlar"
+msgstr "Медицинские показатели"
+
+#: templates/diagnosis_result.html:117
+msgid "Tahlil uchun kiritilgan barcha laboratoriya va klinik ma'lumotlar"
+msgstr "Все лабораторные и клинические данные, введенные для анализа"
+
+#: templates/diagnosis_result.html:132
+#, fuzzy
+#| msgid "Yosh"
+msgid "Yoshi"
+msgstr "Возраст"
+
+#: templates/diagnosis_result.html:140
+msgid "yosh"
+msgstr "лет"
+
+#: templates/diagnosis_result.html:164
+msgid "TSH Darajasi"
+msgstr "Уровень ТТГ"
+
+#: templates/diagnosis_result.html:183
+msgid "T3 Darajasi"
+msgstr "Уровень Т3"
+
+#: templates/diagnosis_result.html:202
+msgid "T4 Darajasi"
+msgstr "Уровень Т4"
+
+#: templates/diagnosis_result.html:221
+msgid "Tugun O'lchami"
+msgstr "Размер узла"
+
+#: templates/diagnosis_result.html:246
+msgid "Tibbiy Tavsiyalar"
+msgstr "Медицинские рекомендации"
+
+#: templates/diagnosis_result.html:248
+msgid "Mutaxassis Maslahatlari"
+msgstr "Советы специалиста"
+
+#: templates/diagnosis_result.html:250
+msgid "Profesional shifokorlar tomonidan tavsiya etilgan harakatlar rejasi"
+msgstr "План действий, рекомендованный профессиональными врачами"
+
+#: templates/diagnosis_result.html:288
+msgid "Muhim Tibbiy Ogohlantirish"
+msgstr "Важное медицинское предупреждение"
+
+#: templates/diagnosis_result.html:290
+msgid ""
+"Bu natija faqat sun'iy intellekt yordamida berilgan dastlabki tashxis "
+"hisoblanadi. Aniq tashxis va to'g'ri davolanish uchun malakali shifokor "
+"bilan shaxsiy maslahatlashish majburiy!"
+msgstr ""
+"Этот результат является лишь предварительным диагнозом, поставленным с "
+"помощью искусственного интеллекта. Для точного диагноза и правильного "
+"лечения обязательна личная консультация с квалифицированным врачом!"
+
+#: templates/diagnosis_result.html:301
+msgid "Professional Ko'rik"
+msgstr "Профессиональный осмотр"
+
+#: templates/diagnosis_result.html:302
+msgid "Endokrinolog yoki onkolog bilan uchrashing"
+msgstr "Встретьтесь с эндокринологом или онкологом"
+
+#: templates/diagnosis_result.html:313
+msgid "Qo'shimcha Tahlillar"
+msgstr "Дополнительные анализы"
+
+#: templates/diagnosis_result.html:314
+msgid "Laboratoriya va instrumental tekshiruvlar"
+msgstr "Лабораторные и инструментальные исследования"
+
+#: templates/diagnosis_result.html:342
+msgid "Xulosani Yuklab Olish"
+msgstr "Скачать заключение"
+
+#: templates/diagnosis_result.html:348
+msgid "Yangi Tashxis"
+msgstr "Новый диагноз"
+
+#: templates/diagnosis_result.html:358
+msgid "Tahlil sanasi"
+msgstr "Дата анализа"
+
+#: templates/faq.html:246
+msgid ""
+"Qalqonsimon bez saratoni va TAMES tizimi haqida eng ko'p beriladigan "
+"savollarga javoblar"
+msgstr ""
+
+#: templates/faq.html:278
+#, fuzzy
+#| msgid "Ma'lumot"
+msgid "Umumiy Ma'lumot"
+msgstr "Информация"
+
+#: templates/faq.html:280
+#, fuzzy
+#| msgid "Qalqonsimon bez ultratovush rasmi"
+msgid "Qalqonsimon bez saratoni nima?"
+msgstr "УЗИ изображение щитовидной железы"
+
+#: templates/faq.html:289
+msgid ""
+"Qalqonsimon bez saratoni — bu bo'yinning old qismida joylashgan qalqonsimon "
+"bez hujayralarining nazoratsiz o'sishi natijasida paydo bo'ladigan o'sma "
+"kasalligidir."
+msgstr ""
+
+#: templates/faq.html:292 templates/faq.html:386 templates/faq.html:448
+msgid "Muhim:"
+msgstr ""
+
+#: templates/faq.html:292
+msgid ""
+"Qalqonsimon bez metabolizm va gormonlar ishlab chiqarishda muhim rol "
+"o'ynaydi. Bu bezning saratoni erta bosqichda aniqlanganida davolash "
+"samaradorligi yuqori."
+msgstr ""
+
+#: templates/faq.html:305
+#, fuzzy
+#| msgid "Xavfli"
+msgid "Xavf Omillari"
+msgstr "Опасно"
+
+#: templates/faq.html:307
+msgid "Qalqonsimon bez saratoni sabablari nima bo'lishi mumkin?"
+msgstr ""
+
+#: templates/faq.html:315
+msgid "Asosiy xavf omillari:"
+msgstr ""
+
+#: templates/faq.html:317
+msgid "Irsi omillar (oila a'zolarida bo'lgan holatlar)"
+msgstr ""
+
+#: templates/faq.html:318
+msgid "Radiatsiyaga ta'sirlanish (bolalikda nurlanish olgan bo'lish)"
+msgstr ""
+
+#: templates/faq.html:319
+msgid "Gormon disbalansi yoki yod yetishmasligi"
+msgstr ""
+
+#: templates/faq.html:320
+msgid "Ba'zi genetik sindromlar (masalan, MEN 2 sindromi)"
+msgstr ""
+
+#: templates/faq.html:323
+#, fuzzy
+#| msgid "Muhim Tibbiy Ogohlantirish"
+msgid "Ogohlantirish:"
+msgstr "Важное медицинское предупреждение"
+
+#: templates/faq.html:323
+msgid ""
+"Agar oilangizda qalqonsimon bez kasalliklari bo'lgan bo'lsa, muntazam "
+"tekshiruvdan o'tishni tavsiya etamiz."
+msgstr ""
+
+#: templates/faq.html:336
+msgid "Turlari"
+msgstr ""
+
+#: templates/faq.html:338
+#, fuzzy
+#| msgid "Qalqonsimon bez ultratovush rasmi"
+msgid "Qalqonsimon bez saratonining turlari qanday?"
+msgstr "УЗИ изображение щитовидной железы"
+
+#: templates/faq.html:346
+msgid "Eng ko'p uchraydigan turlari:"
+msgstr ""
+
+#: templates/faq.html:348
+msgid "Papillyar"
+msgstr ""
+
+#: templates/faq.html:348
+msgid "eng keng tarqalgan, sekin o'sadi"
+msgstr ""
+
+#: templates/faq.html:349
+msgid "Follikulyar"
+msgstr ""
+
+#: templates/faq.html:349
+msgid "ikkinchi darajada keng tarqalgan"
+msgstr ""
+
+#: templates/faq.html:350
+msgid "Medullyar"
+msgstr ""
+
+#: templates/faq.html:350
+msgid "kamroq uchraydi"
+msgstr ""
+
+#: templates/faq.html:351
+msgid "Anaplastik"
+msgstr ""
+
+#: templates/faq.html:351
+msgid "kam uchraydi, lekin agressiv kechadi"
+msgstr ""
+
+#: templates/faq.html:354
+msgid "Yaxshi xabar:"
+msgstr ""
+
+#: templates/faq.html:354
+msgid ""
+"Papillyar va follikulyar turlarining davolash natijalari juda yaxshi, agar "
+"erta aniqlansa prognoz ijobiy."
+msgstr ""
+
+#: templates/faq.html:367
+msgid "Belgilar"
+msgstr ""
+
+#: templates/faq.html:369
+msgid "Kasallikning dastlabki belgilari qanday bo'ladi?"
+msgstr ""
+
+#: templates/faq.html:377
+msgid "Asosiy simptomlar:"
+msgstr ""
+
+#: templates/faq.html:379
+msgid "Bo'yinda tugun yoki shish paydo bo'lishi"
+msgstr ""
+
+#: templates/faq.html:380
+msgid "Yutishda yoki nafas olishda qiyinchilik"
+msgstr ""
+
+#: templates/faq.html:381
+msgid "Ovozda o'zgarish (xirillash)"
+msgstr ""
+
+#: templates/faq.html:382
+msgid "Bo'yin og'rigi yoki noqulaylik"
+msgstr ""
+
+#: templates/faq.html:383
+msgid "Ba'zida hech qanday simptom bo'lmasligi ham mumkin"
+msgstr ""
+
+#: templates/faq.html:386
+msgid ""
+"Agar bu belgilardan birortasini sezsangiz, darhol shifokorga murojaat qiling!"
+msgstr ""
+
+#: templates/faq.html:399
+#, fuzzy
+#| msgid "AI Diagnostika"
+msgid "Diagnostika"
+msgstr "AI Диагностика"
+
+#: templates/faq.html:401
+msgid "Qanday qilib aniqlanadi (diagnostika)?"
+msgstr ""
+
+#: templates/faq.html:409
+#, fuzzy
+#| msgid "Diagnostika Aniqligi"
+msgid "Diagnostika usullari:"
+msgstr "Точность диагностики"
+
+#: templates/faq.html:411
+#, fuzzy
+#| msgid "Qalqonsimon bez ultratovush rasmi"
+msgid "Qalqonsimon bez UZI"
+msgstr "УЗИ изображение щитовидной железы"
+
+#: templates/faq.html:412
+msgid "Qon tahlillari (TSH, T3, T4, kalsitonin va h.k.)"
+msgstr ""
+
+#: templates/faq.html:413
+msgid "Biopsiya (o'sma hujayralarini mikroskopda tekshirish)"
+msgstr ""
+
+#: templates/faq.html:414
+msgid "KT yoki MRT (kengaygan holatlarni aniqlash uchun)"
+msgstr ""
+
+#: templates/faq.html:417
+msgid ""
+"Bizning sun'iy intellekt tizimimiz ultratovush rasmlari va laboratoriya "
+"ma'lumotlarini tahlil qilib, dastlabki tashxis berishda yordam beradi!"
+msgstr ""
+
+#: templates/faq.html:430
+#, fuzzy
+#| msgid "Saralash"
+msgid "Davolash"
+msgstr "Сортировка"
+
+#: templates/faq.html:432
+msgid "Davolash qanday amalga oshiriladi?"
+msgstr ""
+
+#: templates/faq.html:440
+msgid "Davolash usullari:"
+msgstr ""
+
+#: templates/faq.html:442
+msgid "Jarrohlik"
+msgstr ""
+
+#: templates/faq.html:442
+msgid "bezni qisman yoki to'liq olib tashlash"
+msgstr ""
+
+#: templates/faq.html:443
+msgid "Radioaktiv yod bilan davolash"
+msgstr ""
+
+#: templates/faq.html:443
+msgid "qoldiq saraton hujayralarini yo'q qilish"
+msgstr ""
+
+#: templates/faq.html:444
+msgid "Gormon terapiyasi"
+msgstr ""
+
+#: templates/faq.html:444
+msgid "TSH darajasini boshqarish uchun"
+msgstr ""
+
+#: templates/faq.html:445
+msgid "Kimyo- yoki nurlanish terapiyasi"
+msgstr ""
+
+#: templates/faq.html:445
+msgid "ba'zi hollarda"
+msgstr ""
+
+#: templates/faq.html:448
+msgid ""
+"Davolash rejasi individual bo'lib, kasallikning turi va bosqichiga qarab "
+"belgilanadi."
+msgstr ""
+
+#: templates/faq.html:461
+msgid "Yuqumlilik"
+msgstr ""
+
+#: templates/faq.html:463
+#, fuzzy
+#| msgid "Qalqonsimon bez ultratovush rasmi"
+msgid "Qalqonsimon bez saratoni yuqumlimi?"
+msgstr "УЗИ изображение щитовидной железы"
+
+#: templates/faq.html:472
+#, fuzzy
+#| msgid "Yo'q"
+msgid "Yo'q!"
+msgstr "Нет"
+
+#: templates/faq.html:472
+msgid "Qalqonsimon bez saratoni yuqumli emas — ya'ni boshqalarga o'tmaydi."
+msgstr ""
+
+#: templates/faq.html:475
+msgid ""
+"Saraton kasalliklari odamdan odamga yuqmaydi. Bu hujayralarning genetik "
+"o'zgarishlari natijasida yuzaga keladigan kasallikdir."
+msgstr ""
+
+#: templates/faq.html:488
+msgid "Prognoz"
+msgstr ""
+
+#: templates/faq.html:490
+msgid "Odam to'liq sog'ayib ketishi mumkinmi?"
+msgstr ""
+
+#: templates/faq.html:499
+#, fuzzy
+#| msgid "Ha"
+msgid "Ha!"
+msgstr "Да"
+
+#: templates/faq.html:499
+msgid ""
+"Ko'pchilik bemorlar to'liq sog'ayib ketadi, ayniqsa papillyar va follikulyar "
+"turlarida. Erta bosqichda aniqlansa, prognoz juda yaxshi."
+msgstr ""
+
+#: templates/faq.html:501
+#, fuzzy
+#| msgid "Statistika"
+msgid "Statistika:"
+msgstr "Статистика"
+
+#: templates/faq.html:503
+#, python-format
+msgid "Papillyar saraton: 98%% dan ortiq 5 yillik omon qolish"
+msgstr ""
+
+#: templates/faq.html:504
+#, python-format
+msgid "Follikulyar saraton: 95%% dan ortiq 5 yillik omon qolish"
+msgstr ""
+
+#: templates/faq.html:505
+#, python-format
+msgid "Erta aniqlangan holatda: deyarli 100%% davolanadi"
+msgstr ""
+
+#: templates/faq.html:508
+msgid "Maslahat:"
+msgstr ""
+
+#: templates/faq.html:508
+msgid "Muntazam tekshiruvdan o'ting va shifokor tavsiyalariga rioya qiling!"
+msgstr ""
+
+#: templates/faq.html:528
+msgid "TAMES AI Tizimi Bilan Tashxis"
+msgstr ""
+
+#: templates/faq.html:530
+#, fuzzy
+#| msgid ""
+#| "Sun'iy intellekt yordamida qalqonsimon bez xavfli o'smalarini "
+#| "professional baholash"
+msgid ""
+"Sun'iy intellekt yordamida qalqonsimon bez xavfli o'smalarini professional "
+"baholash. Dastlabki tashxisni bir necha daqiqada oling!"
+msgstr ""
+"Профессиональная оценка злокачественных новообразований щитовидной железы с "
+"помощью искусственного интеллекта"
+
+#: templates/faq.html:539
+#, fuzzy
+#| msgid "Loyiha Haqida"
+msgid "Tizim Haqida"
+msgstr "О проекте"
+
+#: templates/faq.html:555
+msgid "Savolingiz Qoldimi?"
+msgstr ""
+
+#: templates/faq.html:557
+msgid "Biz bilan bog'laning va barcha savollaringizga javob olamiz"
+msgstr ""
 
 # New
-msgid "Sun'iy intellekt modeli asosida qalqonsimon bez saratonini erta aniqlash va diagnostika qilish"
-msgstr "Раннее выявление и диагностика рака щитовидной железы на основе модели искусственного интеллекта"
+#: templates/home.html:89
+msgid ""
+"Sun'iy intellekt modeli asosida qalqonsimon bez saratonini erta aniqlash va "
+"diagnostika qilish"
+msgstr ""
+"Раннее выявление и диагностика рака щитовидной железы на основе модели "
+"искусственного интеллекта"
 
+#: templates/home.html:92
+msgid ""
+"Sun'iy intellekt yordamida qalqonsimon bez xavfli o'smalari (malignant "
+"tugunlar)ni aniq va professional baholash tizimi"
+msgstr ""
+"Точная и профессиональная система оценки злокачественных новообразований "
+"(узлов) щитовидной железы с помощью искусственного интеллекта"
+
+#: templates/home.html:111
+msgid "Tezkor Natija"
+msgstr "Быстрый результат"
+
+#: templates/home.html:136
+msgid "Bizga 5,000+ bemor ishonch bildirdi"
+msgstr "Нам доверяют более 5 000+ пациентов"
+
+#: templates/home.html:142
+msgid "Diagnostika Aniqligi"
+msgstr "Точность диагностики"
+
+#: templates/home.html:146
+msgid "Muvaffaqiyatli Tashxislar"
+msgstr "Успешные диагнозы"
+
+#: templates/home.html:150
+msgid "Doimiy Xizmat"
+msgstr "Постоянное обслуживание"
+
+#: templates/home.html:165
+msgid "Tibbiy Ma'lumotlarni Kiriting"
+msgstr "Введите медицинские данные"
+
+#: templates/home.html:167
+msgid ""
+"Quyidagi ma'lumotlarni to'liq va to'g'ri kiriting, AI tizimi sizga aniq "
+"tashxis beradi"
+msgstr ""
+"Введите следующую информацию полностью и правильно, AI-система даст вам "
+"точный диагноз"
+
+#: templates/home.html:187 templates/home.html:445
+msgid "Fayl tanlanmagan"
+msgstr "Файл не выбран"
+
+#: templates/home.html:192
+msgid "JPG, PNG, JPEG formatdagi rasmlarni yuklang (Max 5MB)"
+msgstr "Загрузите изображения в формате JPG, PNG, JPEG (Максимум 5MB)"
+
+#: templates/home.html:196
+msgid "Yuklangan rasm"
+msgstr "Загруженное изображение"
+
+#: templates/home.html:205
+msgid "Shaxsiy Ma'lumotlar"
+msgstr "Личные данные"
+
+#: templates/home.html:210 templates/home.html:328 templates/home.html:335
+#: templates/home.html:342 templates/home.html:349
+msgid "Masalan"
+msgstr "Например"
+
+#: templates/home.html:217 templates/home.html:227 templates/home.html:241
+#: templates/home.html:262 templates/home.html:272 templates/home.html:282
+#: templates/home.html:292 templates/home.html:302 templates/home.html:312
+msgid "Tanlang"
+msgstr "Выберите"
+
+#: templates/home.html:263 templates/home.html:273 templates/home.html:283
+#: templates/home.html:293 templates/home.html:303 templates/home.html:313
+msgid "Ha"
+msgstr "Да"
+
+#: templates/home.html:264 templates/home.html:274 templates/home.html:284
+#: templates/home.html:294 templates/home.html:304 templates/home.html:314
+msgid "Yo'q"
+msgstr "Нет"
+
+#: templates/home.html:323
+msgid "Laboratoriya Ko'rsatkichlari"
+msgstr "Лабораторные показатели"
+
+#: templates/home.html:336 templates/home.html:343
+msgid "Normal"
+msgstr "Норма"
+
+#: templates/home.html:350
+msgid "Santimetrda kiriting"
+msgstr "Введите в сантиметрах"
+
+#: templates/home.html:358
+msgid "Qo'shimcha Ma'lumot"
+msgstr "Дополнительная информация"
+
+#: templates/home.html:362
+msgid "Qo'shimcha izohlar (ixtiyoriy)"
+msgstr "Дополнительные комментарии (необязательно)"
+
+#: templates/home.html:363
+msgid "Agar qo'shimcha ma'lumotlar bo'lsa, bu yerga yozing..."
+msgstr "Если есть дополнительная информация, напишите здесь..."
+
+#: templates/home.html:373
+msgid "Tashxisni Aniqlash"
+msgstr "Определить диагноз"
+
+#: templates/home.html:388
+msgid "Bizning Xizmatlarimiz"
+msgstr "Наши услуги"
+
+#: templates/home.html:390
+msgid "Professional tibbiy yordam va maslahat"
+msgstr "Профессиональная медицинская помощь и консультация"
+
+#: templates/home.html:416
+msgid "Rasm hajmi 5MB dan katta bo\\"
+msgstr ""
+
+#: templates/home.html:423
+msgid "Faqat rasm fayllarini yuklash mumkin!"
+msgstr ""
+
+#: templates/home.html:455
+msgid "Tahlil qilinmoqda..."
+msgstr ""
+
+#~ msgid "Xususiyatlar"
+#~ msgstr "Возможности"
+
+#~ msgid "Qo'llanma"
+#~ msgstr "Руководство пользователя"
+
+#~ msgid "Maxfiylik"
+#~ msgstr "Политика конфиденциальности"
+
+#~ msgid "Maxfiylik Siyosati"
+#~ msgstr "Политика конфиденциальности"
+
+#~ msgid "Foydalanish Shartlari"
+#~ msgstr "Условия использования"
+
+#~ msgid "Qalqonsimon Bez Xavfli O'smalarini AI Bilan Baholash"
+#~ msgstr ""
+#~ "Оценка злокачественных новообразований щитовидной железы с помощью AI"
+
+# Yangi qo'shilgan - 2025-11-04
+#~ msgid "Qalqonsimon Bez Xavfli O'smalarini AI Bilan Diagnostika qilish"
+#~ msgstr ""
+#~ "Диагностика злокачественных новообразований щитовидной железы с помощью AI"
+
+#~ msgid "ID, tashxis bo'yicha qidirish..."
+#~ msgstr "Поиск по ID, диагнозу..."
